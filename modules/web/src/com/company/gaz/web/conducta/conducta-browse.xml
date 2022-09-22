@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.conducta.ConductaBrowse"
+        focusComponent="conductasTable"
+        lookupComponent="conductasTable"
+        messagesPack="com.company.gaz.web.conducta">
+    <dsContext>
+        <groupDatasource id="conductasDs"
+                         class="com.company.gaz.entity.Conducta"
+                         view="conducta-view">
+            <query>
+                <![CDATA[select e from gaz$Conducta e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="conductasTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="conductasTable"
+                datasource="conductasDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="conductasTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="nod"
+                        caption="msg://nod"/>
+                <column id="idArteraNod1"
+                        caption="msg://idArteraNod1"/>
+                <column id="idStraziNod1"
+                        caption="msg://idStraziNod1"/>
+                <column id="idArteraNod2"
+                        caption="msg://idArteraNod2"/>
+                <column id="idStraziNod2"
+                        caption="msg://idStraziNod2"/>
+                <column id="idMatConductaPe"
+                        caption="msg://idMatConductaPe"/>
+                <column id="idDiamPe"
+                        caption="msg://idDiamPe"/>
+                <column id="lungimePe"
+                        caption="msg://lungimePe"/>
+                <column id="idMatConductaOl"
+                        caption="msg://idMatConductaOl"/>
+                <column id="idDiamOl"
+                        caption="msg://idDiamOl"/>
+                <column id="lungimeOl"
+                        caption="msg://lungimeOl"/>
+                <column id="idRegimPres"
+                        caption="msg://idRegimPres"/>
+                <column id="idSrs"
+                        caption="msg://idSrs"/>
+                <column id="nrPVRT"
+                        caption="msg://nrPVRT"/>
+                <column id="dataPVRT"
+                        caption="msg://dataPVRT"/>
+                <column id="nrPIF"
+                        caption="msg://nrPIF"/>
+                <column id="dataPIF"
+                        caption="msg://dataPIF"/>
+                <column id="montajIngropat"
+                        caption="msg://montajIngropat"/>
+                <column id="montajAparent"
+                        caption="msg://montajAparent"/>
+            </columns>
+            <rows datasource="conductasDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="conductasTable.create"/>
+                <button id="editBtn"
+                        action="conductasTable.edit"/>
+                <button id="removeBtn"
+                        action="conductasTable.remove"/>
+                <button id="refreshBtn"
+                        action="conductasTable.refresh"/>
+                <button id="excelBtn"
+                        action="conductasTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

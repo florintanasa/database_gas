@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.telefoane.TelefoaneBrowse"
+        focusComponent="telefoanesTable"
+        lookupComponent="telefoanesTable"
+        messagesPack="com.company.gaz.web.telefoane">
+    <dsContext>
+        <groupDatasource id="telefoanesDs"
+                         class="com.company.gaz.entity.Telefoane"
+                         view="telefoane-view">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="telefoanesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="telefoanesTable"
+                datasource="telefoanesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="telefoanesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="idParteneri"
+                        caption="msg://idParteneri"/>
+                <column id="idTipTelefon"
+                        caption="msg://idTipTelefon"/>
+                <column id="numarTelefon"
+                        caption="msg://numarTelefon"/>
+                <column id="principal"
+                        caption="msg://principal"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+            </columns>
+            <rows datasource="telefoanesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="telefoanesTable.create"/>
+                <button id="editBtn"
+                        action="telefoanesTable.edit"/>
+                <button id="removeBtn"
+                        action="telefoanesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  ~ Copyright (c) 2017 Haulmont Technology Ltd. All Rights Reserved.
+  ~ Haulmont Technology proprietary and confidential.
+  ~ Use is subject to license terms.
+  -->
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.gaz.web.tva.TvaBrowse"
+        focusComponent="table"
+        lookupComponent="table"
+        messagesPack="com.company.gaz.web.tva">
+    <dsContext>
+        <datasource id="tvaDs"
+                    class="com.company.gaz.entity.Tva"
+                    view="_local"/>
+        <groupDatasource id="tvasDs"
+                         class="com.company.gaz.entity.Tva"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$Tva e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <actions>
+        <action id="save"
+                caption="mainMsg://actions.Ok"
+                icon="icons/ok.png"
+                invoke="save"
+                shortcut="CTRL-ENTER"/>
+        <action id="cancel"
+                caption="mainMsg://actions.Cancel"
+                description="Esc"
+                icon="icons/cancel.png"
+                invoke="cancel"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout>
+        <split id="split"
+               height="100%"
+               orientation="horizontal"
+               reversePosition="true"
+               width="100%">
+            <vbox id="lookupBox"
+                  expand="table"
+                  height="100%"
+                  margin="false,true,false,false"
+                  spacing="true">
+                <filter id="filter"
+                        applyTo="table"
+                        datasource="tvasDs">
+                    <properties include=".*"/>
+                </filter>
+                <groupTable id="table"
+                            width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                        <action id="refresh"/>
+                        <action id="excel"/>
+                    </actions>
+                    <columns>
+                        <column id="cotaTVA"
+                                caption="msg://cotaTVA"/>
+                        <column id="dataStart"
+                                caption="msg://dataStart"/>
+                        <column id="dataStop"
+                                caption="msg://dataStop"/>
+                        <column id="valabil"
+                                caption="msg://valabil"/>
+                    </columns>
+                    <rows datasource="tvasDs"/>
+                    <rowsCount/>
+                    <buttonsPanel id="buttonsPanel"
+                                  alwaysVisible="true">
+                        <button id="createBtn"
+                                action="table.create"/>
+                        <button id="editBtn"
+                                action="table.edit"/>
+                        <button id="removeBtn"
+                                action="table.remove"/>
+                        <button id="refreshBtn"
+                                action="table.refresh"/>
+                        <button id="excelBtn"
+                                action="table.excel"/>
+                    </buttonsPanel>
+                </groupTable>
+            </vbox>
+            <vbox id="editBox"
+                  expand="fieldGroupBox"
+                  height="100%"
+                  margin="false,false,false,true"
+                  spacing="true">
+                <scrollBox id="fieldGroupBox">
+                    <fieldGroup id="fieldGroup"
+                                datasource="tvaDs">
+                        <column width="250px">
+                            <field caption="msg://cotaTVA"
+                                   property="cotaTVA"/>
+                            <field caption="msg://dataStart"
+                                   property="dataStart"/>
+                            <field caption="msg://dataStop"
+                                   property="dataStop"/>
+                            <field caption="msg://valabil"
+                                   property="valabil"/>
+                        </column>
+                    </fieldGroup>
+                </scrollBox>
+                <hbox id="actionsPane"
+                      spacing="true"
+                      visible="false">
+                    <button id="saveBtn"
+                            action="save"/>
+                    <button id="cancelBtn"
+                            action="cancel"/>
+                </hbox>
+            </vbox>
+        </split>
+    </layout>
+</window>

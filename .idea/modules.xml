@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.company.gaz.gaz.iml" filepath="$PROJECT_DIR$/.idea/modules/com.company.gaz.gaz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.gaz.gaz-core.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.gaz.gaz-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.gaz.gaz-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.gaz.gaz-core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.gaz.gaz-core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.gaz.gaz-core.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.gaz.gaz-global.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.gaz.gaz-global.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.gaz.gaz-global.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.gaz.gaz-global.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.gaz.gaz-global.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.gaz.gaz-global.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.gaz.gaz-web.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.gaz.gaz-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.gaz.gaz-web.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.gaz.gaz-web.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.gaz.gaz-web.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.gaz.gaz-web.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.nordgaz-core.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.nordgaz-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.nordgaz-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.nordgaz-core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.nordgaz-core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/com.company.gaz.nordgaz-core.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.nordgaz-global.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.nordgaz-global.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.nordgaz-global.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.nordgaz-global.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.nordgaz-global.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/com.company.gaz.nordgaz-global.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.nordgaz-web.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.nordgaz-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.nordgaz-web.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.nordgaz-web.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.nordgaz-web.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/com.company.gaz.nordgaz-web.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/core.gaz.gaz-core.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/core.gaz.gaz-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/core.gaz.gaz-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/core.gaz.gaz-core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/core.gaz.gaz-core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/core.gaz.gaz-core.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/database_gas.gaz.iml" filepath="$PROJECT_DIR$/.idea/modules/database_gas.gaz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gaz.iml" filepath="$PROJECT_DIR$/.idea/modules/gaz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/gaz.gaz-core.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/gaz.gaz-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/gaz.gaz-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/gaz.gaz-core.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/core/gaz.gaz-core.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/core/gaz.gaz-core.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/gaz.gaz-global.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/gaz.gaz-global.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/gaz.gaz-global.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/gaz.gaz-global.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/gaz.gaz-global.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/gaz.gaz-global.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/gaz.gaz-web.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/gaz.gaz-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/gaz.gaz-web.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/gaz.gaz-web.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/gaz.gaz-web.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/gaz.gaz-web.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/git.database_gas.gaz.iml" filepath="$PROJECT_DIR$/.idea/modules/git.database_gas.gaz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/global.gaz.gaz-global.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/global.gaz.gaz-global.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/global.gaz.gaz-global.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/global.gaz.gaz-global.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/global/global.gaz.gaz-global.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/global/global.gaz.gaz-global.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/web.gaz.gaz-web.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/web.gaz.gaz-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/web.gaz.gaz-web.main.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/web.gaz.gaz-web.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/modules/web/web.gaz.gaz-web.test.iml" filepath="$PROJECT_DIR$/.idea/modules/modules/web/web.gaz.gaz-web.test.iml" />
+    </modules>
+  </component>
+</project>

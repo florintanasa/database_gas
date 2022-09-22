@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.instalatoriosd.InstalatoriOSDEdit"
+        datasource="instalatoriOSDDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.instalatoriosd">
+    <dsContext>
+        <datasource id="instalatoriOSDDs"
+                    class="com.company.gaz.entity.InstalatoriOSD"
+                    view="instalatoriOSD-view"/>
+        <collectionDatasource id="idPartenerisDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="instalatoriOSDDs">
+            <column width="250px">
+                <field caption="msg://idSiruta"
+                       optionsDatasource="idSirutasDs"
+                       property="idSiruta"/>
+                <field caption="msg://idParteneri"
+                       optionsDatasource="idPartenerisDs"
+                       property="idParteneri"/>
+                <field caption="msg://tipAutorizatie"
+                       property="tipAutorizatie"/>
+                <field caption="msg://nrAutorizatie"
+                       property="nrAutorizatie"/>
+                <field caption="msg://dataStartAutorizatie"
+                       property="dataStartAutorizatie"/>
+                <field caption="msg://dataStopAutorizatie"
+                       property="dataStopAutorizatie"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

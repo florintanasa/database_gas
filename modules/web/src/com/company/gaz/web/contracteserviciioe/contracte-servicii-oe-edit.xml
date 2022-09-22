@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.contracteserviciioe.ContracteServiciiOEEdit"
+        datasource="contracteServiciiOEDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.contracteserviciioe">
+    <dsContext>
+        <datasource id="contracteServiciiOEDs"
+                    class="com.company.gaz.entity.ContracteServiciiOE"
+                    view="contracteServiciiOE-view"/>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idSocietatiProiectaresDs"
+                              class="com.company.gaz.entity.SocietatiProiectare"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$SocietatiProiectare e where e.id=(select a.idSocietatiProiectare.id
+from gaz$NotificareOsdAtr a where a.id = :ds$idNotificareOsdAtrsDs.id)]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idVerificatorsDs"
+                              class="com.company.gaz.entity.Verificator"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Verificator e where e.id=(select a.idVerificator.id
+from gaz$NotificareOsdAtr a where a.id = :ds$idNotificareOsdAtrsDs.id)]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idSocietatiExecutiesDs"
+                              class="com.company.gaz.entity.SocietatiExecutie"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$SocietatiExecutie e where e.id=(select a.idSocietatiExecutie.id
+from gaz$NotificareOsdAtr a where a.id = :ds$idNotificareOsdAtrsDs.id)]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idNotificareOsdAtrsDs"
+                              class="com.company.gaz.entity.NotificareOsdAtr"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$NotificareOsdAtr e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idAcordTehnicRacordaresDs"
+                              class="com.company.gaz.entity.AcordTehnicRacordare"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$AcordTehnicRacordare e where e.id=(select a.idAcordTehnicRacordare.id
+from gaz$NotificareOsdAtr a where a.id = :ds$idNotificareOsdAtrsDs.id)]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="locatia_2sDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e where e.id=(select a.locatia_2.id
+from gaz$NotificareOsdAtr a where a.id = :ds$idNotificareOsdAtrsDs.id)]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idContracteRacordareSDsDs"
+                              class="com.company.gaz.entity.ContracteRacordareSD"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$ContracteRacordareSD e where e.idNotificareOsdAtr.id=
+(select a.id from gaz$NotificareOsdAtr a where a.id = :ds$idNotificareOsdAtrsDs.id)]]>
+            </query>
+        </collectionDatasource>
+        <valueCollectionDatasource id="dateFinalizareDs">
+            <query>
+                <![CDATA[select e.dataTermProiect, e.dataTermVerif, e.dataTermExe from gaz$NotificareOsdAtr e
+where e.id = :ds$idNotificareOsdAtrsDs.id]]>
+            </query>
+            <properties>
+                <property datatype="dateTime"
+                          name="DataTerminProiect"/>
+                <property datatype="dateTime"
+                          name="DataTerminVerificare"/>
+                <property datatype="dateTime"
+                          name="DataTerminExecutie"/>
+            </properties>
+        </valueCollectionDatasource>
+        <valueCollectionDatasource id="pretTarifProiectareDs">
+            <query>
+                <![CDATA[select sum(e.pretTarif) from gaz$NotificareOsdAtrLinii e
+where e.idNotificareOsdAtr.id = :ds$idNotificareOsdAtrsDs.id and e.idDenTarif.tipTarif='Tp']]>
+            </query>
+            <properties>
+                <property datatype="decimal"
+                          name="PretTarifProiectare"/>
+            </properties>
+        </valueCollectionDatasource>
+        <valueCollectionDatasource id="pretTarifVerificareDs">
+            <query>
+                <![CDATA[select sum(e.pretTarif) from gaz$NotificareOsdAtrLinii e
+where e.idNotificareOsdAtr.id = :ds$idNotificareOsdAtrsDs.id and e.idDenTarif.tipTarif='Tv']]>
+            </query>
+            <properties>
+                <property datatype="decimal"
+                          name="PretTarifVerificare"/>
+            </properties>
+        </valueCollectionDatasource>
+        <valueCollectionDatasource id="pretTarifExecutieDs">
+            <query>
+                <![CDATA[select sum(e.pretTarif) from gaz$NotificareOsdAtrLinii e
+where e.idNotificareOsdAtr.id = :ds$idNotificareOsdAtrsDs.id and
+e.idDenTarif.tipTarif<>'Tv' and e.idDenTarif.tipTarif<>'Tp' and
+e.idDenTarif.tipTarif<>'Tisc']]>
+            </query>
+            <properties>
+                <property datatype="decimal"
+                          name="PretTarifExecutie"/>
+            </properties>
+        </valueCollectionDatasource>
+        <valueCollectionDatasource id="pretTarifRacordareDs">
+            <query>
+                <![CDATA[select sum(e.pretTarif) from gaz$NotificareOsdAtrLinii e
+where e.idNotificareOsdAtr.id = :ds$idNotificareOsdAtrsDs.id and
+e.idDenTarif.tipTarif<>'Tisc']]>
+            </query>
+            <properties>
+                <property datatype="decimal"
+                          name="PretTarifRacordare"/>
+            </properties>
+        </valueCollectionDatasource>
+        <collectionDatasource id="idStatusContracteServiciiOEsDs"
+                              class="com.company.gaz.entity.StatusContracteServiciiOE"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$StatusContracteServiciiOE e order by e.nrOrd asc]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <grid spacing="true">
+                <columns count="2"/>
+                <rows>
+                    <row>
+                        <fieldGroup id="fieldGroup"
+                                    colspan="2"
+                                    datasource="contracteServiciiOEDs">
+                            <column width="250px">
+                                <field caption="msg://idSiruta"
+                                       optionsDatasource="idSirutasDs"
+                                       property="idSiruta"/>
+                                <field caption="msg://idStatusContracteServiciiOE"
+                                       optionsDatasource="idStatusContracteServiciiOEsDs"
+                                       property="idStatusContracteServiciiOE"/>
+                                <field caption="msg://datainreg"
+                                       property="datainreg"/>
+                                <field caption="msg://idNotificareOsdAtr"
+                                       optionsDatasource="idNotificareOsdAtrsDs"
+                                       property="idNotificareOsdAtr"/>
+                                <field caption="msg://idAcordTehnicRacordare"
+                                       optionsDatasource="idAcordTehnicRacordaresDs"
+                                       property="idAcordTehnicRacordare"/>
+                                <field caption="msg://idContracteRacordareSD"
+                                       optionsDatasource="idContracteRacordareSDsDs"
+                                       property="idContracteRacordareSD"/>
+                                <field caption="msg://locatia_2"
+                                       optionsDatasource="locatia_2sDs"
+                                       property="locatia_2"/>
+                                <field caption="msg://idSocietatiProiectare"
+                                       optionsDatasource="idSocietatiProiectaresDs"
+                                       property="idSocietatiProiectare"/>
+                                <field caption="msg://idVerificator"
+                                       optionsDatasource="idVerificatorsDs"
+                                       property="idVerificator"/>
+                                <field caption="msg://idSocietatiExecutie"
+                                       optionsDatasource="idSocietatiExecutiesDs"
+                                       property="idSocietatiExecutie"/>
+                                <field caption="msg://durataContract"
+                                       inputPrompt="msg://inpdurataContract"
+                                       property="durataContract"/>
+                                <field caption="msg://zileRepGarantie"
+                                       inputPrompt="msg://inpzileRepGarantie"
+                                       property="zileRepGarantie"/>
+                                <field caption="msg://procElibGarantie1"
+                                       inputPrompt="msg://inpprocElibGarantie1"
+                                       property="procElibGarantie1"/>
+                                <field caption="msg://procElibGarantie2"
+                                       inputPrompt="msg://inpprocElibGarantie2"
+                                       property="procElibGarantie2"/>
+                                <field caption="msg://tarifRacordare"
+                                       property="tarifRacordare"/>
+                            </column>
+                            <column>
+                                <field caption="msg://dataTermProiect"
+                                       property="dataTermProiect"/>
+                                <field caption="msg://tarifProiectare"
+                                       property="tarifProiectare"/>
+                                <field caption="msg://proc1TarifProiectare"
+                                       inputPrompt="msg://inpproc1TarifProiectare"
+                                       property="proc1TarifProiectare"/>
+                                <field caption="msg://tarif1Proiectare"
+                                       property="tarif1Proiectare"/>
+                                <field caption="msg://proc2TarifProiectare"
+                                       inputPrompt="msg://inpproc2TarifProiectare"
+                                       property="proc2TarifProiectare"/>
+                                <field caption="msg://tarif2Proiectare"
+                                       property="tarif2Proiectare"/>
+                                <field caption="msg://dataTermVerifcare"
+                                       property="dataTermVerifcare"/>
+                                <field caption="msg://tarifVerificare"
+                                       property="tarifVerificare"/>
+                                <field caption="msg://proc1TarifVerificare"
+                                       inputPrompt="msg://inpproc1TarifVerificare"
+                                       property="proc1TarifVerificare"/>
+                                <field caption="msg://tarif1Verificare"
+                                       property="tarif1Verificare"/>
+                                <field caption="msg://proc2TarifVerificare"
+                                       inputPrompt="msg://inpproc2TarifVerificare"
+                                       property="proc2TarifVerificare"/>
+                                <field caption="msg://tarif2Verificare"
+                                       property="tarif2Verificare"/>
+                            </column>
+                            <column>
+                                <field caption="msg://dataTermExe"
+                                       property="dataTermExe"/>
+                                <field caption="msg://tarifExecutie"
+                                       property="tarifExecutie"/>
+                                <field caption="msg://proc1TarifExecutie"
+                                       inputPrompt="msg://inpproc1TarifExecutie"
+                                       property="proc1TarifExecutie"/>
+                                <field caption="msg://tarif1Executie"
+                                       property="tarif1Executie"/>
+                                <field caption="msg://proc2TarifExecutie"
+                                       inputPrompt="msg://inpproc2TarifExecutie"
+                                       property="proc2TarifExecutie"/>
+                                <field caption="msg://tarif2Executie"
+                                       property="tarif2Executie"/>
+                            </column>
+                        </fieldGroup>
+                    </row>
+                </rows>
+            </grid>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

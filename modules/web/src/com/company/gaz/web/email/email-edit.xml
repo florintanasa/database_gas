@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.email.EmailEdit"
+        datasource="emailDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.email">
+    <dsContext>
+        <datasource id="emailDs"
+                    class="com.company.gaz.entity.Email"
+                    view="email-view"/>
+        <collectionDatasource id="idPartenerisDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="emailDs">
+            <column width="250px">
+                <field caption="msg://idParteneri"
+                       optionsDatasource="idPartenerisDs"
+                       property="idParteneri"/>
+                <field caption="msg://adresaEmail"
+                       property="adresaEmail"/>
+                <field caption="msg://principal"
+                       property="principal"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

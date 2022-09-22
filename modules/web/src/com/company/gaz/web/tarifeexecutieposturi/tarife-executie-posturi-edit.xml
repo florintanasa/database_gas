@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.tarifeexecutieposturi.TarifeExecutiePosturiEdit"
+        datasource="tarifeExecutiePosturiDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.tarifeexecutieposturi">
+    <dsContext>
+        <datasource id="tarifeExecutiePosturiDs"
+                    class="com.company.gaz.entity.TarifeExecutiePosturi"
+                    view="tarifeExecutiePosturi-view"/>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="tarifeExecutiePosturiDs">
+            <column width="250px">
+                <field caption="msg://idSiruta"
+                       optionsDatasource="idSirutasDs"
+                       property="idSiruta"/>
+                <field caption="msg://tipTarif"
+                       property="tipTarif"/>
+                <field caption="msg://denTarif"
+                       property="denTarif"/>
+                <field caption="msg://debitMaxim"
+                       property="debitMaxim"/>
+                <field caption="msg://tarif"
+                       property="tarif"/>
+                <field caption="msg://dataStart"
+                       property="dataStart"/>
+                <field caption="msg://dataStop"
+                       property="dataStop"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+                <field caption="msg://explicatii"
+                       property="explicatii"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.verificator.VerificatorBrowse"
+        focusComponent="verificatorsTable"
+        lookupComponent="verificatorsTable"
+        messagesPack="com.company.gaz.web.verificator">
+    <dsContext>
+        <groupDatasource id="verificatorsDs"
+                         class="com.company.gaz.entity.Verificator"
+                         view="verificator-view">
+            <query>
+                <![CDATA[select e from gaz$Verificator e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="verificatorsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="verificatorsTable"
+                datasource="verificatorsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="verificatorsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="numeVerificator"
+                        caption="msg://numeVerificator"/>
+                <column id="idNumeVerificator"
+                        caption="msg://numeVerificator"/>
+                <column id="emitentAtestat"
+                        caption="msg://emitentAtestat"/>
+                <column id="nrAtestatVerificator"
+                        caption="msg://nrAtestatVerificator"/>
+                <column id="dataAtestatVerificator"
+                        caption="msg://dataAtestatVerificator"/>
+                <column id="dataSfarsitAtestatVerificator"
+                        caption="msg://dataSfarsitAtestatVerificator"/>
+                <column id="idConturiBancareParteneri"
+                        caption="msg://idConturiBancareParteneri"/>
+                <column id="idLocatii"
+                        caption="msg://idLocatii"/>
+                <column id="idTelefoane"
+                        caption="msg://idTelefoane"/>
+                <column id="idFax"
+                        caption="msg://idFax"/>
+                <column id="idEmail"
+                        caption="msg://idEmail"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+            </columns>
+            <rows datasource="verificatorsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="verificatorsTable.create"/>
+                <button id="editBtn"
+                        action="verificatorsTable.edit"/>
+                <button id="removeBtn"
+                        action="verificatorsTable.remove"/>
+                <button id="refreshBtn"
+                        action="verificatorsTable.refresh"/>
+                <button id="excelBtn"
+                        action="verificatorsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

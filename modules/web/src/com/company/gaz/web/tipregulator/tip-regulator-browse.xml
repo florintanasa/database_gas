@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.tipregulator.TipRegulatorBrowse"
+        focusComponent="tipRegulatorsTable"
+        lookupComponent="tipRegulatorsTable"
+        messagesPack="com.company.gaz.web.tipregulator">
+    <dsContext>
+        <groupDatasource id="tipRegulatorsDs"
+                         class="com.company.gaz.entity.TipRegulator"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$TipRegulator e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tipRegulatorsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tipRegulatorsTable"
+                datasource="tipRegulatorsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tipRegulatorsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="denumireRegulator"
+                        caption="msg://denumireRegulator"/>
+                <column id="debitRegulator"
+                        caption="msg://debitRegulator"/>
+            </columns>
+            <rows datasource="tipRegulatorsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="tipRegulatorsTable.create"/>
+                <button id="editBtn"
+                        action="tipRegulatorsTable.edit"/>
+                <button id="removeBtn"
+                        action="tipRegulatorsTable.remove"/>
+                <button id="refreshBtn"
+                        action="tipRegulatorsTable.refresh"/>
+                <button id="excelBtn"
+                        action="tipRegulatorsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

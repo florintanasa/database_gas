@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.conturibancareparteneri.ConturiBancareParteneriBrowse"
+        focusComponent="conturiBancarePartenerisTable"
+        lookupComponent="conturiBancarePartenerisTable"
+        messagesPack="com.company.gaz.web.conturibancareparteneri">
+    <dsContext>
+        <groupDatasource id="conturiBancarePartenerisDs"
+                         class="com.company.gaz.entity.ConturiBancareParteneri"
+                         view="conturiBancareParteneri-view">
+            <query>
+                <![CDATA[select e from gaz$ConturiBancareParteneri e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="conturiBancarePartenerisTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="conturiBancarePartenerisTable"
+                datasource="conturiBancarePartenerisDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="conturiBancarePartenerisTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idParteneri"
+                        caption="msg://idParteneri"/>
+                <column id="iban"
+                        caption="msg://iban"/>
+                <column id="idBanci"
+                        caption="msg://idBanci"/>
+            </columns>
+            <rows datasource="conturiBancarePartenerisDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="conturiBancarePartenerisTable.create"/>
+                <button id="editBtn"
+                        action="conturiBancarePartenerisTable.edit"/>
+                <button id="removeBtn"
+                        action="conturiBancarePartenerisTable.remove"/>
+                <button id="refreshBtn"
+                        action="conturiBancarePartenerisTable.refresh"/>
+                <button id="excelBtn"
+                        action="conturiBancarePartenerisTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

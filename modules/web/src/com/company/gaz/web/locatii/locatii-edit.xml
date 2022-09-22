@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.locatii.LocatiiEdit"
+        datasource="locatiiDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.locatii">
+    <dsContext>
+        <datasource id="locatiiDs"
+                    class="com.company.gaz.entity.Locatii"
+                    view="locatii-view"/>
+        <collectionDatasource id="idPartenerisDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idTarisDs"
+                              class="com.company.gaz.entity.Tari"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Tari e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idJudetesDs"
+                              class="com.company.gaz.entity.Judete"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Judete e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idLocalitatisDs"
+                              class="com.company.gaz.entity.Localitati"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Localitati e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idArterasDs"
+                              class="com.company.gaz.entity.Artera"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Artera e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idStrazisDs"
+                              class="com.company.gaz.entity.Strazi"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Strazi e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="locatiiDs">
+                <column width="250px">
+                    <field caption="msg://idParteneri"
+                           optionsDatasource="idPartenerisDs"
+                           property="idParteneri"/>
+                    <field caption="msg://idTari"
+                           optionsDatasource="idTarisDs"
+                           property="idTari"/>
+                    <field caption="msg://idJudete"
+                           optionsDatasource="idJudetesDs"
+                           property="idJudete"/>
+                    <field caption="msg://idLocalitati"
+                           optionsDatasource="idLocalitatisDs"
+                           property="idLocalitati"/>
+                    <field caption="msg://idArtera"
+                           optionsDatasource="idArterasDs"
+                           property="idArtera"/>
+                    <field caption="msg://idStrazi"
+                           optionsDatasource="idStrazisDs"
+                           property="idStrazi"/>
+                    <field caption="msg://numar"
+                           property="numar"/>
+                    <field caption="msg://bloc"
+                           property="bloc"/>
+                    <field caption="msg://scara"
+                           property="scara"/>
+                    <field caption="msg://etaj"
+                           property="etaj"/>
+                    <field caption="apartment"
+                           property="apartament"/>
+                    <field caption="msg://codpostal"
+                           property="codpostal"/>
+                    <field caption="msg://corespondenta"
+                           property="corespondenta"/>
+                    <field caption="msg://domiciliu"
+                           property="domiciliu"/>
+                </column>
+            </fieldGroup>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

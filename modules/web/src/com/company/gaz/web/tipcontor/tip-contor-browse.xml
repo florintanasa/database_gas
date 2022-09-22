@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.tipcontor.TipContorBrowse"
+        focusComponent="tipContorsTable"
+        lookupComponent="tipContorsTable"
+        messagesPack="com.company.gaz.web.tipcontor">
+    <dsContext>
+        <groupDatasource id="tipContorsDs"
+                         class="com.company.gaz.entity.TipContor"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$TipContor e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tipContorsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tipContorsTable"
+                datasource="tipContorsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tipContorsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="tipContor"
+                        caption="msg://tipContor"/>
+                <column id="tipG"
+                        caption="msg://tipG"/>
+                <column id="qNom"
+                        caption="msg://qNom"/>
+                <column id="qMin"
+                        caption="msg://qMin"/>
+                <column id="qMax"
+                        caption="msg://qMax"/>
+                <column id="caderePresiune"
+                        caption="msg://caderePresiune"/>
+                <column id="explicatiiTipContor"
+                        caption="msg://explicatiiTipContor"/>
+            </columns>
+            <rows datasource="tipContorsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="tipContorsTable.create"/>
+                <button id="editBtn"
+                        action="tipContorsTable.edit"/>
+                <button id="removeBtn"
+                        action="tipContorsTable.remove"/>
+                <button id="refreshBtn"
+                        action="tipContorsTable.refresh"/>
+                <button id="excelBtn"
+                        action="tipContorsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

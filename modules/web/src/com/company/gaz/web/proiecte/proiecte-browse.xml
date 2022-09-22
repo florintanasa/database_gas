@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.proiecte.ProiecteBrowse"
+        focusComponent="proiectesTable"
+        lookupComponent="proiectesTable"
+        messagesPack="com.company.gaz.web.proiecte">
+    <dsContext>
+        <groupDatasource id="proiectesDs"
+                         class="com.company.gaz.entity.Proiecte"
+                         view="proiecte-view">
+            <query>
+                <![CDATA[select e from gaz$Proiecte e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="proiectesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="proiectesTable"
+                datasource="proiectesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="proiectesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idObiecte"
+                        caption="msg://idObiecte"/>
+                <column id="idProiectant"
+                        caption="msg://idProiectant"/>
+                <column id="nrProiect"
+                        caption="msg://nrProiect"/>
+                <column id="nrAdresaOsd"
+                        caption="msg://nrAdresaOsd"/>
+                <column id="dataDepunereOsd"
+                        caption="msg://dataDepunereOsd"/>
+                <column id="dataAvizareOsd"
+                        caption="msg://dataAvizareOsd"/>
+                <column id="idVerificator"
+                        caption="msg://idVerificator"/>
+                <column id="nrRefVerif"
+                        caption="msg://nrRefVerif"/>
+                <column id="dataAvizareVerif"
+                        caption="msg://dataAvizareVerif"/>
+            </columns>
+            <rows datasource="proiectesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="proiectesTable.create"/>
+                <button id="editBtn"
+                        action="proiectesTable.edit"/>
+                <button id="removeBtn"
+                        action="proiectesTable.remove"/>
+                <button id="refreshBtn"
+                        action="proiectesTable.refresh"/>
+                <button id="excelBtn"
+                        action="proiectesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

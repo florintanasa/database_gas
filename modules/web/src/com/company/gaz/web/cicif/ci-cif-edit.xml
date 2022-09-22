@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.cicif.CiCifEdit"
+        datasource="ciCifDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.cicif">
+    <dsContext>
+        <datasource id="ciCifDs"
+                    class="com.company.gaz.entity.CiCif"
+                    view="ciCif-view"/>
+        <collectionDatasource id="idPartenerisDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idTipActsDs"
+                              class="com.company.gaz.entity.TipAct"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$TipAct e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idInstElibActesDs"
+                              class="com.company.gaz.entity.InstElibActe"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$InstElibActe e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="ciCifDs">
+            <column width="250px">
+                <field caption="msg://idParteneri"
+                       optionsDatasource="idPartenerisDs"
+                       property="idParteneri"/>
+                <field caption="msg://idTipAct"
+                       optionsDatasource="idTipActsDs"
+                       property="idTipAct"/>
+                <field caption="msg://idInstElibActe"
+                       optionsDatasource="idInstElibActesDs"
+                       property="idInstElibActe"/>
+                <field caption="msg://serieAct"
+                       property="serieAct"/>
+                <field caption="msg://nrAct"
+                       property="nrAct"/>
+                <field caption="msg://cif"
+                       property="cif"/>
+                <field caption="msg://cnp"
+                       property="cnp"/>
+                <field caption="msg://nrOrd"
+                       property="nrOrd"/>
+                <field caption="msg://dataEliberareAct"
+                       property="dataEliberareAct"/>
+                <field caption="msg://valabil"
+                       property="valabil"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

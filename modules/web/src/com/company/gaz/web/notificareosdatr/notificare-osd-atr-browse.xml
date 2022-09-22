@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.notificareosdatr.NotificareOsdAtrBrowse"
+        focusComponent="notificareOsdAtrsTable"
+        lookupComponent="notificareOsdAtrsTable"
+        messagesPack="com.company.gaz.web.notificareosdatr">
+    <dsContext>
+        <groupDatasource id="notificareOsdAtrsDs"
+                         class="com.company.gaz.entity.NotificareOsdAtr"
+                         view="notificareOsdAtr-view">
+            <query>
+                <![CDATA[select e from gaz$NotificareOsdAtr e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="notificareOsdAtrsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="notificareOsdAtrsTable"
+                datasource="notificareOsdAtrsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="notificareOsdAtrsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="nrinreg"
+                        caption="msg://nrinreg"/>
+                <column id="datainreg"
+                        caption="msg://datainreg"/>
+                <column id="idParteneri"
+                        caption="msg://idParteneri"/>
+                <column id="idCiCif"
+                        caption="msg://idCiCif"/>
+                <column id="locatia_1"
+                        caption="msg://locatia_1"/>
+                <column id="idTelefoane"
+                        caption="msg://idTelefoane"/>
+                <column id="idFax"
+                        caption="msg://idFax"/>
+                <column id="idEmail"
+                        caption="msg://idEmail"/>
+                <column id="idAcordTehnicRacordare"
+                        caption="msg://idAcordTehnicRacordare"/>
+                <column id="locatia_2"
+                        caption="msg://locatia_2"/>
+                <column id="dataObtCertUrb"
+                        caption="msg://dataObtCertUrb"/>
+                <column id="dataDepDocTehPrim"
+                        caption="msg://dataDepDocTehPrim"/>
+                <column id="idSocietatiProiectare"
+                        caption="msg://idSocietatiProiectare"/>
+                <column id="idVerificator"
+                        caption="msg://idVerificator"/>
+                <column id="idSocietatiExecutie"
+                        caption="msg://idSocietatiExecutie"/>
+                <column id="totalPretTarif"
+                        caption="msg://totalPretTarif"/>
+                <column id="totalTVA"
+                        caption="msg://totalTVA"/>
+                <column id="totalPretTarifTva"
+                        caption="msg://totalPretTarifTva"/>
+                <column id="dataTermProiect"/>
+                <column id="dataTermVerif"/>
+                <column id="dataTermExe"/>
+            </columns>
+            <rows datasource="notificareOsdAtrsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="notificareOsdAtrsTable.create"/>
+                <button id="editBtn"
+                        action="notificareOsdAtrsTable.edit"/>
+                <button id="removeBtn"
+                        action="notificareOsdAtrsTable.remove"/>
+                <button id="refreshBtn"
+                        action="notificareOsdAtrsTable.refresh"/>
+                <button id="excelBtn"
+                        action="notificareOsdAtrsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.tiptelefon.TipTelefonBrowse"
+        focusComponent="tipTelefonsTable"
+        lookupComponent="tipTelefonsTable"
+        messagesPack="com.company.gaz.web.tiptelefon">
+    <dsContext>
+        <groupDatasource id="tipTelefonsDs"
+                         class="com.company.gaz.entity.TipTelefon"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$TipTelefon e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tipTelefonsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tipTelefonsTable"
+                datasource="tipTelefonsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tipTelefonsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="denumireTipTelefon"
+                        caption="msg://denumireTipTelefon"/>
+            </columns>
+            <rows datasource="tipTelefonsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="tipTelefonsTable.create"/>
+                <button id="editBtn"
+                        action="tipTelefonsTable.edit"/>
+                <button id="removeBtn"
+                        action="tipTelefonsTable.remove"/>
+                <button id="refreshBtn"
+                        action="tipTelefonsTable.refresh"/>
+                <button id="excelBtn"
+                        action="tipTelefonsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

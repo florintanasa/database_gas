@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.conducta.ConductaEdit"
+        datasource="conductaDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.conducta">
+    <dsContext>
+        <datasource id="conductaDs"
+                    class="com.company.gaz.entity.Conducta"
+                    view="conducta-view"/>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idArteraNod1sDs"
+                              class="com.company.gaz.entity.Artera"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Artera e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idArteraNod2sDs"
+                              class="com.company.gaz.entity.Artera"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Artera e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idMatConductaPesDs"
+                              class="com.company.gaz.entity.MatConducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamPesDs"
+                              class="com.company.gaz.entity.DiamPe"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamPe e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idMatConductaOlsDs"
+                              class="com.company.gaz.entity.MatConducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamOlsDs"
+                              class="com.company.gaz.entity.DiamOl"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamOl e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idRegimPresesDs"
+                              class="com.company.gaz.entity.RegimPres"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$RegimPres e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idSrsesDs"
+                              class="com.company.gaz.entity.Srs"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Srs e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idStraziNod1sDs"
+                              class="com.company.gaz.entity.Strazi"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Strazi e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idStraziNod2sDs"
+                              class="com.company.gaz.entity.Strazi"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Strazi e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="conductaDs">
+                <column width="250px">
+                    <field caption="msg://idSiruta"
+                           optionsDatasource="idSirutasDs"
+                           property="idSiruta"/>
+                    <field caption="msg://nod"
+                           property="nod"/>
+                    <field caption="msg://idArteraNod1"
+                           optionsDatasource="idArteraNod1sDs"
+                           property="idArteraNod1"/>
+                    <field caption="msg://idStraziNod1"
+                           optionsDatasource="idStraziNod1sDs"
+                           property="idStraziNod1"/>
+                    <field caption="msg://idArteraNod2"
+                           optionsDatasource="idArteraNod2sDs"
+                           property="idArteraNod2"/>
+                    <field caption="msg://idStraziNod2"
+                           optionsDatasource="idStraziNod2sDs"
+                           property="idStraziNod2"/>
+                    <field caption="msg://idMatConductaPe"
+                           optionsDatasource="idMatConductaPesDs"
+                           property="idMatConductaPe"/>
+                    <field caption="msg://idDiamPe"
+                           optionsDatasource="idDiamPesDs"
+                           property="idDiamPe"/>
+                    <field caption="msg://lungimePe"
+                           property="lungimePe"/>
+                    <field caption="msg://idMatConductaOl"
+                           optionsDatasource="idMatConductaOlsDs"
+                           property="idMatConductaOl"/>
+                    <field caption="msg://idDiamOl"
+                           optionsDatasource="idDiamOlsDs"
+                           property="idDiamOl"/>
+                    <field caption="msg://lungimeOl"
+                           property="lungimeOl"/>
+                    <field caption="msg://idRegimPres"
+                           optionsDatasource="idRegimPresesDs"
+                           property="idRegimPres"/>
+                    <field caption="msg://idSrs"
+                           optionsDatasource="idSrsesDs"
+                           property="idSrs"/>
+                    <field caption="msg://nrPVRT"
+                           property="nrPVRT"/>
+                    <field caption="msg://dataPVRT"
+                           property="dataPVRT"/>
+                    <field caption="msg://nrPIF"
+                           property="nrPIF"/>
+                    <field caption="msg://dataPIF"
+                           property="dataPIF"/>
+                    <field caption="msg://montajIngropat"
+                           property="montajIngropat"/>
+                    <field caption="msg://montajAparent"
+                           property="montajAparent"/>
+                </column>
+            </fieldGroup>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

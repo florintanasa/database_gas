@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.matconducta.MatConductaBrowse"
+        focusComponent="matConductasTable"
+        lookupComponent="matConductasTable"
+        messagesPack="com.company.gaz.web.matconducta">
+    <dsContext>
+        <groupDatasource id="matConductasDs"
+                         class="com.company.gaz.entity.MatConducta"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="matConductasTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="matConductasTable"
+                datasource="matConductasDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="matConductasTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="tipMatConducta"
+                        caption="msg://tipMatConducta"/>
+            </columns>
+            <rows datasource="matConductasDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="matConductasTable.create"/>
+                <button id="editBtn"
+                        action="matConductasTable.edit"/>
+                <button id="removeBtn"
+                        action="matConductasTable.remove"/>
+                <button id="refreshBtn"
+                        action="matConductasTable.refresh"/>
+                <button id="excelBtn"
+                        action="matConductasTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

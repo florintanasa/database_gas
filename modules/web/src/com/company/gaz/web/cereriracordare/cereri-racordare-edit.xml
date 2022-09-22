@@ -1,0 +1,758 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.cereriracordare.CereriRacordareEdit"
+        datasource="cereriRacordareDs"
+        messagesPack="com.company.gaz.web.cereriracordare">
+    <dsContext>
+        <datasource id="cereriRacordareDs"
+                    class="com.company.gaz.entity.CereriRacordare"
+                    view="cereriRacordare-view">
+            <collectionDatasource id="idAparateSolicitateDs"
+                                  property="idAparateSolicitate"/>
+            <collectionDatasource id="idDocAnexCerRacDs"
+                                  property="idDocAnexCerRac"/>
+        </datasource>
+        <collectionDatasource id="idPartenersDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="locatia_1sDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e where e.idParteneri.id = :ds$idPartenersDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="locatia_2sDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e where e.idParteneri.id = :ds$idPartenersDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="locatia_3sDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e where e.idParteneri.id = :ds$idPartenersDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idMandatarsDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="locatia_4sDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e where e.idParteneri.id = :ds$idMandatarsDs.id]]>
+            </query>
+        </collectionDatasource>
+        <groupDatasource id="ciCifsDs"
+                         class="com.company.gaz.entity.CiCif"
+                         view="ciCif-view">
+            <query>
+                <![CDATA[select e from gaz$CiCif e where e.idParteneri.id = :ds$idPartenersDs.id]]>
+            </query>
+        </groupDatasource>
+        <groupDatasource id="cicifsmDs"
+                         class="com.company.gaz.entity.CiCif"
+                         view="ciCif-view">
+            <query>
+                <![CDATA[select e from gaz$CiCif e where e.idParteneri.id = :ds$idMandatarsDs.id]]>
+            </query>
+        </groupDatasource>
+        <groupDatasource id="telefoanesmDs"
+                         class="com.company.gaz.entity.Telefoane"
+                         view="telefoane-view">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e where e.idParteneri.id = :ds$idMandatarsDs.id]]>
+            </query>
+        </groupDatasource>
+        <groupDatasource id="telefoanesDs"
+                         class="com.company.gaz.entity.Telefoane"
+                         view="telefoane-view">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e where e.idParteneri.id = :ds$idPartenersDs.id]]>
+            </query>
+        </groupDatasource>
+        <groupDatasource id="emailsDs"
+                         class="com.company.gaz.entity.Email"
+                         view="email-view">
+            <query>
+                <![CDATA[select e from gaz$Email e where e.idParteneri.id = :ds$idPartenersDs.id]]>
+            </query>
+        </groupDatasource>
+        <groupDatasource id="emailsmDs"
+                         class="com.company.gaz.entity.Email"
+                         view="email-view">
+            <query>
+                <![CDATA[select e from gaz$Email e where e.idParteneri.id = :ds$idMandatarsDs.id]]>
+            </query>
+        </groupDatasource>
+        <collectionDatasource id="telefoaneSolDs"
+                              class="com.company.gaz.entity.Telefoane"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e where e.idParteneri.id = :ds$idPartenersDs.id
+and e.principal=true and e.activ=true and e.idTipTelefon.denumireTipTelefon <> 'Fax']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="faxSolDs"
+                              class="com.company.gaz.entity.Telefoane"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e where e.idParteneri.id = :ds$idPartenersDs.id
+and e.activ=true and e.principal=true and e.idTipTelefon.denumireTipTelefon='Fax']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="telefoaneManDs"
+                              class="com.company.gaz.entity.Telefoane"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e where e.idParteneri.id = :ds$idMandatarsDs.id
+and e.principal=true and e.activ=true and e.idTipTelefon.denumireTipTelefon <> 'Fax']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="faxManDs"
+                              class="com.company.gaz.entity.Telefoane">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e where e.idParteneri.id = :ds$idMandatarsDs.id
+and e.activ=true and e.principal=true and e.idTipTelefon.denumireTipTelefon='Fax']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="emailSolDs"
+                              class="com.company.gaz.entity.Email"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Email e where e.idParteneri.id = :ds$idPartenersDs.id
+and e.principal=true and e.activ=true]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="emailManDs"
+                              class="com.company.gaz.entity.Email"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Email e where e.idParteneri.id = :ds$idMandatarsDs.id
+and e.principal=true and e.activ=true]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="ciCifManDs"
+                              class="com.company.gaz.entity.CiCif"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$CiCif e where e.idParteneri.id = :ds$idMandatarsDs.id and e.valabil=true]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="ciCifSolDs"
+                              class="com.company.gaz.entity.CiCif"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$CiCif e where e.idParteneri.id = :ds$idPartenersDs.id and e.valabil=true]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idStatusCerereATRsDs"
+                              class="com.company.gaz.entity.StatusCerereATR"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$StatusCerereATR e order by e.nrOrd asc]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <grid id="gridLayout"
+                  spacing="true"
+                  width="100%">
+                <columns count="2"/>
+                <rows>
+                    <row>
+                        <tabSheet>
+                            <tab id="mainTab"
+                                 caption="msg://mainTab"
+                                 margin="true,false,false,false"
+                                 spacing="true">
+                                <grid id="gridMainTab"
+                                      spacing="true">
+                                    <columns count="2"/>
+                                    <rows>
+                                        <row>
+                                            <dateField id="dateField_datainreg"
+                                                       caption="msg://dateField"
+                                                       datasource="cereriRacordareDs"
+                                                       property="datainreg"/>
+                                            <lookupPickerField id="lookup_idStatusCerereATR"
+                                                               caption="msg://lookup_idStatusCerereATR"
+                                                               datasource="cereriRacordareDs"
+                                                               optionsDatasource="idStatusCerereATRsDs"
+                                                               property="idStatusCerereATR"/>
+                                        </row>
+                                        <row>
+                                            <lookupPickerField id="lookup_idPartener"
+                                                               caption="msg://partener"
+                                                               datasource="cereriRacordareDs"
+                                                               optionsDatasource="idPartenersDs"
+                                                               property="idPartener"/>
+                                            <lookupPickerField id="lookup_idMandatar"
+                                                               caption="msg://mandatar"
+                                                               datasource="cereriRacordareDs"
+                                                               optionsDatasource="idMandatarsDs"
+                                                               property="idMandatar"/>
+                                        </row>
+                                    </rows>
+                                </grid>
+                            </tab>
+                            <tab id="actesolTab"
+                                 caption="msg://actesolTab"
+                                 margin="true,false,false,false"
+                                 spacing="true">
+                                <groupTable id="cicifsTable"
+                                            height="100%"
+                                            width="100%">
+                                    <actions>
+                                        <action id="create"/>
+                                        <action id="edit"/>
+                                        <action id="remove"/>
+                                        <action id="refresh"/>
+                                        <action id="excel"/>
+                                    </actions>
+                                    <columns>
+                                        <column id="serieAct"
+                                                caption="msg://serieAct"/>
+                                        <column id="nrAct"
+                                                caption="msg://nrAct"/>
+                                        <column id="cif"
+                                                caption="msg://cif"/>
+                                        <column id="cnp"
+                                                caption="msg://cnp"/>
+                                        <column id="nrOrd"
+                                                caption="msg://nrOrd"/>
+                                        <column id="dataEliberareAct"
+                                                caption="msg://dataEliberareAct"/>
+                                        <column id="valabil"
+                                                caption="msg://valabil"/>
+                                    </columns>
+                                    <rows datasource="ciCifsDs"/>
+                                    <buttonsPanel id="btnPanelCicifsTable">
+                                        <button id="createBtn_cicifsTable"
+                                                action="cicifsTable.create"/>
+                                        <button id="editBtn_cicifsTable"
+                                                action="cicifsTable.edit"/>
+                                        <button id="removeBtn_cicifsTable"
+                                                action="cicifsTable.remove"/>
+                                        <button id="refreshBtn_cicifsTable"
+                                                action="cicifsTable.refresh"/>
+                                        <button id="excelBtn_cicifsTable"
+                                                action="cicifsTable.excel"/>
+                                    </buttonsPanel>
+                                </groupTable>
+                                <lookupPickerField id="lookupIdCiCifSol"
+                                                   caption="msg://lookupIdCiCifSol"
+                                                   datasource="cereriRacordareDs"
+                                                   optionsDatasource="ciCifSolDs"
+                                                   property="idCiCifSol"/>
+                            </tab>
+                            <tab id="actemanTab"
+                                 caption="msg://actemanTab"
+                                 margin="true,false,false,false"
+                                 spacing="true">
+                                <groupTable id="cicifsmTable"
+                                            height="100%"
+                                            width="100%">
+                                    <actions>
+                                        <action id="create"/>
+                                        <action id="edit"/>
+                                        <action id="remove"/>
+                                        <action id="refresh"/>
+                                        <action id="excel"/>
+                                    </actions>
+                                    <columns>
+                                        <column id="serieAct"
+                                                caption="msg://serieAct"/>
+                                        <column id="nrAct"
+                                                caption="msg://nrAct"/>
+                                        <column id="cif"
+                                                caption="msg://cif"/>
+                                        <column id="cnp"
+                                                caption="msg://cnp"/>
+                                        <column id="nrOrd"
+                                                caption="msg://nrOrd"/>
+                                        <column id="dataEliberareAct"
+                                                caption="msg://dataEliberareAct"/>
+                                        <column id="valabil"
+                                                caption="msg://valabil"/>
+                                    </columns>
+                                    <rows datasource="cicifsmDs"/>
+                                    <buttonsPanel id="btnPanelCicifsmTable">
+                                        <button id="createBtn_cicifsmTable"
+                                                action="cicifsmTable.create"/>
+                                        <button id="editBtn_cicifsmTable"
+                                                action="cicifsmTable.edit"/>
+                                        <button id="removeBtn_cicifsmTable"
+                                                action="cicifsmTable.remove"/>
+                                        <button id="refreshBtn_cicifsmTable"
+                                                action="cicifsmTable.refresh"/>
+                                        <button id="excelBtn_cicifsmTable"
+                                                action="cicifsmTable.excel"/>
+                                    </buttonsPanel>
+                                </groupTable>
+                                <lookupPickerField id="lookupIdCiCifMan"
+                                                   caption="msg://lookupIdCiCifMan"
+                                                   datasource="cereriRacordareDs"
+                                                   optionsDatasource="ciCifManDs"
+                                                   property="idCiCifMan"/>
+                            </tab>
+                            <tab id="additionalTab"
+                                 caption="msg://additionalTab"
+                                 margin="true,false,false,false"
+                                 spacing="true">
+                                <grid id="gridAdditionalTab"
+                                      spacing="true"
+                                      width="100%">
+                                    <columns count="2"/>
+                                    <rows>
+                                        <row>
+                                            <lookupPickerField id="lookup_idSiruta"
+                                                               caption="msg://idSiruta"
+                                                               datasource="cereriRacordareDs"
+                                                               optionsDatasource="idSirutasDs"
+                                                               property="idSiruta"/>
+                                            <lookupPickerField id="lookupLocatia_2"
+                                                               caption="msg://locatia_2"
+                                                               datasource="cereriRacordareDs"
+                                                               optionsDatasource="locatia_2sDs"
+                                                               property="locatia_2"/>
+                                        </row>
+                                        <row>
+                                            <lookupPickerField id="lookupLocatia_1"
+                                                               caption="msg://locatia_1"
+                                                               datasource="cereriRacordareDs"
+                                                               optionsDatasource="locatia_1sDs"
+                                                               property="locatia_1"/>
+                                            <lookupPickerField id="lookupLocatia_3"
+                                                               caption="msg://locatia_3"
+                                                               datasource="cereriRacordareDs"
+                                                               optionsDatasource="locatia_3sDs"
+                                                               property="locatia_3"/>
+                                        </row>
+                                        <row>
+                                            <lookupPickerField id="lookupLocatia_4"
+                                                               caption="msg://locatia_4"
+                                                               datasource="cereriRacordareDs"
+                                                               optionsDatasource="locatia_4sDs"
+                                                               property="locatia_4"/>
+                                        </row>
+                                    </rows>
+                                </grid>
+                            </tab>
+                            <tab id="telefoanesTab"
+                                 caption="msg://telefoaneTab"
+                                 margin="true,false,false,false"
+                                 spacing="true">
+                                <groupBox id="gBoxTelefoanesTable"
+                                          caption="msg://gBoxTelefoanesTable"
+                                          spacing="true">
+                                    <groupTable id="telefoanesTable"
+                                                height="100%"
+                                                width="100%">
+                                        <actions>
+                                            <action id="create"/>
+                                            <action id="edit"/>
+                                            <action id="remove"/>
+                                            <action id="refresh"/>
+                                            <action id="excel"/>
+                                        </actions>
+                                        <columns>
+                                            <column id="idTipTelefon"
+                                                    caption="msg://idTipTelefon"/>
+                                            <column id="numarTelefon"
+                                                    caption="msg://numarTelefon"/>
+                                            <column id="principal"/>
+                                            <column id="activ"/>
+                                        </columns>
+                                        <rows datasource="telefoanesDs"/>
+                                        <buttonsPanel id="btnPanelTelefoanesTable">
+                                            <button id="createBtn_telefoanesTable"
+                                                    action="telefoanesTable.create"/>
+                                            <button id="editBtn_telefoanesTable"
+                                                    action="telefoanesTable.edit"/>
+                                            <button id="removeBtn_telefoanesTable"
+                                                    action="telefoanesTable.remove"/>
+                                            <button id="refreshBtn_telefoanesTable"
+                                                    action="telefoanesTable.refresh"/>
+                                            <button id="excelBtn_telefoanesTable"
+                                                    action="telefoanesTable.excel"/>
+                                        </buttonsPanel>
+                                    </groupTable>
+                                </groupBox>
+                                <hbox spacing="true">
+                                    <lookupPickerField id="lookupIdTelefoaneSol"
+                                                       caption="msg://lookupIdTelefoaneSol"
+                                                       datasource="cereriRacordareDs"
+                                                       optionsDatasource="telefoaneSolDs"
+                                                       property="idTelefoaneSol"/>
+                                    <lookupPickerField id="lookupFaxSol"
+                                                       caption="msg://lookupFaxSol"
+                                                       datasource="cereriRacordareDs"
+                                                       optionsDatasource="faxSolDs"
+                                                       property="idFaxSol"/>
+                                </hbox>
+                            </tab>
+                            <tab id="telefoanemanTab"
+                                 caption="msg://telefoanemanTab"
+                                 margin="true,false,false,false"
+                                 spacing="true">
+                                <groupBox id="gBoxtelefoanesmTable"
+                                          caption="msg://gBoxtelefoanesmTable"
+                                          spacing="true">
+                                    <groupTable id="telefoanesmTable"
+                                                height="100%"
+                                                width="100%">
+                                        <actions>
+                                            <action id="create"/>
+                                            <action id="edit"/>
+                                            <action id="remove"/>
+                                            <action id="refresh"/>
+                                            <action id="excel"/>
+                                        </actions>
+                                        <columns>
+                                            <column id="idTipTelefon"
+                                                    caption="msg://idTipTelefon"/>
+                                            <column id="numarTelefon"
+                                                    caption="msg://numarTelefon"/>
+                                            <column id="principal"/>
+                                            <column id="activ"/>
+                                        </columns>
+                                        <rows datasource="telefoanesmDs"/>
+                                        <buttonsPanel id="btnPanelTelefoanesmTable">
+                                            <button id="createBtn_telefoanesmTable"
+                                                    action="telefoanesmTable.create"/>
+                                            <button id="editBtn_telefoanesmTable"
+                                                    action="telefoanesmTable.edit"/>
+                                            <button id="removeBtn_telefoanesmTable"
+                                                    action="telefoanesmTable.remove"/>
+                                            <button id="refreshBtn_telefoanesmTable"
+                                                    action="telefoanesmTable.refresh"/>
+                                            <button id="excelBtn_telefoanesmTable"
+                                                    action="telefoanesmTable.excel"/>
+                                        </buttonsPanel>
+                                    </groupTable>
+                                </groupBox>
+                                <hbox spacing="true">
+                                    <lookupPickerField id="lookupIdtelefoaneMan"
+                                                       caption="msg://lookupIdtelefoaneMan"
+                                                       datasource="cereriRacordareDs"
+                                                       optionsDatasource="telefoaneManDs"
+                                                       property="idTelefoaneMan"/>
+                                    <lookupPickerField id="lookupIdFaxMan"
+                                                       caption="msg://lookupIdFaxMan"
+                                                       datasource="cereriRacordareDs"
+                                                       optionsDatasource="faxManDs"
+                                                       property="idFaxMan"/>
+                                </hbox>
+                            </tab>
+                            <tab id="emailsTab"
+                                 caption="msg://emailsTab"
+                                 margin="true,false,false,false"
+                                 spacing="true">
+                                <groupBox id="gBoxemailsDs"
+                                          caption="msg://gBoxemailsDs"
+                                          spacing="true">
+                                    <groupTable id="emailsDsTable"
+                                                height="100%"
+                                                width="100%">
+                                        <actions>
+                                            <action id="create"/>
+                                            <action id="edit"/>
+                                            <action id="remove"/>
+                                            <action id="refresh"/>
+                                            <action id="excel"/>
+                                        </actions>
+                                        <columns>
+                                            <column id="adresaEmail"
+                                                    caption="msg://adresaEmail"/>
+                                            <column id="principal"
+                                                    caption="msg://principal"/>
+                                            <column id="activ"
+                                                    caption="msg://activ"/>
+                                        </columns>
+                                        <rows datasource="emailsDs"/>
+                                        <buttonsPanel id="btnPanelEmailsDsTable">
+                                            <button id="createBtn_emailsDsTable"
+                                                    action="emailsDsTable.create"/>
+                                            <button id="editBtn_emailsDsTable"
+                                                    action="emailsDsTable.edit"/>
+                                            <button id="removeBtn_emailsDsTable"
+                                                    action="emailsDsTable.remove"/>
+                                            <button id="refreshBtn_emailsDsTable"
+                                                    action="emailsDsTable.refresh"/>
+                                            <button id="excelBtn_emailsDsTable"
+                                                    action="emailsDsTable.excel"/>
+                                        </buttonsPanel>
+                                    </groupTable>
+                                </groupBox>
+                                <lookupPickerField id="lookupIdEmailSol"
+                                                   caption="msg://lookupIdEmailSol"
+                                                   datasource="cereriRacordareDs"
+                                                   optionsDatasource="emailSolDs"
+                                                   property="idEmailSol"/>
+                            </tab>
+                            <tab id="emailmTab"
+                                 caption="msg://emailmTab"
+                                 margin="true,false,false,false"
+                                 spacing="true">
+                                <groupBox id="gBoxemailsmDs"
+                                          caption="msg://gBoxemailsmDs"
+                                          spacing="true">
+                                    <groupTable id="emailsmDsTable"
+                                                height="100%"
+                                                width="100%">
+                                        <actions>
+                                            <action id="create"/>
+                                            <action id="edit"/>
+                                            <action id="remove"/>
+                                            <action id="refresh"/>
+                                            <action id="excel"/>
+                                        </actions>
+                                        <columns>
+                                            <column id="adresaEmail"
+                                                    caption="msg://adresaEmail"/>
+                                            <column id="principal"
+                                                    caption="msg://principal"/>
+                                            <column id="activ"
+                                                    caption="msg://activ"/>
+                                        </columns>
+                                        <rows datasource="emailsmDs"/>
+                                        <buttonsPanel id="btnPanelEmailsmDs">
+                                            <button id="createBtn_emailsmDs"
+                                                    action="emailsmDsTable.create"/>
+                                            <button id="editBtn_emailsmDs"
+                                                    action="emailsmDsTable.edit"/>
+                                            <button id="removeBtn_emailsmDs"
+                                                    action="emailsmDsTable.remove"/>
+                                            <button id="refreshBtn_emailsmDs"
+                                                    action="emailsmDsTable.refresh"/>
+                                            <button id="excelBtn_emailsmDs"
+                                                    action="emailsmDsTable.excel"/>
+                                        </buttonsPanel>
+                                    </groupTable>
+                                </groupBox>
+                                <lookupPickerField id="lookupIdEmailMan"
+                                                   caption="msg://lookupIdEmailMan"
+                                                   datasource="cereriRacordareDs"
+                                                   optionsDatasource="emailManDs"
+                                                   property="idEmailMan"/>
+                            </tab>
+                            <tab id="commentTab"
+                                 caption="msg://commentTab"
+                                 margin="true,false,false,false"
+                                 spacing="true">
+                                <grid id="gridCommentTab"
+                                      spacing="true"
+                                      width="100%">
+                                    <columns count="2"/>
+                                    <rows>
+                                        <row>
+                                            <textArea id="textAreaPrecamplasare"
+                                                      caption="msg://precamplasare"
+                                                      datasource="cereriRacordareDs"
+                                                      property="precAmplasare"
+                                                      width="100%"/>
+                                            <textArea id="textAreaAlteCerinte"
+                                                      caption="msg://altecerinte"
+                                                      datasource="cereriRacordareDs"
+                                                      property="alteCerinte"
+                                                      width="100%"/>
+                                        </row>
+                                    </rows>
+                                </grid>
+                            </tab>
+                        </tabSheet>
+                        <grid id="gridCheckBox"
+                              spacing="true"
+                              width="100%">
+                            <columns count="3"/>
+                            <rows>
+                                <row>
+                                    <groupBox id="groupSolicitare"
+                                              caption="msg://groupSolicitare"
+                                              spacing="true">
+                                        <checkBox id="ckTipNou"
+                                                  caption="msg://tipNou"
+                                                  datasource="cereriRacordareDs"
+                                                  property="tipNou"/>
+                                        <checkBox id="ckBoxTipExistent"
+                                                  caption="msg://tipExistent"
+                                                  datasource="cereriRacordareDs"
+                                                  property="tipExistent"/>
+                                    </groupBox>
+                                    <groupBox id="groupConsumator"
+                                              caption="msg://groupConsumator"
+                                              spacing="true">
+                                        <checkBox id="ckBoxTipCasnic"
+                                                  caption="msg://tipCasnic"
+                                                  datasource="cereriRacordareDs"
+                                                  property="tipCasnic"/>
+                                        <checkBox id="ckBoxTipnonCasnic"
+                                                  caption="msg://tipNoncasnic"
+                                                  datasource="cereriRacordareDs"
+                                                  property="tipNoncasnic"/>
+                                    </groupBox>
+                                    <groupBox id="groupRaspuns"
+                                              caption="msg://groupRaspuns"
+                                              rowspan="2"
+                                              spacing="true">
+                                        <checkBox id="ckBoxRosdSediu"
+                                                  caption="msg://rosdsediu"
+                                                  datasource="cereriRacordareDs"
+                                                  property="rOsdSediu"/>
+                                        <checkBox id="ckBoxRosdPostaDom"
+                                                  caption="msg://rosdpostadom"
+                                                  datasource="cereriRacordareDs"
+                                                  property="rOsdPostaDom"/>
+                                        <checkBox id="ckBoxRosdPostaLocCons"
+                                                  caption="msg://rosdpostaloccons"
+                                                  datasource="cereriRacordareDs"
+                                                  property="rOsdPostaLocCons"/>
+                                        <checkBox id="ckBoxRosdPostaMan"
+                                                  caption="msg://rosdpostaman"
+                                                  datasource="cereriRacordareDs"
+                                                  property="rOsdPostaMan"/>
+                                    </groupBox>
+                                </row>
+                                <row>
+                                    <groupBox id="groupComunicareE"
+                                              caption="msg://groupComunicareE"
+                                              spacing="true">
+                                        <checkBox id="ckBoxComEmail"
+                                                  caption="msg://comEmail"
+                                                  datasource="cereriRacordareDs"
+                                                  property="comEmail"/>
+                                        <checkBox id="ckBoxComFax"
+                                                  caption="msg://comFax"
+                                                  datasource="cereriRacordareDs"
+                                                  property="comFax"/>
+                                    </groupBox>
+                                    <groupBox id="groupComunicare"
+                                              caption="msg://groupComunicare"
+                                              spacing="true">
+                                        <checkBox id="ckBoxComSediu"
+                                                  caption="msg://comSediu"
+                                                  datasource="cereriRacordareDs"
+                                                  property="comSediu"/>
+                                        <checkBox id="ckBoxComTelefon"
+                                                  caption="msg://comTelefon"
+                                                  datasource="cereriRacordareDs"
+                                                  property="comTelefon"/>
+                                    </groupBox>
+                                </row>
+                                <row>
+                                    <groupBox id="public"
+                                              caption="msg://public"
+                                              spacing="true">
+                                        <checkBox id="ckBoxDaAfisareSiite"
+                                                  caption="msg://daAfisareSite"
+                                                  datasource="cereriRacordareDs"
+                                                  property="daAfisareSite"/>
+                                        <checkBox id="ckBoxNuAfisareSite"
+                                                  caption="msg://nuAfisareSite"
+                                                  datasource="cereriRacordareDs"
+                                                  property="nuAfisareSite"/>
+                                    </groupBox>
+                                    <groupBox id="groupAltele"
+                                              caption="msg://groupAltele"
+                                              spacing="true">
+                                        <checkBox id="ckBoxComAlte"
+                                                  caption="msg://comAlte"
+                                                  datasource="cereriRacordareDs"
+                                                  property="comAlte"/>
+                                    </groupBox>
+                                    <groupBox id="groupTotalDebit"
+                                              caption="msg://groupTotalDebit"
+                                              spacing="true">
+                                        <textField id="textTotalDebit"
+                                                   datasource="cereriRacordareDs"
+                                                   property="totalDebit"/>
+                                    </groupBox>
+                                </row>
+                            </rows>
+                        </grid>
+                    </row>
+                    <row>
+                        <groupBox id="idDocAnexCerRacBox"
+                                  caption="msg://idDocAnexCerRac">
+                            <table id="idDocAnexCerRacTable"
+                                   height="200px"
+                                   width="100%">
+                                <actions>
+                                    <action id="create"/>
+                                    <action id="edit"/>
+                                    <action id="remove"/>
+                                </actions>
+                                <columns>
+                                    <column id="idTipDocumente.denumire"
+                                            caption="msg://idTipDocumente.denumire"/>
+                                    <column id="fisierDocument"
+                                            caption="msg://fisierDocument"/>
+                                </columns>
+                                <rows datasource="idDocAnexCerRacDs"/>
+                                <buttonsPanel>
+                                    <button action="idDocAnexCerRacTable.create"/>
+                                    <button action="idDocAnexCerRacTable.edit"/>
+                                    <button action="idDocAnexCerRacTable.remove"/>
+                                </buttonsPanel>
+                            </table>
+                        </groupBox>
+                        <groupBox id="idAparateSolicitateBox"
+                                  caption="msg://idAparateSolicitate">
+                            <table id="idAparateSolicitateTable"
+                                   height="200px"
+                                   width="100%">
+                                <actions>
+                                    <action id="create"/>
+                                    <action id="edit"/>
+                                    <action id="remove"/>
+                                </actions>
+                                <columns>
+                                    <column id="idAparate.denumire"
+                                            caption="msg://idAparate.denumire"/>
+                                    <column id="idAparate.debit"
+                                            caption="msg://idAparate.debit"/>
+                                    <column id="nrbuc"
+                                            caption="msg://nrbuc"/>
+                                </columns>
+                                <rows datasource="idAparateSolicitateDs"/>
+                                <buttonsPanel>
+                                    <button action="idAparateSolicitateTable.create"/>
+                                    <button action="idAparateSolicitateTable.edit"/>
+                                    <button action="idAparateSolicitateTable.remove"/>
+                                </buttonsPanel>
+                            </table>
+                        </groupBox>
+                    </row>
+                    <row/>
+                </rows>
+            </grid>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

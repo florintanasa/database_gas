@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.obiecte.ObiecteEdit"
+        datasource="obiecteDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.obiecte">
+    <dsContext>
+        <datasource id="obiecteDs"
+                    class="com.company.gaz.entity.Obiecte"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="obiecteDs">
+            <column width="250px">
+                <field caption="msg://tipObiecte"
+                       property="tipObiecte"/>
+                <field caption="msg://explicatiiObiecte"
+                       property="explicatiiObiecte"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

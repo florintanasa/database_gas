@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.proiecte.ProiecteEdit"
+        datasource="proiecteDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.proiecte">
+    <dsContext>
+        <datasource id="proiecteDs"
+                    class="com.company.gaz.entity.Proiecte"
+                    view="proiecte-view"/>
+        <collectionDatasource id="idObiectesDs"
+                              class="com.company.gaz.entity.Obiecte"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Obiecte e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idProiectantsDs"
+                              class="com.company.gaz.entity.Proiectant"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Proiectant e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idVerificatorsDs"
+                              class="com.company.gaz.entity.Verificator"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Verificator e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="proiecteDs">
+            <column width="250px">
+                <field caption="msg://idObiecte"
+                       optionsDatasource="idObiectesDs"
+                       property="idObiecte"/>
+                <field caption="msg://idProiectant"
+                       optionsDatasource="idProiectantsDs"
+                       property="idProiectant"/>
+                <field caption="msg://nrProiect"
+                       property="nrProiect"/>
+                <field caption="msg://nrAdresaOsd"
+                       property="nrAdresaOsd"/>
+                <field caption="msg://dataDepunereOsd"
+                       property="dataDepunereOsd"/>
+                <field caption="msg://dataAvizareOsd"
+                       property="dataAvizareOsd"/>
+                <field caption="msg://idVerificator"
+                       optionsDatasource="idVerificatorsDs"
+                       property="idVerificator"/>
+                <field caption="msg://nrRefVerif"
+                       property="nrRefVerif"/>
+                <field caption="msg://dataAvizareVerif"
+                       property="dataAvizareVerif"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

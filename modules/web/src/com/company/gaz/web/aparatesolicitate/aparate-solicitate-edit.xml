@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.aparatesolicitate.AparateSolicitateEdit"
+        datasource="aparateSolicitateDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.aparatesolicitate">
+    <dsContext>
+        <datasource id="aparateSolicitateDs"
+                    class="com.company.gaz.entity.AparateSolicitate"
+                    view="aparateSolicitate-view-cu-aparate"/>
+        <collectionDatasource id="idAparatesDs"
+                              class="com.company.gaz.entity.TipAparate"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$TipAparate e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="aparateSolicitateDs">
+            <column width="250px">
+                <field caption="msg://idAparate"
+                       optionsDatasource="idAparatesDs"
+                       property="idAparate"/>
+                <field caption="msg://nrbuc"
+                       property="nrbuc"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

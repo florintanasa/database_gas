@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.executant.ExecutantEdit"
+        datasource="executantDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.executant">
+    <dsContext>
+        <datasource id="executantDs"
+                    class="com.company.gaz.entity.Executant"
+                    view="executant-view"/>
+        <collectionDatasource id="idSocietatiExecutiesDs"
+                              class="com.company.gaz.entity.SocietatiExecutie"
+                              view="_minimal"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="executantDs">
+            <column width="250px">
+                <field caption="msg://idSocietatiExecutie"
+                       optionsDatasource="idSocietatiExecutiesDs"
+                       property="idSocietatiExecutie"/>
+                <field caption="msg://numeInstalator"
+                       property="numeInstalator"/>
+                <field caption="msg://tipAutInstalator"
+                       property="tipAutInstalator"/>
+                <field caption="msg://nrAutInstalator"
+                       property="nrAutInstalator"/>
+                <field caption="msg://dataStartAutInstalator"
+                       property="dataStartAutInstalator"/>
+                <field caption="msg://dataStopAutInstalator"
+                       property="dataStopAutInstalator"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

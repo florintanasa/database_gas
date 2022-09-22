@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.haulmont.yarg:yarg-api:2.1.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.haulmont.yarg/yarg-api/2.1.5/95539f9c2566b373c8c5b3a2481f4e864e4622e9/yarg-api-2.1.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.haulmont.yarg/yarg-api/2.1.5/65e4664bf8e11cceb53afbfa64c7afe676bc8601/yarg-api-2.1.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

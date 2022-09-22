@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.instalatoriosd.InstalatoriOSDBrowse"
+        focusComponent="instalatoriOSDsTable"
+        lookupComponent="instalatoriOSDsTable"
+        messagesPack="com.company.gaz.web.instalatoriosd">
+    <dsContext>
+        <groupDatasource id="instalatoriOSDsDs"
+                         class="com.company.gaz.entity.InstalatoriOSD"
+                         view="instalatoriOSD-view">
+            <query>
+                <![CDATA[select e from gaz$InstalatoriOSD e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="instalatoriOSDsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="instalatoriOSDsTable"
+                datasource="instalatoriOSDsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="instalatoriOSDsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="idParteneri"
+                        caption="msg://idParteneri"/>
+                <column id="tipAutorizatie"
+                        caption="msg://tipAutorizatie"/>
+                <column id="nrAutorizatie"
+                        caption="msg://nrAutorizatie"/>
+                <column id="dataStartAutorizatie"
+                        caption="msg://dataStartAutorizatie"/>
+                <column id="dataStopAutorizatie"
+                        caption="msg://dataStopAutorizatie"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+            </columns>
+            <rows datasource="instalatoriOSDsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="instalatoriOSDsTable.create"/>
+                <button id="editBtn"
+                        action="instalatoriOSDsTable.edit"/>
+                <button id="removeBtn"
+                        action="instalatoriOSDsTable.remove"/>
+                <button id="refreshBtn"
+                        action="instalatoriOSDsTable.refresh"/>
+                <button id="excelBtn"
+                        action="instalatoriOSDsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

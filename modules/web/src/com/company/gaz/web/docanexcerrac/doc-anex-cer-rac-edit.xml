@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.docanexcerrac.DocAnexCerRacEdit"
+        datasource="docAnexCerRacDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.docanexcerrac">
+    <dsContext>
+        <datasource id="docAnexCerRacDs"
+                    class="com.company.gaz.entity.DocAnexCerRac"
+                    view="docAnexCerRac-view-cu-documente"/>
+        <collectionDatasource id="idTipDocumentesDs"
+                              class="com.company.gaz.entity.TipDocumente"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$TipDocumente e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <vbox expand="groupBoxVizualizarePDF"
+              height="650px"
+              spacing="true">
+            <groupBox id="groupBoxVizualizarePDF"
+                      caption="msg://groupBoxVizualizarePDF"
+                      spacing="true">
+                <embedded id="preview"
+                          height="100%"
+                          width="100%"/>
+            </groupBox>
+            <hbox align="BOTTOM_LEFT"
+                  spacing="true">
+                <fieldGroup id="fieldGroup"
+                            datasource="docAnexCerRacDs">
+                    <column width="250px">
+                        <field caption="msg://idTipDocumente"
+                               optionsDatasource="idTipDocumentesDs"
+                               property="idTipDocumente"/>
+                    </column>
+                </fieldGroup>
+                <upload id="uploadFisierDocument"
+                        datasource="docAnexCerRacDs"
+                        property="fisierDocument"
+                        uploadButtonCaption="msg://uploadFisierDocument"/>
+                <button id="downloadPdfBtn"
+                        caption="msg://downloadPdfBtn"
+                        invoke="onDownloadPdfBtnClick"/>
+                <button id="clearPdfBtn"
+                        caption="msg://clearPdfBtn"
+                        invoke="onClearPdfBtnClick"/>
+            </hbox>
+        </vbox>
+        <frame id="windowActions"
+               align="BOTTOM_LEFT"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.regimpres.RegimPresBrowse"
+        focusComponent="regimPresesTable"
+        lookupComponent="regimPresesTable"
+        messagesPack="com.company.gaz.web.regimpres">
+    <dsContext>
+        <groupDatasource id="regimPresesDs"
+                         class="com.company.gaz.entity.RegimPres"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$RegimPres e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="regimPresesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="regimPresesTable"
+                datasource="regimPresesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="regimPresesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="regimPresiune"
+                        caption="msg://regimPresiune"/>
+                <column id="domPresiune"
+                        caption="msg://domPresiune"/>
+            </columns>
+            <rows datasource="regimPresesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="regimPresesTable.create"/>
+                <button id="editBtn"
+                        action="regimPresesTable.edit"/>
+                <button id="removeBtn"
+                        action="regimPresesTable.remove"/>
+                <button id="refreshBtn"
+                        action="regimPresesTable.refresh"/>
+                <button id="excelBtn"
+                        action="regimPresesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

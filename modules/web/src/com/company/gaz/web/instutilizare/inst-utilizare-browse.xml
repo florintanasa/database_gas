@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.instutilizare.InstUtilizareBrowse"
+        focusComponent="instUtilizaresTable"
+        lookupComponent="instUtilizaresTable"
+        messagesPack="com.company.gaz.web.instutilizare">
+    <dsContext>
+        <groupDatasource id="instUtilizaresDs"
+                         class="com.company.gaz.entity.InstUtilizare"
+                         view="instUtilizare-view">
+            <query>
+                <![CDATA[select e from gaz$InstUtilizare e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="instUtilizaresTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="instUtilizaresTable"
+                datasource="instUtilizaresDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="instUtilizaresTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="idLocatii"
+                        caption="msg://idLocatii"/>
+                <column id="idSrmprm"
+                        caption="msg://idSrmprm"/>
+                <column id="cuiInstUtilizare"
+                        caption="msg://cuiInstUtilizare"/>
+                <column id="idProiecte"
+                        caption="msg://idProiecte"/>
+                <column id="idExecutant"
+                        caption="msg://idExecutant"/>
+                <column id="nrPvla"
+                        caption="msg://nrPvla"/>
+                <column id="dataPvla"
+                        caption="msg://dataPvla"/>
+                <column id="nrPvrt"
+                        caption="msg://nrPvrt"/>
+                <column id="dataPvrt"
+                        caption="msg://dataPvrt"/>
+                <column id="nrPvpif"
+                        caption="msg://nrPvpif"/>
+                <column id="dataPvpif"
+                        caption="msg://dataPvpif"/>
+                <column id="nrArhiva"
+                        caption="msg://nrArhiva"/>
+            </columns>
+            <rows datasource="instUtilizaresDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="instUtilizaresTable.create"/>
+                <button id="editBtn"
+                        action="instUtilizaresTable.edit"/>
+                <button id="removeBtn"
+                        action="instUtilizaresTable.remove"/>
+                <button id="refreshBtn"
+                        action="instUtilizaresTable.refresh"/>
+                <button id="excelBtn"
+                        action="instUtilizaresTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

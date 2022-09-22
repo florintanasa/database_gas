@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.strazi.StraziBrowse"
+        focusComponent="strazisTable"
+        lookupComponent="strazisTable"
+        messagesPack="com.company.gaz.web.strazi">
+    <dsContext>
+        <groupDatasource id="strazisDs"
+                         class="com.company.gaz.entity.Strazi"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$Strazi e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="strazisTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="strazisTable"
+                datasource="strazisDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="strazisTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="numeStrada"
+                        caption="msg://numeStrada"/>
+            </columns>
+            <rows datasource="strazisDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="strazisTable.create"/>
+                <button id="editBtn"
+                        action="strazisTable.edit"/>
+                <button id="removeBtn"
+                        action="strazisTable.remove"/>
+                <button id="refreshBtn"
+                        action="strazisTable.refresh"/>
+                <button id="excelBtn"
+                        action="strazisTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.societatiproiectare.SocietatiProiectareBrowse"
+        focusComponent="societatiProiectaresTable"
+        lookupComponent="societatiProiectaresTable"
+        messagesPack="com.company.gaz.web.societatiproiectare">
+    <dsContext>
+        <groupDatasource id="societatiProiectaresDs"
+                         class="com.company.gaz.entity.SocietatiProiectare"
+                         view="societatiProiectare-view">
+            <query>
+                <![CDATA[select e from gaz$SocietatiProiectare e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="societatiProiectaresTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="societatiProiectaresTable"
+                datasource="societatiProiectaresDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="societatiProiectaresTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idParteneri"
+                        caption="msg://idParteneri"/>
+                <column id="tipAutSocietateProiectare"
+                        caption="msg://tipAutSocietateProiectare"/>
+                <column id="nrAutSocietateProiectare"
+                        caption="msg://nrAutSocietateProiectare"/>
+                <column id="dataStartAutSocietateProiectare"
+                        caption="msg://dataStartAutSocietateProiectare"/>
+                <column id="dataStopAutSocietateProiectare"
+                        caption="msg://dataStopAutSocietateProiectare"/>
+                <column id="idConturiBancareParteneri"
+                        caption="msg://idConturiBancareParteneri"/>
+                <column id="idLocatii"
+                        caption="msg://idLocatii"/>
+                <column id="idTelefoane"
+                        caption="msg://idTelefoane"/>
+                <column id="idFax"
+                        caption="msg://idFax"/>
+                <column id="idemail"
+                        caption="msg://idemail"/>
+                <column id="idRepLegal"
+                        caption="msg://idRepLegal"/>
+                <column id="idCalitateRepLegal"
+                        caption="msg://idCalitateRepLegal"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+            </columns>
+            <rows datasource="societatiProiectaresDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="societatiProiectaresTable.create"/>
+                <button id="editBtn"
+                        action="societatiProiectaresTable.edit"/>
+                <button id="removeBtn"
+                        action="societatiProiectaresTable.remove"/>
+                <button id="refreshBtn"
+                        action="societatiProiectaresTable.refresh"/>
+                <button id="excelBtn"
+                        action="societatiProiectaresTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

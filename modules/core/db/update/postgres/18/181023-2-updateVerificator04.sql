@@ -1,0 +1,2 @@
+alter table GAZ_VERIFICATOR add constraint FK_GAZ_VERIFICATOR_ON_ID_FAX foreign key (ID_FAX_ID) references GAZ_TELEFOANE(ID);
+create index IDX_GAZ_VERIFICATOR_ON_ID_FAX on GAZ_VERIFICATOR (ID_FAX_ID);

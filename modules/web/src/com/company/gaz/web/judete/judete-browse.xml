@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.judete.JudeteBrowse"
+        focusComponent="judetesTable"
+        lookupComponent="judetesTable"
+        messagesPack="com.company.gaz.web.judete">
+    <dsContext>
+        <groupDatasource id="judetesDs"
+                         class="com.company.gaz.entity.Judete"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$Judete e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="judetesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="judetesTable"
+                datasource="judetesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="judetesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="numeJudet"
+                        caption="msg://numeJudet"/>
+            </columns>
+            <rows datasource="judetesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="judetesTable.create"/>
+                <button id="editBtn"
+                        action="judetesTable.edit"/>
+                <button id="removeBtn"
+                        action="judetesTable.remove"/>
+                <button id="refreshBtn"
+                        action="judetesTable.refresh"/>
+                <button id="excelBtn"
+                        action="judetesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

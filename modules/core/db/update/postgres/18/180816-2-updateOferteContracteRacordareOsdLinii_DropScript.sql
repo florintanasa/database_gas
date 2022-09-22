@@ -1,0 +1,1 @@
+alter table GAZ_OFERTE_CONTRACTE_RACORDARE_OSD_LINII drop column TOTAL_TARIF__U55489 cascade ;

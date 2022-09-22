@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.statuscontracteserviciioe.StatusContracteServiciiOEEdit"
+        datasource="statusContracteServiciiOEDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.statuscontracteserviciioe">
+    <dsContext>
+        <datasource id="statusContracteServiciiOEDs"
+                    class="com.company.gaz.entity.StatusContracteServiciiOE"
+                    view="statusContracteServiciiOE-view"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="statusContracteServiciiOEDs">
+            <column width="250px">
+                <field caption="msg://nrOrd"
+                       property="nrOrd"/>
+                <field caption="msg://stareContracteServiciiOE"
+                       property="stareContracteServiciiOE"/>
+                <field caption="msg://explicatii"
+                       property="explicatii"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

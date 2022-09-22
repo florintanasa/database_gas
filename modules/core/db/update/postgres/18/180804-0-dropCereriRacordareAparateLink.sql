@@ -1,0 +1,1 @@
+alter table gaz_cereri_racordare_aparate_link rename to GAZ_CERERI_RACORDARE_APARATE_LINK__U56592 ;

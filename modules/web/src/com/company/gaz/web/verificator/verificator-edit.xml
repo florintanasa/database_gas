@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.verificator.VerificatorEdit"
+        datasource="verificatorDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.verificator">
+    <dsContext>
+        <datasource id="verificatorDs"
+                    class="com.company.gaz.entity.Verificator"
+                    view="verificator-view"/>
+        <collectionDatasource id="idNumeVerificatorsDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal"/>
+        <collectionDatasource id="idLocatiisDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal"/>
+        <collectionDatasource id="idTelefoanesDs"
+                              class="com.company.gaz.entity.Telefoane"
+                              view="_minimal"/>
+        <collectionDatasource id="idFaxesDs"
+                              class="com.company.gaz.entity.Telefoane"
+                              view="_minimal"/>
+        <collectionDatasource id="idEmailsDs"
+                              class="com.company.gaz.entity.Email"
+                              view="_minimal"/>
+        <collectionDatasource id="idConturiBancarePartenerisDs"
+                              class="com.company.gaz.entity.ConturiBancareParteneri"
+                              view="_minimal"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="verificatorDs">
+            <column width="250px">
+                <field caption="msg://numeVerificator"
+                       property="numeVerificator"/>
+                <field caption="msg://numeVerificator"
+                       optionsDatasource="idNumeVerificatorsDs"
+                       property="idNumeVerificator"/>
+                <field caption="msg://emitentAtestat"
+                       property="emitentAtestat"/>
+                <field caption="msg://nrAtestatVerificator"
+                       property="nrAtestatVerificator"/>
+                <field caption="msg://dataAtestatVerificator"
+                       property="dataAtestatVerificator"/>
+                <field caption="msg://dataSfarsitAtestatVerificator"
+                       property="dataSfarsitAtestatVerificator"/>
+                <field caption="msg://idConturiBancareParteneri"
+                       optionsDatasource="idConturiBancarePartenerisDs"
+                       property="idConturiBancareParteneri"/>
+                <field caption="msg://idLocatii"
+                       optionsDatasource="idLocatiisDs"
+                       property="idLocatii"/>
+                <field caption="msg://idTelefoane"
+                       optionsDatasource="idTelefoanesDs"
+                       property="idTelefoane"/>
+                <field caption="msg://idFax"
+                       optionsDatasource="idFaxesDs"
+                       property="idFax"/>
+                <field caption="msg://idEmail"
+                       optionsDatasource="idEmailsDs"
+                       property="idEmail"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

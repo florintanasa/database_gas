@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.tari.TariBrowse"
+        focusComponent="tarisTable"
+        lookupComponent="tarisTable"
+        messagesPack="com.company.gaz.web.tari">
+    <dsContext>
+        <groupDatasource id="tarisDs"
+                         class="com.company.gaz.entity.Tari"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$Tari e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tarisTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tarisTable"
+                datasource="tarisDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tarisTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="denumireTara"
+                        caption="msg://denumireTara"/>
+            </columns>
+            <rows datasource="tarisDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="tarisTable.create"/>
+                <button id="editBtn"
+                        action="tarisTable.edit"/>
+                <button id="removeBtn"
+                        action="tarisTable.remove"/>
+                <button id="refreshBtn"
+                        action="tarisTable.refresh"/>
+                <button id="excelBtn"
+                        action="tarisTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.tarifeexecutiebransamente.TarifeExecutieBransamenteEdit"
+        datasource="tarifeExecutieBransamenteDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.tarifeexecutiebransamente">
+    <dsContext>
+        <datasource id="tarifeExecutieBransamenteDs"
+                    class="com.company.gaz.entity.TarifeExecutieBransamente"
+                    view="tarifeExecutieBransamente-view"/>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamPesDs"
+                              class="com.company.gaz.entity.DiamPe"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamPe e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamOlsDs"
+                              class="com.company.gaz.entity.DiamOl"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamOl e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="tarifeExecutieBransamenteDs">
+            <column width="250px">
+                <field caption="msg://idSiruta"
+                       optionsDatasource="idSirutasDs"
+                       property="idSiruta"/>
+                <field caption="msg://tipTarif"
+                       property="tipTarif"/>
+                <field caption="msg://denTarif"
+                       property="denTarif"/>
+                <field caption="msg://idDiamPe"
+                       optionsDatasource="idDiamPesDs"
+                       property="idDiamPe"/>
+                <field caption="msg://idDiamOl"
+                       optionsDatasource="idDiamOlsDs"
+                       property="idDiamOl"/>
+                <field caption="msg://tarif"
+                       property="tarif"/>
+                <field caption="msg://dataStart"
+                       property="dataStart"/>
+                <field caption="msg://dataStop"
+                       property="dataStop"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+                <field caption="msg://explicatii"
+                       property="explicatii"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

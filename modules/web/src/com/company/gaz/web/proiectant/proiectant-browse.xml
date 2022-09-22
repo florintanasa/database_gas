@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.proiectant.ProiectantBrowse"
+        focusComponent="proiectantsTable"
+        lookupComponent="proiectantsTable"
+        messagesPack="com.company.gaz.web.proiectant">
+    <dsContext>
+        <groupDatasource id="proiectantsDs"
+                         class="com.company.gaz.entity.Proiectant"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$Proiectant e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="proiectantsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="proiectantsTable"
+                datasource="proiectantsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="proiectantsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSocietatiProiectare"
+                        caption="msg://idSocietatiProiectare"/>
+                <column id="numeProiectant"
+                        caption="msg://numeProiectant"/>
+                <column id="tipAutProiectant"
+                        caption="msg://tipAutProiectant"/>
+                <column id="nrAutProiectant"
+                        caption="msg://nrAutProiectant"/>
+                <column id="dataStartAutProiectant"
+                        caption="msg://dataStartAutProiectant"/>
+                <column id="dataStopAutProiectant"
+                        caption="msg://dataStopAutProiectant"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+            </columns>
+            <rows datasource="proiectantsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="proiectantsTable.create"/>
+                <button id="editBtn"
+                        action="proiectantsTable.edit"/>
+                <button id="removeBtn"
+                        action="proiectantsTable.remove"/>
+                <button id="refreshBtn"
+                        action="proiectantsTable.refresh"/>
+                <button id="excelBtn"
+                        action="proiectantsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

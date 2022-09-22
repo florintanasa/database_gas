@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.oferteconracosdtarifexepostlinii.OferteConRacOSDTarifExePostLiniiEdit"
+        datasource="oferteConRacOSDTarifExePostLiniiDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.oferteconracosdtarifexepostlinii">
+    <dsContext>
+        <datasource id="oferteConRacOSDTarifExePostLiniiDs"
+                    class="com.company.gaz.entity.OferteConRacOSDTarifExePostLinii"
+                    view="oferteConRacOSDTarifExePostLinii-view"/>
+        <collectionDatasource id="idTarifeExecutiePosturisDs"
+                              class="com.company.gaz.entity.TarifeExecutiePosturi"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$TarifeExecutiePosturi e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idTvasDs"
+                              class="com.company.gaz.entity.Tva"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Tva e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="oferteConRacOSDTarifExePostLiniiDs">
+            <column width="250px">
+                <field caption="msg://idTarifeExecutiePosturi"
+                       optionsDatasource="idTarifeExecutiePosturisDs"
+                       property="idTarifeExecutiePosturi"/>
+                <field caption="msg://idTva"
+                       optionsDatasource="idTvasDs"
+                       property="idTva"/>
+                <field caption="msg://bucMl"
+                       property="bucMl"/>
+                <field caption="msg://discount"
+                       property="discount"/>
+                <field caption="msg://tarifD"
+                       property="tarifD"/>
+                <field caption="msg://tvaTarif"
+                       property="tvaTarif"/>
+                <field caption="msg://totalTarif"
+                       property="totalTarif"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

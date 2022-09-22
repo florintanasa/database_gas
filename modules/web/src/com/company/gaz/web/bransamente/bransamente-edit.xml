@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.bransamente.BransamenteEdit"
+        datasource="bransamenteDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.bransamente">
+    <dsContext>
+        <datasource id="bransamenteDs"
+                    class="com.company.gaz.entity.Bransamente"
+                    view="bransamente-view"/>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idLocatiisDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idRegimPresesDs"
+                              class="com.company.gaz.entity.RegimPres"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$RegimPres e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idMatConductaPesDs"
+                              class="com.company.gaz.entity.MatConducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamPesDs"
+                              class="com.company.gaz.entity.DiamPe"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamPe e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idMatConductaOlsDs"
+                              class="com.company.gaz.entity.MatConducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamOlsDs"
+                              class="com.company.gaz.entity.DiamOl"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamOl e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idExecutantsDs"
+                              class="com.company.gaz.entity.Executant"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Executant e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idProiectesDs"
+                              class="com.company.gaz.entity.Proiecte"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Proiecte e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="bransamenteDs">
+                <column width="250px">
+                    <field caption="msg://idSiruta"
+                           optionsDatasource="idSirutasDs"
+                           property="idSiruta"/>
+                    <field caption="msg://cuiBr"
+                           property="cuiBr"/>
+                    <field caption="msg://idLocatii"
+                           optionsDatasource="idLocatiisDs"
+                           property="idLocatii"/>
+                    <field caption="msg://idRegimPres"
+                           optionsDatasource="idRegimPresesDs"
+                           property="idRegimPres"/>
+                    <field caption="msg://idMatConductaPe"
+                           optionsDatasource="idMatConductaPesDs"
+                           property="idMatConductaPe"/>
+                    <field caption="msg://idDiamPe"
+                           optionsDatasource="idDiamPesDs"
+                           property="idDiamPe"/>
+                    <field caption="msg://lungimePe"
+                           property="lungimePe"/>
+                    <field caption="msg://idMatConductaOl"
+                           optionsDatasource="idMatConductaOlsDs"
+                           property="idMatConductaOl"/>
+                    <field caption="msg://idDiamOl"
+                           optionsDatasource="idDiamOlsDs"
+                           property="idDiamOl"/>
+                    <field caption="msg://lungimeOl"
+                           property="lungimeOl"/>
+                    <field caption="msg://idExecutant"
+                           optionsDatasource="idExecutantsDs"
+                           property="idExecutant"/>
+                    <field caption="msg://idProiecte"
+                           optionsDatasource="idProiectesDs"
+                           property="idProiecte"/>
+                    <field caption="msg://nrPvla"
+                           property="nrPvla"/>
+                    <field caption="msg://dataPvla"
+                           property="dataPvla"/>
+                    <field caption="msg://nrPvrt"
+                           property="nrPvrt"/>
+                    <field caption="msg://dataPvrt"
+                           property="dataPvrt"/>
+                    <field caption="msg://nrPvpif"
+                           property="nrPvpif"/>
+                    <field caption="msg://dataPvpif"
+                           property="dataPvpif"/>
+                    <field caption="msg://nrinventar"
+                           property="nrinventar"/>
+                    <field caption="msg://valcontabila"
+                           property="valcontabila"/>
+                </column>
+            </fieldGroup>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

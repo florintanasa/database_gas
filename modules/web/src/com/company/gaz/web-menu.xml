@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-gaz" insertBefore="administration">
+        <menu id="racordare-gaz">
+            <item screen="gaz$CereriRacordare.browse"/>
+            <item screen="gaz$AcordTehnicRacordare.browse"/>
+            <item screen="gaz$OferteContracteRacordareSD.browse"/>
+            <item screen="gaz$NotificareOsdAtr.browse"/>
+            <item screen="gaz$ContracteRacordareSD.browse"/>
+            <item screen="gaz$ContracteServiciiOE.browse"/>
+            <item screen="gaz$AcordAcces.browse"/>
+        </menu>
+        <menu id="tehnic-gaz">
+            <item screen="gaz$Proiecte.browse"/>
+            <item screen="gaz$Bransamente.browse"/>
+            <item screen="gaz$Srmprm.browse"/>
+            <item screen="gaz$InstUtilizare.browse"/>
+            <item screen="gaz$Executant.browse"/>
+            <item screen="gaz$Conducta.browse"/>
+            <item screen="gaz$Proiectant.browse"/>
+            <item screen="gaz$Verificator.browse"/>
+        </menu>
+        <menu id="parteneri-gaz">
+            <item screen="gaz$Parteneri.browse"/>
+            <item screen="gaz$Email.browse"/>
+            <item screen="gaz$CiCif.browse"/>
+            <item screen="gaz$Telefoane.browse"/>
+            <item screen="gaz$Locatii.browse"/>
+        </menu>
+    </menu>
+    <menu id="tarife-gaz" insertBefore="administration">
+        <item screen="gaz$TarifeRacordareFixe.browse"/>
+        <item screen="gaz$TarifeExecutiePosturi.browse"/>
+        <item screen="gaz$TarifeExecutieBransamente.browse"/>
+        <item screen="gaz$CompTarifNotificare.browse"/>
+    </menu>
+    <menu id="setting-gaz" insertBefore="administration">
+        <menu id="setparteneri-gaz">
+            <item screen="gaz$TipPersoana.browse"/>
+            <item screen="gaz$TipTelefon.browse"/>
+            <item screen="gaz$TipAct.browse"/>
+            <item screen="gaz$RepLegal.browse"/>
+            <item screen="gaz$Tari.browse"/>
+            <item screen="gaz$Judete.browse"/>
+            <item screen="gaz$Artera.browse"/>
+            <item screen="gaz$Strazi.browse"/>
+            <item screen="gaz$InstElibActe.browse"/>
+            <item screen="gaz$Localitati.browse"/>
+            <item screen="gaz$Banci.browse"/>
+            <item screen="gaz$ConturiBancareParteneri.browse"/>
+            <item screen="gaz$Tva.browse"/>
+        </menu>
+        <menu id="settehnic-gaz">
+            <item screen="gaz$TipRegulator.browse"/>
+            <item screen="gaz$TipContor.browse"/>
+            <item screen="gaz$TipAparate.browse"/>
+            <item screen="gaz$TipDocumente.browse"/>
+            <item screen="gaz$Srs.browse"/>
+            <item screen="gaz$Siruta.browse"/>
+            <item screen="gaz$RegimPres.browse"/>
+            <item screen="gaz$Obiecte.browse"/>
+            <item screen="gaz$SocietatiProiectare.browse"/>
+            <item screen="gaz$SocietatiExecutie.browse"/>
+            <item screen="gaz$InstalatoriOSD.browse"/>
+            <item screen="gaz$MatConducta.browse"/>
+            <item screen="gaz$DiamPe.browse"/>
+            <item screen="gaz$DiamOl.browse"/>
+        </menu>
+        <menu id="setcontracte-gaz">
+            <item screen="gaz$StatusCerereATR.browse"/>
+            <item screen="gaz$StatusContracteRacordareSD.browse"/>
+            <item screen="gaz$StatusContracteServiciiOE.browse"/>
+            <item screen="gaz$StatusOferteContracteRacordareSD.browse"/>
+        </menu>
+    </menu>
+</menu-config>

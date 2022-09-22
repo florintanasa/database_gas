@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.tiptelefon.TipTelefonEdit"
+        datasource="tipTelefonDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.tiptelefon">
+    <dsContext>
+        <datasource id="tipTelefonDs"
+                    class="com.company.gaz.entity.TipTelefon"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="tipTelefonDs">
+            <column width="250px">
+                <field caption="msg://denumireTipTelefon"
+                       property="denumireTipTelefon"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

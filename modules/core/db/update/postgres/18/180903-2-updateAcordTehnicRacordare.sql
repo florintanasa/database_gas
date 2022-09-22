@@ -1,0 +1,1 @@
+alter table GAZ_ACORD_TEHNIC_RACORDARE add column ID_INSTALATORI_OSD_ID uuid ;

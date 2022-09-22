@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.regimpres.RegimPresEdit"
+        datasource="regimPresDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.regimpres">
+    <dsContext>
+        <datasource id="regimPresDs"
+                    class="com.company.gaz.entity.RegimPres"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="regimPresDs">
+            <column width="250px">
+                <field caption="msg://regimPresiune"
+                       property="regimPresiune"/>
+                <field caption="msg://domPresiune"
+                       property="domPresiune"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

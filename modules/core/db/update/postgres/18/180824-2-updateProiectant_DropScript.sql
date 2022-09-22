@@ -1,0 +1,5 @@
+alter table GAZ_PROIECTANT drop column DEN_SOC_PROIECTARE__U54097 cascade ;
+alter table GAZ_PROIECTANT drop column TIP_AUT_SOCIETATE_PROIECTARE__U72238 cascade ;
+alter table GAZ_PROIECTANT drop column NR_AUT_SOCIETATE_PROIECTARE__U90430 cascade ;
+alter table GAZ_PROIECTANT drop column DATA_START_AUT_SOCIETATE_PROIECTARE__U62854 cascade ;
+alter table GAZ_PROIECTANT drop column DATA_STOP_AUT_SOCIETATE_PROIECTARE__U15658 cascade ;

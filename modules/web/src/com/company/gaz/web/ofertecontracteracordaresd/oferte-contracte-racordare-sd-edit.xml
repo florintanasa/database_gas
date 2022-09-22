@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.ofertecontracteracordaresd.OferteContracteRacordareSDEdit"
+        datasource="oferteContracteRacordareSDDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.ofertecontracteracordaresd">
+    <dsContext>
+        <datasource id="oferteContracteRacordareSDDs"
+                    class="com.company.gaz.entity.OferteContracteRacordareSD"
+                    view="oferteContracteRacordareSD-view">
+            <collectionDatasource id="idOferteContracteRacordareOSDLiniiDs"
+                                  property="idOferteContracteRacordareOSDLinii"/>
+            <collectionDatasource id="idOferteConRacOSDTarifExeBrLiniiDs"
+                                  property="idOferteConRacOSDTarifExeBrLinii"/>
+            <collectionDatasource id="idOferteConRacOSDTarifExePostLiniiDs"
+                                  property="idOferteConRacOSDTarifExePostLinii"/>
+        </datasource>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idPartenerisDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idCiCifsDs"
+                              class="com.company.gaz.entity.CiCif"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$CiCif e where e.idParteneri.id = :ds$idPartenerisDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="locatia_1sDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e where e.idParteneri.id = :ds$idPartenerisDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idTelefoanesDs"
+                              class="com.company.gaz.entity.Telefoane"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e where e.idParteneri.id = :ds$idPartenerisDs.id
+and e.principal=true and e.activ=true and e.idTipTelefon.denumireTipTelefon <> 'Fax']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idConturiBancarePartenerisDs"
+                              class="com.company.gaz.entity.ConturiBancareParteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$ConturiBancareParteneri e where e.idParteneri.id = :ds$idPartenerisDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="locatia_2sDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e where e.idParteneri.id = :ds$idPartenerisDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idAcordTehnicRacordaresDs"
+                              class="com.company.gaz.entity.AcordTehnicRacordare"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$AcordTehnicRacordare e where e.idCereriRacordare.idPartener.id = :ds$idPartenerisDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idFaxesDs"
+                              class="com.company.gaz.entity.Telefoane"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e where e.idParteneri.id = :ds$idPartenerisDs.id
+and e.principal=true and e.activ=true and e.idTipTelefon.denumireTipTelefon = 'Fax']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idEmailsDs"
+                              class="com.company.gaz.entity.Email"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Email e where e.idParteneri.id = :ds$idPartenerisDs.id
+and e.principal=true and e.activ=true]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idStatusOferteContracteRacordareSDsDs"
+                              class="com.company.gaz.entity.StatusOferteContracteRacordareSD"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$StatusOferteContracteRacordareSD e order by e.nrOrd asc]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   scrollBars="both"
+                   spacing="true">
+            <grid spacing="true"
+                  width="100%">
+                <columns count="2"/>
+                <rows>
+                    <row>
+                        <fieldGroup id="fieldGroup"
+                                    datasource="oferteContracteRacordareSDDs"
+                                    rowspan="3">
+                            <column width="250px">
+                                <field caption="msg://idSiruta"
+                                       optionsDatasource="idSirutasDs"
+                                       property="idSiruta"/>
+                                <field caption="msg://idStatusOferteContracteRacordareSD"
+                                       optionsDatasource="idStatusOferteContracteRacordareSDsDs"
+                                       property="idStatusOferteContracteRacordareSD"/>
+                                <field caption="msg://datainreg"
+                                       property="datainreg"/>
+                                <field caption="msg://idParteneri"
+                                       optionsDatasource="idPartenerisDs"
+                                       property="idParteneri"/>
+                                <field caption="msg://idCiCif"
+                                       optionsDatasource="idCiCifsDs"
+                                       property="idCiCif"/>
+                                <field caption="msg://locatia_1"
+                                       optionsDatasource="locatia_1sDs"
+                                       property="locatia_1"/>
+                                <field caption="msg://idTelefoane"
+                                       optionsDatasource="idTelefoanesDs"
+                                       property="idTelefoane"/>
+                                <field caption="msg://idFax"
+                                       optionsDatasource="idFaxesDs"
+                                       property="idFax"/>
+                                <field caption="msg://idEmail"
+                                       optionsDatasource="idEmailsDs"
+                                       property="idEmail"/>
+                                <field caption="msg://idConturiBancareParteneri"
+                                       optionsDatasource="idConturiBancarePartenerisDs"
+                                       property="idConturiBancareParteneri"/>
+                                <field caption="msg://idAcordTehnicRacordare"
+                                       optionsDatasource="idAcordTehnicRacordaresDs"
+                                       property="idAcordTehnicRacordare"/>
+                                <field caption="msg://locatia_2"
+                                       optionsDatasource="locatia_2sDs"
+                                       property="locatia_2"/>
+                                <field caption="msg://durataContract"
+                                       inputPrompt="msg://durata"
+                                       property="durataContract"/>
+                                <field caption="msg://prelContract"
+                                       inputPrompt="msg://prelungire"
+                                       property="prelContract"/>
+                                <field caption="msg://zileNotifRez"
+                                       inputPrompt="msg://zilenotif"
+                                       property="zileNotifRez"/>
+                                <field caption="msg://zilePlataTarif"
+                                       inputPrompt="msg://zileplata"
+                                       property="zilePlataTarif"/>
+                            </column>
+                            <column>
+                                <field caption="msg://prelDocumente"
+                                       property="prelDocumente"/>
+                                <field caption="msg://obtAvizCuAc"
+                                       property="obtAvizCuAc"/>
+                                <field caption="msg://proExecRac"
+                                       property="proExecRac"/>
+                                <field caption="msg://verifProiect"
+                                       property="verifProiect"/>
+                                <field caption="msg://urmLucExeRac"
+                                       property="urmLucExeRac"/>
+                                <field caption="msg://recPif"
+                                       property="recPif"/>
+                                <field caption="msg://procGarantie"
+                                       inputPrompt="msg://procgarantie"
+                                       property="procGarantie"/>
+                                <field caption="msg://tarifRacordare"
+                                       property="tarifRacordare"/>
+                                <field caption="msg://tvaTarifRacordare"
+                                       property="tvaTarifRacordare"/>
+                                <field caption="msg://totalTarifRacordare"
+                                       property="totalTarifRacordare"/>
+                                <field caption="msg://procTaxaISC1"
+                                       property="procTaxaISC1"/>
+                                <field caption="msg://taxaISC1"
+                                       property="taxaISC1"/>
+                                <field caption="msg://procTaxaISC2"
+                                       property="procTaxaISC2"/>
+                                <field caption="msg://taxaISC2"
+                                       property="taxaISC2"/>
+                            </column>
+                        </fieldGroup>
+                        <groupBox id="idOferteContracteRacordareOSDLiniiBox"
+                                  caption="msg://idOferteContracteRacordareOSDLiniiBox">
+                            <table id="idOferteContracteRacordareOSDLiniiTable"
+                                   height="200px"
+                                   width="1050px">
+                                <actions>
+                                    <action id="create"/>
+                                    <action id="edit"/>
+                                    <action id="remove"/>
+                                </actions>
+                                <columns>
+                                    <column id="idTarifeRacordareFixe.tipTarif"
+                                            caption="msg://tipTarif"/>
+                                    <column id="idTarifeRacordareFixe.denumireTarif"
+                                            caption="msg://denumireTarif"/>
+                                    <column id="idTarifeRacordareFixe.tarif"
+                                            caption="msg://tarif"/>
+                                    <column id="discount"
+                                            caption="msg://discount"/>
+                                    <column id="tarifD"
+                                            caption="msg://tarifD"/>
+                                    <column id="tvaTarif"
+                                            caption="msg://tvaTarif"/>
+                                    <column id="totalTarif"
+                                            caption="msg://totalTarif"/>
+                                </columns>
+                                <rows datasource="idOferteContracteRacordareOSDLiniiDs"/>
+                                <buttonsPanel>
+                                    <button action="idOferteContracteRacordareOSDLiniiTable.create"/>
+                                    <button action="idOferteContracteRacordareOSDLiniiTable.edit"/>
+                                    <button action="idOferteContracteRacordareOSDLiniiTable.remove"/>
+                                </buttonsPanel>
+                            </table>
+                        </groupBox>
+                    </row>
+                    <row>
+                        <groupBox id="idOferteConRacOSDTarifExePostLiniiBox"
+                                  caption="msg://idOferteConRacOSDTarifExePostLinii">
+                            <table id="idOferteConRacOSDTarifExePostLiniiTable"
+                                   height="200px"
+                                   width="1050px">
+                                <actions>
+                                    <action id="create"/>
+                                    <action id="edit"/>
+                                    <action id="remove"/>
+                                </actions>
+                                <columns>
+                                    <column id="idTarifeExecutiePosturi.tipTarif"
+                                            caption="msg://tipTarif"/>
+                                    <column id="idTarifeExecutiePosturi.denTarif"
+                                            caption="msg://denTarif"/>
+                                    <column id="bucMl"
+                                            caption="msg://bucMl"/>
+                                    <column id="idTarifeExecutiePosturi.tarif"
+                                            caption="msg://tarif"/>
+                                    <column id="discount"
+                                            caption="msg://discount"/>
+                                    <column id="tarifD"
+                                            caption="msg://tarifD"/>
+                                    <column id="tvaTarif"
+                                            caption="msg://tvaTarif"/>
+                                    <column id="totalTarif"
+                                            caption="msg://totalTarif"/>
+                                </columns>
+                                <rows datasource="idOferteConRacOSDTarifExePostLiniiDs"/>
+                                <buttonsPanel>
+                                    <button action="idOferteConRacOSDTarifExePostLiniiTable.create"/>
+                                    <button action="idOferteConRacOSDTarifExePostLiniiTable.edit"/>
+                                    <button action="idOferteConRacOSDTarifExePostLiniiTable.remove"/>
+                                </buttonsPanel>
+                            </table>
+                        </groupBox>
+                    </row>
+                    <row>
+                        <groupBox id="idOferteConRacOSDTarifExeBrLiniiBox"
+                                  caption="msg://idOferteConRacOSDTarifExeBrLiniiBox">
+                            <table id="idOferteConRacOSDTarifExeBrLiniiTable"
+                                   height="200px"
+                                   width="1050px">
+                                <actions>
+                                    <action id="create"/>
+                                    <action id="edit"/>
+                                    <action id="remove"/>
+                                </actions>
+                                <columns>
+                                    <column id="idTarifeExecutieBransamente.tipTarif"
+                                            caption="msg://tipTarif"/>
+                                    <column id="idTarifeExecutieBransamente.denTarif"
+                                            caption="msg://denTarif"/>
+                                    <column id="bucMl"
+                                            caption="msg://bucMl"/>
+                                    <column id="idTarifeExecutieBransamente.idDiamOl.codSpecific"
+                                            caption="msg://codSpecific"/>
+                                    <column id="idTarifeExecutieBransamente.idDiamPe.diamPe"
+                                            caption="msg://diamPe"/>
+                                    <column id="idTarifeExecutieBransamente.tarif"
+                                            caption="msg://tarif"/>
+                                    <column id="discount"
+                                            caption="msg://discount"/>
+                                    <column id="tarifD"
+                                            caption="msg://tarifD"/>
+                                    <column id="tvaTarif"
+                                            caption="msg://tvaTarif"/>
+                                    <column id="totalTarif"
+                                            caption="msg://totalTarif"/>
+                                </columns>
+                                <rows datasource="idOferteConRacOSDTarifExeBrLiniiDs"/>
+                                <buttonsPanel>
+                                    <button action="idOferteConRacOSDTarifExeBrLiniiTable.create"/>
+                                    <button action="idOferteConRacOSDTarifExeBrLiniiTable.edit"/>
+                                    <button action="idOferteConRacOSDTarifExeBrLiniiTable.remove"/>
+                                </buttonsPanel>
+                            </table>
+                        </groupBox>
+                    </row>
+                </rows>
+            </grid>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

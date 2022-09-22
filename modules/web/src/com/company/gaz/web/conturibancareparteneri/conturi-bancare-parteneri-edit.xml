@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.conturibancareparteneri.ConturiBancareParteneriEdit"
+        datasource="conturiBancareParteneriDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.conturibancareparteneri">
+    <dsContext>
+        <datasource id="conturiBancareParteneriDs"
+                    class="com.company.gaz.entity.ConturiBancareParteneri"
+                    view="conturiBancareParteneri-view"/>
+        <collectionDatasource id="idPartenerisDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idBancisDs"
+                              class="com.company.gaz.entity.Banci"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Banci e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="conturiBancareParteneriDs">
+            <column width="250px">
+                <field caption="msg://idParteneri"
+                       optionsDatasource="idPartenerisDs"
+                       property="idParteneri"/>
+                <field caption="msg://iban"
+                       property="iban"/>
+                <field caption="msg://idBanci"
+                       optionsDatasource="idBancisDs"
+                       property="idBanci"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

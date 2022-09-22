@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.proiectant.ProiectantEdit"
+        datasource="proiectantDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.proiectant">
+    <dsContext>
+        <datasource id="proiectantDs"
+                    class="com.company.gaz.entity.Proiectant"
+                    view="proiectant-view"/>
+        <collectionDatasource id="idSocietatiProiectaresDs"
+                              class="com.company.gaz.entity.SocietatiProiectare"
+                              view="_minimal"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="proiectantDs">
+            <column width="250px">
+                <field caption="msg://idSocietatiProiectare"
+                       optionsDatasource="idSocietatiProiectaresDs"
+                       property="idSocietatiProiectare"/>
+                <field caption="msg://numeProiectant"
+                       property="numeProiectant"/>
+                <field caption="msg://tipAutProiectant"
+                       property="tipAutProiectant"/>
+                <field caption="msg://nrAutProiectant"
+                       property="nrAutProiectant"/>
+                <field caption="msg://dataStartAutProiectant"
+                       property="dataStartAutProiectant"/>
+                <field caption="msg://dataStopAutProiectant"
+                       property="dataStopAutProiectant"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

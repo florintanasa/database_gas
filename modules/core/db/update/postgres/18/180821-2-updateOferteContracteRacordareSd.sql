@@ -1,0 +1,2 @@
+alter table GAZ_OFERTE_CONTRACTE_RACORDARE_SD add column TVA_TARIF_RACORDARE decimal(19, 2) ;
+alter table GAZ_OFERTE_CONTRACTE_RACORDARE_SD add column TOTAL_TARIF_RACORDARE decimal(19, 2) ;

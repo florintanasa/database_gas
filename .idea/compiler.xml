@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="com.company.gaz.gaz.gaz-core.main" target="1.8" />
+      <module name="com.company.gaz.gaz.gaz-core.test" target="1.8" />
+      <module name="com.company.gaz.gaz.gaz-global.main" target="1.8" />
+      <module name="com.company.gaz.gaz.gaz-global.test" target="1.8" />
+      <module name="com.company.gaz.gaz.gaz-web.main" target="1.8" />
+      <module name="com.company.gaz.gaz.gaz-web.test" target="1.8" />
+      <module name="com.company.gaz.nordgaz-core.main" target="1.8" />
+      <module name="com.company.gaz.nordgaz-core.test" target="1.8" />
+      <module name="com.company.gaz.nordgaz-global.main" target="1.8" />
+      <module name="com.company.gaz.nordgaz-global.test" target="1.8" />
+      <module name="com.company.gaz.nordgaz-web.main" target="1.8" />
+      <module name="com.company.gaz.nordgaz-web.test" target="1.8" />
+      <module name="com.company.gaz.ottogaz-core.main" target="1.8" />
+      <module name="com.company.gaz.ottogaz-core.test" target="1.8" />
+      <module name="com.company.gaz.ottogaz-global.main" target="1.8" />
+      <module name="com.company.gaz.ottogaz-global.test" target="1.8" />
+      <module name="com.company.gaz.ottogaz-web-themes.main" target="1.8" />
+      <module name="com.company.gaz.ottogaz-web-themes.test" target="1.8" />
+      <module name="com.company.gaz.ottogaz-web.main" target="1.8" />
+      <module name="com.company.gaz.ottogaz-web.test" target="1.8" />
+      <module name="core.gaz.gaz-core" target="1.8" />
+      <module name="core.gaz.gaz-core.main" target="1.8" />
+      <module name="core.gaz.gaz-core.test" target="1.8" />
+      <module name="gaz.gaz-core.main" target="1.8" />
+      <module name="gaz.gaz-core.test" target="1.8" />
+      <module name="gaz.gaz-global.main" target="1.8" />
+      <module name="gaz.gaz-global.test" target="1.8" />
+      <module name="gaz.gaz-web.main" target="1.8" />
+      <module name="gaz.gaz-web.test" target="1.8" />
+      <module name="gaz.nordgaz-core.main" target="1.8" />
+      <module name="gaz.nordgaz-core.test" target="1.8" />
+      <module name="gaz.nordgaz-global.main" target="1.8" />
+      <module name="gaz.nordgaz-global.test" target="1.8" />
+      <module name="gaz.nordgaz-web.main" target="1.8" />
+      <module name="gaz.nordgaz-web.test" target="1.8" />
+      <module name="global.gaz.gaz-global" target="1.8" />
+      <module name="global.gaz.gaz-global.main" target="1.8" />
+      <module name="global.gaz.gaz-global.test" target="1.8" />
+      <module name="web.gaz.gaz-web" target="1.8" />
+      <module name="web.gaz.gaz-web.main" target="1.8" />
+      <module name="web.gaz.gaz-web.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

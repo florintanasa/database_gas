@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.contracteserviciioe.ContracteServiciiOEBrowse"
+        focusComponent="contracteServiciiOEsTable"
+        lookupComponent="contracteServiciiOEsTable"
+        messagesPack="com.company.gaz.web.contracteserviciioe">
+    <dsContext>
+        <groupDatasource id="contracteServiciiOEsDs"
+                         class="com.company.gaz.entity.ContracteServiciiOE"
+                         view="contracteServiciiOE-view">
+            <query>
+                <![CDATA[select e from gaz$ContracteServiciiOE e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="contracteServiciiOEsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="contracteServiciiOEsTable"
+                datasource="contracteServiciiOEsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="contracteServiciiOEsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="nrinreg"
+                        caption="msg://nrinreg"/>
+                <column id="datainreg"
+                        caption="msg://datainreg"/>
+                <column id="idSocietatiProiectare"
+                        caption="msg://idSocietatiProiectare"/>
+                <column id="idVerificator"
+                        caption="msg://idVerificator"/>
+                <column id="idSocietatiExecutie"
+                        caption="msg://idSocietatiExecutie"/>
+                <column id="idNotificareOsdAtr"
+                        caption="msg://idNotificareOsdAtr"/>
+                <column id="idAcordTehnicRacordare"
+                        caption="msg://idAcordTehnicRacordare"/>
+                <column id="idContracteRacordareSD"
+                        caption="msg://idContracteRacordareSD"/>
+                <column id="locatia_2"
+                        caption="msg://locatia_2"/>
+                <column id="durataContract"
+                        caption="msg://durataContract"/>
+                <column id="zileRepGarantie"
+                        caption="msg://zileRepGarantie"/>
+                <column id="procElibGarantie1"
+                        caption="msg://procElibGarantie1"/>
+                <column id="procElibGarantie2"
+                        caption="msg://procElibGarantie2"/>
+                <column id="tarifRacordare"
+                        caption="msg://tarifRacordare"/>
+                <column id="dataTermProiect"
+                        caption="msg://dataTermProiect"/>
+                <column id="tarifProiectare"
+                        caption="msg://tarifProiectare"/>
+                <column id="proc1TarifProiectare"
+                        caption="msg://proc1TarifProiectare"/>
+                <column id="tarif1Proiectare"
+                        caption="msg://tarif1Proiectare"/>
+                <column id="proc2TarifProiectare"
+                        caption="msg://proc2TarifProiectare"/>
+                <column id="tarif2Proiectare"
+                        caption="msg://tarif2Proiectare"/>
+                <column id="dataTermVerifcare"
+                        caption="msg://dataTermVerifcare"/>
+                <column id="tarifVerificare"
+                        caption="msg://tarifVerificare"/>
+                <column id="proc1TarifVerificare"
+                        caption="msg://proc1TarifVerificare"/>
+                <column id="tarif1Verificare"
+                        caption="msg://tarif1Verificare"/>
+                <column id="proc2TarifVerificare"
+                        caption="msg://proc2TarifVerificare"/>
+                <column id="tarif2Verificare"
+                        caption="msg://tarif2Verificare"/>
+                <column id="dataTermExe"
+                        caption="msg://dataTermExe"/>
+                <column id="tarifExecutie"
+                        caption="msg://tarifExecutie"/>
+                <column id="proc1TarifExecutie"
+                        caption="msg://proc1TarifExecutie"/>
+                <column id="tarif1Executie"
+                        caption="msg://tarif1Executie"/>
+                <column id="proc2TarifExecutie"
+                        caption="msg://proc2TarifExecutie"/>
+                <column id="tarif2Executie"
+                        caption="msg://tarif2Executie"/>
+                <column id="idStatusContracteServiciiOE"
+                        caption="msg://idStatusContracteServiciiOE"/>
+            </columns>
+            <rows datasource="contracteServiciiOEsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="contracteServiciiOEsTable.create"/>
+                <button id="editBtn"
+                        action="contracteServiciiOEsTable.edit"/>
+                <button id="removeBtn"
+                        action="contracteServiciiOEsTable.remove"/>
+                <button id="refreshBtn"
+                        action="contracteServiciiOEsTable.refresh"/>
+                <button id="excelBtn"
+                        action="contracteServiciiOEsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

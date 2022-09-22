@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.parteneri.ParteneriBrowse"
+        focusComponent="partenerisTable"
+        lookupComponent="partenerisTable"
+        messagesPack="com.company.gaz.web.parteneri">
+    <dsContext>
+        <groupDatasource id="partenerisDs"
+                         class="com.company.gaz.entity.Parteneri"
+                         view="parteneri-view">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="partenerisTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="partenerisTable"
+                datasource="partenerisDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="partenerisTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idTipPersoana"
+                        caption="msg://idTipPersoana"/>
+                <column id="denumire"
+                        caption="msg://denumire"/>
+            </columns>
+            <rows datasource="partenerisDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="partenerisTable.create"/>
+                <button id="editBtn"
+                        action="partenerisTable.edit"/>
+                <button id="removeBtn"
+                        action="partenerisTable.remove"/>
+                <button id="refreshBtn"
+                        action="partenerisTable.refresh"/>
+                <button id="excelBtn"
+                        action="partenerisTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

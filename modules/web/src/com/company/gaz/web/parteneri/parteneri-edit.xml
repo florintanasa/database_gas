@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.parteneri.ParteneriEdit"
+        datasource="parteneriDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.parteneri">
+    <dsContext>
+        <datasource id="parteneriDs"
+                    class="com.company.gaz.entity.Parteneri"
+                    view="parteneri-view"/>
+        <collectionDatasource id="idTipPersoanasDs"
+                              class="com.company.gaz.entity.TipPersoana"
+                              view="_minimal"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="parteneriDs">
+            <column width="250px">
+                <field caption="msg://idTipPersoana"
+                       optionsDatasource="idTipPersoanasDs"
+                       property="idTipPersoana"/>
+                <field caption="msg://denumire"
+                       property="denumire"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

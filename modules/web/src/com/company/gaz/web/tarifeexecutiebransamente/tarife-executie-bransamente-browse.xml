@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.tarifeexecutiebransamente.TarifeExecutieBransamenteBrowse"
+        focusComponent="tarifeExecutieBransamentesTable"
+        lookupComponent="tarifeExecutieBransamentesTable"
+        messagesPack="com.company.gaz.web.tarifeexecutiebransamente">
+    <dsContext>
+        <groupDatasource id="tarifeExecutieBransamentesDs"
+                         class="com.company.gaz.entity.TarifeExecutieBransamente"
+                         view="tarifeExecutieBransamente-view">
+            <query>
+                <![CDATA[select e from gaz$TarifeExecutieBransamente e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tarifeExecutieBransamentesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tarifeExecutieBransamentesTable"
+                datasource="tarifeExecutieBransamentesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tarifeExecutieBransamentesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="tipTarif"
+                        caption="msg://tipTarif"/>
+                <column id="denTarif"
+                        caption="msg://denTarif"/>
+                <column id="idDiamPe"
+                        caption="msg://idDiamPe"/>
+                <column id="idDiamOl"
+                        caption="msg://idDiamOl"/>
+                <column id="tarif"
+                        caption="msg://tarif"/>
+                <column id="dataStart"
+                        caption="msg://dataStart"/>
+                <column id="dataStop"
+                        caption="msg://dataStop"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+                <column id="explicatii"
+                        caption="msg://explicatii"/>
+            </columns>
+            <rows datasource="tarifeExecutieBransamentesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="tarifeExecutieBransamentesTable.create"/>
+                <button id="editBtn"
+                        action="tarifeExecutieBransamentesTable.edit"/>
+                <button id="removeBtn"
+                        action="tarifeExecutieBransamentesTable.remove"/>
+                <button id="refreshBtn"
+                        action="tarifeExecutieBransamentesTable.refresh"/>
+                <button id="excelBtn"
+                        action="tarifeExecutieBransamentesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

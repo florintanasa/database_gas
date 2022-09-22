@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.instutilizare.InstUtilizareEdit"
+        datasource="instUtilizareDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.instutilizare">
+    <dsContext>
+        <datasource id="instUtilizareDs"
+                    class="com.company.gaz.entity.InstUtilizare"
+                    view="instUtilizare-view"/>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idLocatiisDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idSrmprmsDs"
+                              class="com.company.gaz.entity.Srmprm"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Srmprm e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idProiectesDs"
+                              class="com.company.gaz.entity.Proiecte"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Proiecte e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idExecutantsDs"
+                              class="com.company.gaz.entity.Executant"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Executant e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="instUtilizareDs">
+                <column width="250px">
+                    <field caption="msg://idSiruta"
+                           optionsDatasource="idSirutasDs"
+                           property="idSiruta"/>
+                    <field caption="msg://idLocatii"
+                           optionsDatasource="idLocatiisDs"
+                           property="idLocatii"/>
+                    <field caption="msg://idSrmprm"
+                           optionsDatasource="idSrmprmsDs"
+                           property="idSrmprm"/>
+                    <field caption="msg://cuiInstUtilizare"
+                           property="cuiInstUtilizare"/>
+                    <field caption="msg://idProiecte"
+                           optionsDatasource="idProiectesDs"
+                           property="idProiecte"/>
+                    <field caption="msg://idExecutant"
+                           optionsDatasource="idExecutantsDs"
+                           property="idExecutant"/>
+                    <field caption="msg://nrPvla"
+                           property="nrPvla"/>
+                    <field caption="msg://dataPvla"
+                           property="dataPvla"/>
+                    <field caption="msg://nrPvrt"
+                           property="nrPvrt"/>
+                    <field caption="msg://dataPvrt"
+                           property="dataPvrt"/>
+                    <field caption="msg://nrPvpif"
+                           property="nrPvpif"/>
+                    <field caption="msg://dataPvpif"
+                           property="dataPvpif"/>
+                    <field caption="msg://nrArhiva"
+                           property="nrArhiva"/>
+                </column>
+            </fieldGroup>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

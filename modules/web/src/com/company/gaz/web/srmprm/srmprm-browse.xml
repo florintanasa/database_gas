@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.srmprm.SrmprmBrowse"
+        focusComponent="srmprmsTable"
+        lookupComponent="srmprmsTable"
+        messagesPack="com.company.gaz.web.srmprm">
+    <dsContext>
+        <groupDatasource id="srmprmsDs"
+                         class="com.company.gaz.entity.Srmprm"
+                         view="srmprm-view">
+            <query>
+                <![CDATA[select e from gaz$Srmprm e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="srmprmsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="srmprmsTable"
+                datasource="srmprmsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="srmprmsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="idBransamente"
+                        caption="msg://idBransamente"/>
+                <column id="cuiSrmPrm"
+                        caption="msg://cuiSrmPrm"/>
+                <column id="idLocatii"
+                        caption="msg://idLocatii"/>
+                <column id="idProiecte"
+                        caption="msg://idProiecte"/>
+                <column id="idExecutant"
+                        caption="msg://idExecutant"/>
+                <column id="idRegimPres"
+                        caption="msg://idRegimPres"/>
+                <column id="presReglata"
+                        caption="msg://presReglata"/>
+                <column id="nrPvrt"
+                        caption="msg://nrPvrt"/>
+                <column id="dataPvrt"
+                        caption="msg://dataPvrt"/>
+                <column id="nrPvpif"
+                        caption="msg://nrPvpif"/>
+                <column id="dataPvpif"
+                        caption="msg://dataPvpif"/>
+                <column id="valContabila"
+                        caption="msg://valContabila"/>
+                <column id="nrInventar"
+                        caption="msg://nrInventar"/>
+            </columns>
+            <rows datasource="srmprmsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="srmprmsTable.create"/>
+                <button id="editBtn"
+                        action="srmprmsTable.edit"/>
+                <button id="removeBtn"
+                        action="srmprmsTable.remove"/>
+                <button id="refreshBtn"
+                        action="srmprmsTable.refresh"/>
+                <button id="excelBtn"
+                        action="srmprmsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

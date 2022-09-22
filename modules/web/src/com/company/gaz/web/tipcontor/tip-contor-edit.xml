@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.tipcontor.TipContorEdit"
+        datasource="tipContorDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.tipcontor">
+    <dsContext>
+        <datasource id="tipContorDs"
+                    class="com.company.gaz.entity.TipContor"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="tipContorDs">
+            <column width="250px">
+                <field caption="msg://tipContor"
+                       property="tipContor"/>
+                <field caption="msg://tipG"
+                       property="tipG"/>
+                <field caption="msg://qNom"
+                       property="qNom"/>
+                <field caption="msg://qMin"
+                       property="qMin"/>
+                <field caption="msg://qMax"
+                       property="qMax"/>
+                <field caption="msg://caderePresiune"
+                       property="caderePresiune"/>
+                <field caption="msg://explicatiiTipContor"
+                       property="explicatiiTipContor"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

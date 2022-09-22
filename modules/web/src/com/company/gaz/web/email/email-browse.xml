@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.email.EmailBrowse"
+        focusComponent="emailsTable"
+        lookupComponent="emailsTable"
+        messagesPack="com.company.gaz.web.email">
+    <dsContext>
+        <groupDatasource id="emailsDs"
+                         class="com.company.gaz.entity.Email"
+                         view="email-view">
+            <query>
+                <![CDATA[select e from gaz$Email e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="emailsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="emailsTable"
+                datasource="emailsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="emailsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idParteneri"
+                        caption="msg://idParteneri"/>
+                <column id="adresaEmail"
+                        caption="msg://adresaEmail"/>
+                <column id="principal"
+                        caption="msg://principal"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+            </columns>
+            <rows datasource="emailsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="emailsTable.create"/>
+                <button id="editBtn"
+                        action="emailsTable.edit"/>
+                <button id="removeBtn"
+                        action="emailsTable.remove"/>
+                <button id="refreshBtn"
+                        action="emailsTable.refresh"/>
+                <button id="excelBtn"
+                        action="emailsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

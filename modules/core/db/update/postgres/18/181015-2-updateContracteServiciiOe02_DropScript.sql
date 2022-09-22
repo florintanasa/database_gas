@@ -1,0 +1,1 @@
+alter table GAZ_CONTRACTE_SERVICII_OE drop column TARIF_PROIECTARE__U85564 cascade ;

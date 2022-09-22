@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.matconducta.MatConductaEdit"
+        datasource="matConductaDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.matconducta">
+    <dsContext>
+        <datasource id="matConductaDs"
+                    class="com.company.gaz.entity.MatConducta"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="matConductaDs">
+            <column width="250px">
+                <field caption="msg://tipMatConducta"
+                       property="tipMatConducta"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.contracteracordaresd.ContracteRacordareSDEdit"
+        datasource="contracteRacordareSDDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.contracteracordaresd">
+    <dsContext>
+        <datasource id="contracteRacordareSDDs"
+                    class="com.company.gaz.entity.ContracteRacordareSD"
+                    view="contracteRacordareSD-view"/>
+        <collectionDatasource id="idPartenerisDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idCiCifsDs"
+                              class="com.company.gaz.entity.CiCif"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$CiCif e where e.idParteneri.id = :ds$idPartenerisDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="locatia_1sDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e where e.idParteneri.id = :ds$idPartenerisDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idTelefoanesDs"
+                              class="com.company.gaz.entity.Telefoane"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e where e.idParteneri.id = :ds$idPartenerisDs.id
+and e.principal=true and e.activ=true and e.idTipTelefon.denumireTipTelefon <> 'Fax']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idConturiBancarePartenerisDs"
+                              class="com.company.gaz.entity.ConturiBancareParteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$ConturiBancareParteneri e where e.idParteneri.id = :ds$idPartenerisDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="locatia_2sDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e where e.idParteneri.id = :ds$idPartenerisDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idAcordTehnicRacordaresDs"
+                              class="com.company.gaz.entity.AcordTehnicRacordare"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$AcordTehnicRacordare e where e.idCereriRacordare.idPartener.id = :ds$idPartenerisDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idNotificareOsdAtrsDs"
+                              class="com.company.gaz.entity.NotificareOsdAtr"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$NotificareOsdAtr e where e.idParteneri.id = :ds$idPartenerisDs.id]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idFaxesDs"
+                              class="com.company.gaz.entity.Telefoane"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e where e.idParteneri.id = :ds$idPartenerisDs.id
+and e.principal=true and e.activ=true and e.idTipTelefon.denumireTipTelefon = 'Fax']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idEmailsDs"
+                              class="com.company.gaz.entity.Email"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Email e where e.idParteneri.id = :ds$idPartenerisDs.id
+and e.principal=true and e.activ=true]]>
+            </query>
+        </collectionDatasource>
+        <valueCollectionDatasource id="totalPretTarifDs">
+            <query>
+                <![CDATA[select e.totalPretTarif from gaz$NotificareOsdAtr e
+where e.id = :ds$idNotificareOsdAtrsDs.id]]>
+            </query>
+            <properties idProperty="totalPretTarif">
+                <property datatype="double"
+                          name="totalPretTarif"/>
+            </properties>
+        </valueCollectionDatasource>
+        <collectionDatasource id="idStatusContracteRacordareSDsDs"
+                              class="com.company.gaz.entity.StatusContracteRacordareSD"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$StatusContracteRacordareSD e order by e.nrOrd asc]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <grid spacing="true">
+                <columns count="1"/>
+                <rows>
+                    <row>
+                        <fieldGroup id="fieldGroup"
+                                    datasource="contracteRacordareSDDs">
+                            <column width="250px">
+                                <field caption="msg://idSiruta"
+                                       optionsDatasource="idSirutasDs"
+                                       property="idSiruta"/>
+                                <field caption="msg://idStatusContracteRacordareSD"
+                                       optionsDatasource="idStatusContracteRacordareSDsDs"
+                                       property="idStatusContracteRacordareSD"/>
+                                <field caption="msg://datainreg"
+                                       property="datainreg"/>
+                                <field caption="msg://idParteneri"
+                                       optionsDatasource="idPartenerisDs"
+                                       property="idParteneri"/>
+                                <field caption="msg://idCiCif"
+                                       optionsDatasource="idCiCifsDs"
+                                       property="idCiCif"/>
+                                <field caption="msg://locatia_1"
+                                       optionsDatasource="locatia_1sDs"
+                                       property="locatia_1"/>
+                                <field caption="msg://idTelefoane"
+                                       optionsDatasource="idTelefoanesDs"
+                                       property="idTelefoane"/>
+                                <field caption="msg://idFax"
+                                       optionsDatasource="idFaxesDs"
+                                       property="idFax"/>
+                                <field caption="msg://idEmail"
+                                       optionsDatasource="idEmailsDs"
+                                       property="idEmail"/>
+                                <field caption="msg://idConturiBancareParteneri"
+                                       optionsDatasource="idConturiBancarePartenerisDs"
+                                       property="idConturiBancareParteneri"/>
+                                <field caption="msg://idAcordTehnicRacordare"
+                                       optionsDatasource="idAcordTehnicRacordaresDs"
+                                       property="idAcordTehnicRacordare"/>
+                                <field caption="msg://locatia_2"
+                                       optionsDatasource="locatia_2sDs"
+                                       property="locatia_2"/>
+                            </column>
+                            <column>
+                                <field caption="msg://prelDocumente"
+                                       property="prelDocumente"/>
+                                <field caption="msg://obtAvizCuAc"
+                                       property="obtAvizCuAc"/>
+                                <field caption="msg://proExecRac"
+                                       property="proExecRac"/>
+                                <field caption="msg://verifProiect"
+                                       property="verifProiect"/>
+                                <field caption="msg://urmLucExeRac"
+                                       property="urmLucExeRac"/>
+                                <field caption="msg://recPif"
+                                       property="recPif"/>
+                                <field caption="msg://durataContract"
+                                       inputPrompt="msg://inpdurataContract"
+                                       property="durataContract"/>
+                                <field caption="msg://prelContract"
+                                       inputPrompt="msg://inpprelContract"
+                                       property="prelContract"/>
+                                <field caption="msg://idNotificareOsdAtr"
+                                       inputPrompt="msg://inpidNotificareOsdAtr"
+                                       optionsDatasource="idNotificareOsdAtrsDs"
+                                       property="idNotificareOsdAtr"/>
+                                <field caption="msg://procGarantie"
+                                       inputPrompt="msg://inpprocGarantie"
+                                       property="procGarantie"/>
+                                <field caption="msg://tarifRacordare"
+                                       property="tarifRacordare"/>
+                                <field caption="msg://zileNotifRez"
+                                       inputPrompt="msg://inpzileNotifRez"
+                                       property="zileNotifRez"/>
+                                <field caption="msg://zilePlataTarif"
+                                       inputPrompt="msg://inpzilePlataTarif"
+                                       property="zilePlataTarif"/>
+                            </column>
+                        </fieldGroup>
+                    </row>
+                </rows>
+            </grid>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

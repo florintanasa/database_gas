@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.acordtehnicracordare.AcordTehnicRacordareBrowse"
+        focusComponent="acordTehnicRacordaresTable"
+        lookupComponent="acordTehnicRacordaresTable"
+        messagesPack="com.company.gaz.web.acordtehnicracordare">
+    <dsContext>
+        <groupDatasource id="acordTehnicRacordaresDs"
+                         class="com.company.gaz.entity.AcordTehnicRacordare"
+                         view="acordTehnicRacordare-view">
+            <query>
+                <![CDATA[select e from gaz$AcordTehnicRacordare e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="acordTehnicRacordaresTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="acordTehnicRacordaresTable"
+                datasource="acordTehnicRacordaresDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="acordTehnicRacordaresTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="nrinreg"
+                        caption="msg://nrinreg"/>
+                <column id="datainreg"
+                        caption="msg://datainreg"/>
+                <column id="idTipArtera"
+                        caption="msg://idTipArtera"/>
+                <column id="idStrazi"
+                        caption="msg://idStrazi"/>
+                <column id="idCereriRacordare"
+                        caption="msg://idCereriRacordare"/>
+                <column id="idConductaRacord"
+                        caption="msg://idConductaRacord"/>
+                <column id="idMatConductaRacordOl"
+                        caption="msg://idMatConductaRacordOl"/>
+                <column id="idDiamOlRacord"
+                        caption="msg://idDiamOlRacord"/>
+                <column id="lungimeOlRacord"
+                        caption="msg://lungimeOlRacord"/>
+                <column id="idMatConductaRacordPe"
+                        caption="msg://idMatConductaRacordPe"/>
+                <column id="idMatConductaRacordPe2"
+                        caption="msg://idMatConductaRacordPe2"/>
+                <column id="idDiamPeRacord"
+                        caption="msg://idDiamPeRacord"/>
+                <column id="idDiamPeRacord2"
+                        caption="msg://idDiamPeRacord2"/>
+                <column id="lungimePeRacord"
+                        caption="msg://lungimePeRacord"/>
+                <column id="lungimePeRacord2"
+                        caption="msg://lungimePeRacord2"/>
+                <column id="lungimeAsfalt"
+                        caption="msg://lungimeAsfalt"/>
+                <column id="lungimeSpatiuVerde"
+                        caption="msg://lungimeSpatiuVerde"/>
+                <column id="idConductaExtindereExistenta"
+                        caption="msg://idConductaExtindereExistenta"/>
+                <column id="idConductaExtindere"
+                        caption="msg://idConductaExtindere"/>
+                <column id="idMatConductaExtindereOl"
+                        caption="msg://idMatConductaExtindereOl"/>
+                <column id="idDiamOlExtindere"
+                        caption="msg://idDiamOlExtindere"/>
+                <column id="lungimeOlExtindere"
+                        caption="msg://lungimeOlExtindere"/>
+                <column id="idMatConductaExtinderePe"
+                        caption="msg://idMatConductaExtinderePe"/>
+                <column id="idDiamPeExtindere"
+                        caption="msg://idDiamPeExtindere"/>
+                <column id="lungimePeExtindere"
+                        caption="msg://lungimePeExtindere"/>
+                <column id="idConductaRedimensionareExistenta"
+                        caption="msg://idConductaRedimensionareExistenta"/>
+                <column id="idConductaRedimensionare"
+                        caption="msg://idConductaRedimensionare"/>
+                <column id="idMatConductaRedimensionarePe"
+                        caption="msg://idMatConductaRedimensionarePe"/>
+                <column id="idDiamOlRedimensionare"
+                        caption="msg://idDiamOlRedimensionare"/>
+                <column id="lungimeOlRedimensionare"
+                        caption="msg://lungimeOlRedimensionare"/>
+                <column id="idMatConductaRedimensionareOl"
+                        caption="msg://idMatConductaRedimensionareOl"/>
+                <column id="idDiamPeRedimensionare"
+                        caption="msg://idDiamPeRedimensionare"/>
+                <column id="lungimePeRedimensionare"
+                        caption="msg://lungimePeRedimensionare"/>
+                <column id="idObiecteBr"
+                        caption="msg://idObiecteBr"/>
+                <column id="idObiectePost"
+                        caption="msg://idObiectePost"/>
+                <column id="idTipContor"
+                        caption="msg://idTipContor"/>
+                <column id="idTipRegulator"
+                        caption="msg://idTipRegulator"/>
+                <column id="presCalcul"
+                        caption="msg://presCalcul"/>
+                <column id="modSD"
+                        caption="msg://modSD"/>
+                <column id="extindereConducta"
+                        caption="msg://extindereConducta"/>
+                <column id="redimensionareConducta"
+                        caption="msg://redimensionareConducta"/>
+                <column id="corector"
+                        caption="msg://corector"/>
+                <column id="racordNou"
+                        caption="msg://racordNou"/>
+                <column id="racordExistent"
+                        caption="msg://racordExistent"/>
+                <column id="postNou"
+                        caption="msg://postNou"/>
+                <column id="postExistent"
+                        caption="msg://postExistent"/>
+                <column id="terenPrivat"
+                        caption="msg://terenPrivat"/>
+                <column id="terenPublic"
+                        caption="msg://terenPublic"/>
+                <column id="idInstalatoriOSD"
+                        caption="msg://idInstalatoriOSD"/>
+            </columns>
+            <rows datasource="acordTehnicRacordaresDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="acordTehnicRacordaresTable.create"/>
+                <button id="editBtn"
+                        action="acordTehnicRacordaresTable.edit"/>
+                <button id="removeBtn"
+                        action="acordTehnicRacordaresTable.remove"/>
+                <button id="refreshBtn"
+                        action="acordTehnicRacordaresTable.refresh"/>
+                <button id="excelBtn"
+                        action="acordTehnicRacordaresTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.tipact.TipActBrowse"
+        focusComponent="tipActsTable"
+        lookupComponent="tipActsTable"
+        messagesPack="com.company.gaz.web.tipact">
+    <dsContext>
+        <groupDatasource id="tipActsDs"
+                         class="com.company.gaz.entity.TipAct"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$TipAct e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tipActsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tipActsTable"
+                datasource="tipActsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tipActsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="tipAct"
+                        caption="msg://tipAct"/>
+                <column id="explicatii"
+                        caption="msg://explicatii"/>
+            </columns>
+            <rows datasource="tipActsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="tipActsTable.create"/>
+                <button id="editBtn"
+                        action="tipActsTable.edit"/>
+                <button id="removeBtn"
+                        action="tipActsTable.remove"/>
+                <button id="refreshBtn"
+                        action="tipActsTable.refresh"/>
+                <button id="excelBtn"
+                        action="tipActsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.judete.JudeteEdit"
+        datasource="judeteDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.judete">
+    <dsContext>
+        <datasource id="judeteDs"
+                    class="com.company.gaz.entity.Judete"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="judeteDs">
+            <column width="250px">
+                <field caption="msg://numeJudet"
+                       property="numeJudet"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

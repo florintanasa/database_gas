@@ -1,0 +1,2 @@
+update GAZ_OFERTE_CONTRACTE_RACORDARE_OSD_LINII set DISCOUNT = 0 where DISCOUNT is null ;
+alter table GAZ_OFERTE_CONTRACTE_RACORDARE_OSD_LINII alter column DISCOUNT set not null ;

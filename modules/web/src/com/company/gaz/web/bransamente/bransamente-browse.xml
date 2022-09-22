@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.bransamente.BransamenteBrowse"
+        focusComponent="bransamentesTable"
+        lookupComponent="bransamentesTable"
+        messagesPack="com.company.gaz.web.bransamente">
+    <dsContext>
+        <groupDatasource id="bransamentesDs"
+                         class="com.company.gaz.entity.Bransamente"
+                         view="bransamente-view">
+            <query>
+                <![CDATA[select e from gaz$Bransamente e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="bransamentesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="bransamentesTable"
+                datasource="bransamentesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="bransamentesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="cuiBr"
+                        caption="msg://cuiBr"/>
+                <column id="idLocatii"
+                        caption="msg://idLocatii"/>
+                <column id="idRegimPres"
+                        caption="msg://idRegimPres"/>
+                <column id="idMatConductaPe"
+                        caption="msg://idMatConductaPe"/>
+                <column id="idDiamPe"
+                        caption="msg://idDiamPe"/>
+                <column id="lungimePe"
+                        caption="msg://lungimePe"/>
+                <column id="idMatConductaOl"
+                        caption="msg://idMatConductaOl"/>
+                <column id="idDiamOl"
+                        caption="msg://idDiamOl"/>
+                <column id="lungimeOl"
+                        caption="msg://lungimeOl"/>
+                <column id="idExecutant"
+                        caption="msg://idExecutant"/>
+                <column id="idProiecte"
+                        caption="msg://idProiecte"/>
+                <column id="nrPvla"
+                        caption="msg://nrPvla"/>
+                <column id="dataPvla"
+                        caption="msg://dataPvla"/>
+                <column id="nrPvrt"
+                        caption="msg://nrPvrt"/>
+                <column id="dataPvrt"
+                        caption="msg://dataPvrt"/>
+                <column id="nrPvpif"
+                        caption="msg://nrPvpif"/>
+                <column id="dataPvpif"
+                        caption="msg://dataPvpif"/>
+                <column id="nrinventar"
+                        caption="msg://nrinventar"/>
+                <column id="valcontabila"
+                        caption="msg://valcontabila"/>
+            </columns>
+            <rows datasource="bransamentesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="bransamentesTable.create"/>
+                <button id="editBtn"
+                        action="bransamentesTable.edit"/>
+                <button id="removeBtn"
+                        action="bransamentesTable.remove"/>
+                <button id="refreshBtn"
+                        action="bransamentesTable.refresh"/>
+                <button id="excelBtn"
+                        action="bransamentesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

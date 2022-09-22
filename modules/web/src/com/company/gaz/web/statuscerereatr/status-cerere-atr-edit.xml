@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.statuscerereatr.StatusCerereATREdit"
+        datasource="statusCerereATRDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.statuscerereatr">
+    <dsContext>
+        <datasource id="statusCerereATRDs"
+                    class="com.company.gaz.entity.StatusCerereATR"
+                    view="statusCerereATR-view"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="statusCerereATRDs">
+            <column width="250px">
+                <field caption="msg://nrOrd"
+                       property="nrOrd"/>
+                <field caption="msg://stareCerereATR"
+                       property="stareCerereATR"/>
+                <field caption="msg://explicatii"
+                       property="explicatii"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

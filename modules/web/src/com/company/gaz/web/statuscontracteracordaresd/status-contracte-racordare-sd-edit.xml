@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.statuscontracteracordaresd.StatusContracteRacordareSDEdit"
+        datasource="statusContracteRacordareSDDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.statuscontracteracordaresd">
+    <dsContext>
+        <datasource id="statusContracteRacordareSDDs"
+                    class="com.company.gaz.entity.StatusContracteRacordareSD"
+                    view="statusContracteRacordareSD-view"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="statusContracteRacordareSDDs">
+            <column width="250px">
+                <field caption="msg://nrOrd"
+                       property="nrOrd"/>
+                <field caption="msg://stareContractRacordareSD"
+                       property="stareContractRacordareSD"/>
+                <field caption="msg://explicatii"
+                       property="explicatii"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

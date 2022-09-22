@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.acordacces.AcordAccesBrowse"
+        focusComponent="acordAccesesTable"
+        lookupComponent="acordAccesesTable"
+        messagesPack="com.company.gaz.web.acordacces">
+    <dsContext>
+        <groupDatasource id="acordAccesesDs"
+                         class="com.company.gaz.entity.AcordAcces"
+                         view="acordAcces-view">
+            <query>
+                <![CDATA[select e from gaz$AcordAcces e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="acordAccesesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="acordAccesesTable"
+                datasource="acordAccesesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="acordAccesesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="idParteneri"
+                        caption="msg://idParteneri"/>
+                <column id="idLocatii"
+                        caption="msg://idLocatii"/>
+                <column id="nrAcordAcces"
+                        caption="msg://nrAcordAcces"/>
+                <column id="dataAcordAcces"
+                        caption="msg://dataAcordAcces"/>
+                <column id="bucMg"
+                        caption="msg://bucMg"/>
+                <column id="debitMg"
+                        caption="msg://debitMg"/>
+                <column id="bucCt"
+                        caption="msg://bucCt"/>
+                <column id="debitCt"
+                        caption="msg://debitCt"/>
+                <column id="bucInst"
+                        caption="msg://bucInst"/>
+                <column id="debitInst"
+                        caption="msg://debitInst"/>
+                <column id="debitTotal"
+                        caption="msg://debitTotal"/>
+                <column id="idConducta"
+                        caption="msg://idConducta"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+            </columns>
+            <rows datasource="acordAccesesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="acordAccesesTable.create"/>
+                <button id="editBtn"
+                        action="acordAccesesTable.edit"/>
+                <button id="removeBtn"
+                        action="acordAccesesTable.remove"/>
+                <button id="refreshBtn"
+                        action="acordAccesesTable.refresh"/>
+                <button id="excelBtn"
+                        action="acordAccesesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

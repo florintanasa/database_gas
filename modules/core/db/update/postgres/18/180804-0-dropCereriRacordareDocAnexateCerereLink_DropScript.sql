@@ -1,0 +1,1 @@
+drop table if exists GAZ_CERERI_RACORDARE_DOC_ANEXATE_CERERE_LINK__U47027 cascade ;

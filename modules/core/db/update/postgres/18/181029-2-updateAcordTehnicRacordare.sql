@@ -1,0 +1,3 @@
+alter table GAZ_ACORD_TEHNIC_RACORDARE add column ID_MAT_CONDUCTA_RACORD_PE2_ID uuid ;
+alter table GAZ_ACORD_TEHNIC_RACORDARE add column ID_DIAM_PE_RACORD2_ID uuid ;
+alter table GAZ_ACORD_TEHNIC_RACORDARE add column LUNGIME_PE_RACORD2 decimal(6, 2) ;

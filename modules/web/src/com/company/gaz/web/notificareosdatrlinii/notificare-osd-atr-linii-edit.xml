@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.notificareosdatrlinii.NotificareOsdAtrLiniiEdit"
+        datasource="notificareOsdAtrLiniiDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.notificareosdatrlinii">
+    <dsContext>
+        <datasource id="notificareOsdAtrLiniiDs"
+                    class="com.company.gaz.entity.NotificareOsdAtrLinii"
+                    view="notificareOsdAtrLinii-view"/>
+        <collectionDatasource id="idDenTarifsDs"
+                              class="com.company.gaz.entity.CompTarifNotificare"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$CompTarifNotificare e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idCotaTvasDs"
+                              class="com.company.gaz.entity.Tva"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Tva e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="notificareOsdAtrLiniiDs">
+            <column width="250px">
+                <field caption="msg://idDenTarif"
+                       optionsDatasource="idDenTarifsDs"
+                       property="idDenTarif"/>
+                <field caption="msg://pretTarif"
+                       property="pretTarif"/>
+                <field caption="msg://idCotaTva"
+                       optionsDatasource="idCotaTvasDs"
+                       property="idCotaTva"/>
+                <field caption="msg://tvaTarif"
+                       property="tvaTarif"/>
+                <field caption="msg://pretTarifTva"
+                       property="pretTarifTva"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

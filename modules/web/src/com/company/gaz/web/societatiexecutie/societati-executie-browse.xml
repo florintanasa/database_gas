@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.societatiexecutie.SocietatiExecutieBrowse"
+        focusComponent="societatiExecutiesTable"
+        lookupComponent="societatiExecutiesTable"
+        messagesPack="com.company.gaz.web.societatiexecutie">
+    <dsContext>
+        <groupDatasource id="societatiExecutiesDs"
+                         class="com.company.gaz.entity.SocietatiExecutie"
+                         view="societatiExecutie-view">
+            <query>
+                <![CDATA[select e from gaz$SocietatiExecutie e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="societatiExecutiesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="societatiExecutiesTable"
+                datasource="societatiExecutiesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="societatiExecutiesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idParteneri"
+                        caption="msg://idParteneri"/>
+                <column id="tipAutSocietateExecutie"
+                        caption="msg://tipAutSocietateExecutie"/>
+                <column id="nrAutSocietateExecutie"
+                        caption="msg://nrAutSocietateExecutie"/>
+                <column id="dataStartAutSocietateExecutie"
+                        caption="msg://dataStartAutSocietateExecutie"/>
+                <column id="dataStopAutSocietateExecutie"
+                        caption="msg://dataStopAutSocietateExecutie"/>
+                <column id="idConturiBancareParteneri"
+                        caption="msg://idConturiBancareParteneri"/>
+                <column id="idLocatii"
+                        caption="msg://idLocatii"/>
+                <column id="idTelefoane"
+                        caption="msg://idTelefoane"/>
+                <column id="idFax"
+                        caption="msg://idFax"/>
+                <column id="idEmail"
+                        caption="msg://idEmail"/>
+                <column id="idRepLegal"
+                        caption="msg://idRepLegal"/>
+                <column id="idCalitateRepLegal"
+                        caption="msg://idCalitateRepLegal"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+            </columns>
+            <rows datasource="societatiExecutiesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="societatiExecutiesTable.create"/>
+                <button id="editBtn"
+                        action="societatiExecutiesTable.edit"/>
+                <button id="removeBtn"
+                        action="societatiExecutiesTable.remove"/>
+                <button id="refreshBtn"
+                        action="societatiExecutiesTable.refresh"/>
+                <button id="excelBtn"
+                        action="societatiExecutiesTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

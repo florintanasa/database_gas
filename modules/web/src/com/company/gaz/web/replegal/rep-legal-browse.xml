@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.replegal.RepLegalBrowse"
+        focusComponent="repLegalsTable"
+        lookupComponent="repLegalsTable"
+        messagesPack="com.company.gaz.web.replegal">
+    <dsContext>
+        <groupDatasource id="repLegalsDs"
+                         class="com.company.gaz.entity.RepLegal"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$RepLegal e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="repLegalsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="repLegalsTable"
+                datasource="repLegalsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="repLegalsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="calitateRepLegal"
+                        caption="msg://calitateRepLegal"/>
+            </columns>
+            <rows datasource="repLegalsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="repLegalsTable.create"/>
+                <button id="editBtn"
+                        action="repLegalsTable.edit"/>
+                <button id="removeBtn"
+                        action="repLegalsTable.remove"/>
+                <button id="refreshBtn"
+                        action="repLegalsTable.refresh"/>
+                <button id="excelBtn"
+                        action="repLegalsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.artera.ArteraBrowse"
+        focusComponent="arterasTable"
+        lookupComponent="arterasTable"
+        messagesPack="com.company.gaz.web.artera">
+    <dsContext>
+        <groupDatasource id="arterasDs"
+                         class="com.company.gaz.entity.Artera"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$Artera e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="arterasTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="arterasTable"
+                datasource="arterasDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="arterasTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="tipArtera"
+                        caption="msg://tipArtera"/>
+            </columns>
+            <rows datasource="arterasDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="arterasTable.create"/>
+                <button id="editBtn"
+                        action="arterasTable.edit"/>
+                <button id="removeBtn"
+                        action="arterasTable.remove"/>
+                <button id="refreshBtn"
+                        action="arterasTable.refresh"/>
+                <button id="excelBtn"
+                        action="arterasTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

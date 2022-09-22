@@ -1,0 +1,12 @@
+update GAZ_CONTRACTE_RACORDARE_SD set PREL_DOCUMENTE = false where PREL_DOCUMENTE is null ;
+alter table GAZ_CONTRACTE_RACORDARE_SD alter column PREL_DOCUMENTE set not null ;
+update GAZ_CONTRACTE_RACORDARE_SD set OBT_AVIZ_CU_AC = false where OBT_AVIZ_CU_AC is null ;
+alter table GAZ_CONTRACTE_RACORDARE_SD alter column OBT_AVIZ_CU_AC set not null ;
+update GAZ_CONTRACTE_RACORDARE_SD set PRO_EXEC_RAC = false where PRO_EXEC_RAC is null ;
+alter table GAZ_CONTRACTE_RACORDARE_SD alter column PRO_EXEC_RAC set not null ;
+update GAZ_CONTRACTE_RACORDARE_SD set VERIF_PROIECT = false where VERIF_PROIECT is null ;
+alter table GAZ_CONTRACTE_RACORDARE_SD alter column VERIF_PROIECT set not null ;
+update GAZ_CONTRACTE_RACORDARE_SD set URM_LUC_EXE_RAC = false where URM_LUC_EXE_RAC is null ;
+alter table GAZ_CONTRACTE_RACORDARE_SD alter column URM_LUC_EXE_RAC set not null ;
+update GAZ_CONTRACTE_RACORDARE_SD set REC_PIF = false where REC_PIF is null ;
+alter table GAZ_CONTRACTE_RACORDARE_SD alter column REC_PIF set not null ;

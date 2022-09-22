@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.executant.ExecutantBrowse"
+        focusComponent="executantsTable"
+        lookupComponent="executantsTable"
+        messagesPack="com.company.gaz.web.executant">
+    <dsContext>
+        <groupDatasource id="executantsDs"
+                         class="com.company.gaz.entity.Executant"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$Executant e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="executantsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="executantsTable"
+                datasource="executantsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="executantsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSocietatiExecutie"
+                        caption="msg://idSocietatiExecutie"/>
+                <column id="numeInstalator"
+                        caption="msg://numeInstalator"/>
+                <column id="tipAutInstalator"
+                        caption="msg://tipAutInstalator"/>
+                <column id="nrAutInstalator"
+                        caption="msg://nrAutInstalator"/>
+                <column id="dataStartAutInstalator"
+                        caption="msg://dataStartAutInstalator"/>
+                <column id="dataStopAutInstalator"
+                        caption="msg://dataStopAutInstalator"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+            </columns>
+            <rows datasource="executantsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="executantsTable.create"/>
+                <button id="editBtn"
+                        action="executantsTable.edit"/>
+                <button id="removeBtn"
+                        action="executantsTable.remove"/>
+                <button id="refreshBtn"
+                        action="executantsTable.refresh"/>
+                <button id="excelBtn"
+                        action="executantsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

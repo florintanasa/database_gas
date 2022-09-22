@@ -1,0 +1,1 @@
+alter table GAZ_ACORD_TEHNIC_RACORDARE add column IMAGINE_SOLUTIE_ID uuid ;

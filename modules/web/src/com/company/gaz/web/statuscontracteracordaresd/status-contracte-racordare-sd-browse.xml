@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.statuscontracteracordaresd.StatusContracteRacordareSDBrowse"
+        focusComponent="statusContracteRacordareSDsTable"
+        lookupComponent="statusContracteRacordareSDsTable"
+        messagesPack="com.company.gaz.web.statuscontracteracordaresd">
+    <dsContext>
+        <groupDatasource id="statusContracteRacordareSDsDs"
+                         class="com.company.gaz.entity.StatusContracteRacordareSD"
+                         view="statusContracteRacordareSD-view">
+            <query>
+                <![CDATA[select e from gaz$StatusContracteRacordareSD e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="statusContracteRacordareSDsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="statusContracteRacordareSDsTable"
+                datasource="statusContracteRacordareSDsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="statusContracteRacordareSDsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="excel"/>
+                <action id="refresh"/>
+            </actions>
+            <columns>
+                <column id="nrOrd"
+                        caption="msg://nrOrd"/>
+                <column id="stareContractRacordareSD"
+                        caption="msg://stareContractRacordareSD"/>
+                <column id="explicatii"
+                        caption="msg://explicatii"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+            </columns>
+            <rows datasource="statusContracteRacordareSDsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="statusContracteRacordareSDsTable.create"/>
+                <button id="editBtn"
+                        action="statusContracteRacordareSDsTable.edit"/>
+                <button id="removeBtn"
+                        action="statusContracteRacordareSDsTable.remove"/>
+                <button id="excelBtn"
+                        action="statusContracteRacordareSDsTable.excel"/>
+                <button id="refreshBtn"
+                        action="statusContracteRacordareSDsTable.refresh"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.ofertecontracteracordaresd.OferteContracteRacordareSDBrowse"
+        focusComponent="oferteContracteRacordareSDsTable"
+        lookupComponent="oferteContracteRacordareSDsTable"
+        messagesPack="com.company.gaz.web.ofertecontracteracordaresd">
+    <dsContext>
+        <groupDatasource id="oferteContracteRacordareSDsDs"
+                         class="com.company.gaz.entity.OferteContracteRacordareSD"
+                         view="oferteContracteRacordareSD-view">
+            <query>
+                <![CDATA[select e from gaz$OferteContracteRacordareSD e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="oferteContracteRacordareSDsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="oferteContracteRacordareSDsTable"
+                datasource="oferteContracteRacordareSDsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="oferteContracteRacordareSDsTable"
+                    height="617px"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="nrinreg"
+                        caption="msg://nrinreg"/>
+                <column id="datainreg"/>
+                <column id="idParteneri"
+                        caption="msg://idParteneri"/>
+                <column id="idCiCif"
+                        caption="msg://idCiCif"/>
+                <column id="locatia_1"
+                        caption="msg://locatia_1"/>
+                <column id="idTelefoane"
+                        caption="msg://idTelefoane"/>
+                <column id="idFax"
+                        caption="msg://idFax"/>
+                <column id="idEmail"
+                        caption="msg://idEmail"/>
+                <column id="idConturiBancareParteneri"
+                        caption="msg://idConturiBancareParteneri"/>
+                <column id="idAcordTehnicRacordare"
+                        caption="msg://idAcordTehnicRacordare"/>
+                <column id="locatia_2"
+                        caption="msg://locatia_2"/>
+                <column id="prelDocumente"
+                        caption="msg://prelDocumente"/>
+                <column id="obtAvizCuAc"
+                        caption="msg://obtAvizCuAc"/>
+                <column id="proExecRac"
+                        caption="msg://proExecRac"/>
+                <column id="verifProiect"
+                        caption="msg://verifProiect"/>
+                <column id="urmLucExeRac"
+                        caption="msg://urmLucExeRac"/>
+                <column id="recPif"
+                        caption="msg://recPif"/>
+                <column id="durataContract"
+                        caption="msg://durataContract"/>
+                <column id="prelContract"
+                        caption="msg://prelContract"/>
+                <column id="procGarantie"
+                        caption="msg://procGarantie"/>
+                <column id="zilePlataTarif"
+                        caption="msg://zilePlataTarif"/>
+                <column id="zileNotifRez"
+                        caption="msg://zileNotifRez"/>
+                <column id="tarifRacordare"
+                        caption="msg://tarifRacordare"/>
+                <column id="tvaTarifRacordare"/>
+                <column id="totalTarifRacordare"/>
+                <column id="procTaxaISC1"
+                        caption="msg://procTaxaISC"/>
+                <column id="taxaISC1"
+                        caption="msg://taxaISC"/>
+                <column id="procTaxaISC2"
+                        caption="msg://procTaxaISC2"/>
+                <column id="taxaISC2"
+                        caption="msg://taxaISC2"/>
+                <column id="idStatusOferteContracteRacordareSD"
+                        caption="msg://idStatusOferteContracteRacordareSD"/>
+            </columns>
+            <rows datasource="oferteContracteRacordareSDsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="oferteContracteRacordareSDsTable.create"/>
+                <button id="editBtn"
+                        action="oferteContracteRacordareSDsTable.edit"/>
+                <button id="removeBtn"
+                        action="oferteContracteRacordareSDsTable.remove"/>
+                <button id="refreshBtn"
+                        action="oferteContracteRacordareSDsTable.refresh"/>
+                <button id="excelBtn"
+                        action="oferteContracteRacordareSDsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

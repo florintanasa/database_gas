@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.societatiproiectare.SocietatiProiectareEdit"
+        datasource="societatiProiectareDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.societatiproiectare">
+    <dsContext>
+        <datasource id="societatiProiectareDs"
+                    class="com.company.gaz.entity.SocietatiProiectare"
+                    view="societatiProiectare-view"/>
+        <collectionDatasource id="idLocatiisDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idTelefoanesDs"
+                              class="com.company.gaz.entity.Telefoane"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Telefoane e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idConturiBancarePartenerisDs"
+                              class="com.company.gaz.entity.ConturiBancareParteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$ConturiBancareParteneri e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idFaxesDs"
+                              class="com.company.gaz.entity.Telefoane"
+                              view="_minimal"/>
+        <collectionDatasource id="idemailsDs"
+                              class="com.company.gaz.entity.Email"
+                              view="_minimal"/>
+        <collectionDatasource id="idRepLegalsDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal"/>
+        <collectionDatasource id="idCalitateRepLegalsDs"
+                              class="com.company.gaz.entity.RepLegal"
+                              view="_minimal"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="societatiProiectareDs">
+            <column width="250px">
+                <field property="idParteneri"/>
+                <field property="tipAutSocietateProiectare"/>
+                <field property="nrAutSocietateProiectare"/>
+                <field property="dataStartAutSocietateProiectare"/>
+                <field property="dataStopAutSocietateProiectare"/>
+                <field caption="msg://idConturiBancareParteneri"
+                       optionsDatasource="idConturiBancarePartenerisDs"
+                       property="idConturiBancareParteneri"/>
+                <field caption="msg://idLocatii"
+                       optionsDatasource="idLocatiisDs"
+                       property="idLocatii"/>
+                <field caption="msg://idTelefoane"
+                       optionsDatasource="idTelefoanesDs"
+                       property="idTelefoane"/>
+                <field caption="msg://idFax"
+                       optionsDatasource="idFaxesDs"
+                       property="idFax"/>
+                <field caption="msg://idemail"
+                       optionsDatasource="idemailsDs"
+                       property="idemail"/>
+                <field caption="msg://idRepLegal"
+                       optionsDatasource="idRepLegalsDs"
+                       property="idRepLegal"/>
+                <field caption="msg://idCalitateRepLegal"
+                       optionsDatasource="idCalitateRepLegalsDs"
+                       property="idCalitateRepLegal"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

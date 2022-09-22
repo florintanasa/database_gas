@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.oferteconracosdtarifexebrlinii.OferteConRacOSDTarifExeBrLiniiEdit"
+        datasource="oferteConRacOSDTarifExeBrLiniiDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.oferteconracosdtarifexebrlinii">
+    <dsContext>
+        <datasource id="oferteConRacOSDTarifExeBrLiniiDs"
+                    class="com.company.gaz.entity.OferteConRacOSDTarifExeBrLinii"
+                    view="oferteConRacOSDTarifExeBrLinii-view"/>
+        <collectionDatasource id="idTarifeExecutieBransamentesDs"
+                              class="com.company.gaz.entity.TarifeExecutieBransamente"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$TarifeExecutieBransamente e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idTvasDs"
+                              class="com.company.gaz.entity.Tva"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Tva e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="oferteConRacOSDTarifExeBrLiniiDs">
+            <column width="250px">
+                <field caption="msg://idTarifeExecutieBransamente"
+                       optionsDatasource="idTarifeExecutieBransamentesDs"
+                       property="idTarifeExecutieBransamente"/>
+                <field caption="msg://idTva"
+                       optionsDatasource="idTvasDs"
+                       property="idTva"/>
+                <field caption="msg://bucMl"
+                       property="bucMl"/>
+                <field caption="msg://discount"
+                       property="discount"/>
+                <field caption="msg://tarifD"
+                       property="tarifD"/>
+                <field caption="msg://tvaTarif"
+                       property="tvaTarif"/>
+                <field caption="msg://totalTarif"
+                       property="totalTarif"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

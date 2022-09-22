@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.cicif.CiCifBrowse"
+        focusComponent="ciCifsTable"
+        lookupComponent="ciCifsTable"
+        messagesPack="com.company.gaz.web.cicif">
+    <dsContext>
+        <groupDatasource id="ciCifsDs"
+                         class="com.company.gaz.entity.CiCif"
+                         view="ciCif-view">
+            <query>
+                <![CDATA[select e from gaz$CiCif e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="ciCifsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="ciCifsTable"
+                datasource="ciCifsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="ciCifsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idParteneri"
+                        caption="msg://idParteneri"/>
+                <column id="idTipAct"
+                        caption="msg://idTipAct"/>
+                <column id="idInstElibActe"
+                        caption="msg://idInstElibActe"/>
+                <column id="serieAct"
+                        caption="msg://serieAct"/>
+                <column id="nrAct"
+                        caption="msg://nrAct"/>
+                <column id="cif"
+                        caption="msg://cif"/>
+                <column id="cnp"
+                        caption="msg://cnp"/>
+                <column id="nrOrd"
+                        caption="msg://nrOrd"/>
+                <column id="dataEliberareAct"
+                        caption="msg://dataEliberareAct"/>
+                <column id="valabil"
+                        caption="msg://valabil"/>
+            </columns>
+            <rows datasource="ciCifsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="ciCifsTable.create"/>
+                <button id="editBtn"
+                        action="ciCifsTable.edit"/>
+                <button id="removeBtn"
+                        action="ciCifsTable.remove"/>
+                <button id="refreshBtn"
+                        action="ciCifsTable.refresh"/>
+                <button id="excelBtn"
+                        action="ciCifsTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

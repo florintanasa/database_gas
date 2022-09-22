@@ -1,0 +1,591 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.acordtehnicracordare.AcordTehnicRacordareEdit"
+        datasource="acordTehnicRacordareDs"
+        messagesPack="com.company.gaz.web.acordtehnicracordare">
+    <dsContext>
+        <datasource id="acordTehnicRacordareDs"
+                    class="com.company.gaz.entity.AcordTehnicRacordare"
+                    view="acordTehnicRacordare-view"/>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idTipArterasDs"
+                              class="com.company.gaz.entity.Artera"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Artera e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idStrazisDs"
+                              class="com.company.gaz.entity.Strazi"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Strazi e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idCereriRacordaresDs"
+                              class="com.company.gaz.entity.CereriRacordare"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$CereriRacordare e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idConductaRacordsDs"
+                              class="com.company.gaz.entity.Conducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Conducta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idMatConductaRacordOlsDs"
+                              class="com.company.gaz.entity.MatConducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e where e.tipMatConducta='OL']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamOlRacordsDs"
+                              class="com.company.gaz.entity.DiamOl"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamOl e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idMatConductaRacordPesDs"
+                              class="com.company.gaz.entity.MatConducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e where e.tipMatConducta='PE100']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamPeRacordsDs"
+                              class="com.company.gaz.entity.DiamPe"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamPe e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idConductaExtinderesDs"
+                              class="com.company.gaz.entity.Conducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Conducta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idMatConductaExtindereOlsDs"
+                              class="com.company.gaz.entity.MatConducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamOlExtinderesDs"
+                              class="com.company.gaz.entity.DiamOl"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamOl e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idMatConductaExtinderePesDs"
+                              class="com.company.gaz.entity.MatConducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamPeExtinderesDs"
+                              class="com.company.gaz.entity.DiamPe"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamPe e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idConductaRedimensionaresDs"
+                              class="com.company.gaz.entity.Conducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Conducta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idMatConductaRedimensionarePesDs"
+                              class="com.company.gaz.entity.MatConducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamOlRedimensionaresDs"
+                              class="com.company.gaz.entity.DiamOl"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamOl e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idMatConductaRedimensionareOlsDs"
+                              class="com.company.gaz.entity.MatConducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamPeRedimensionaresDs"
+                              class="com.company.gaz.entity.DiamPe"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamPe e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idObiecteBrsDs"
+                              class="com.company.gaz.entity.Obiecte"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Obiecte e where e.tipObiecte like 'Br%']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idObiectePostsDs"
+                              class="com.company.gaz.entity.Obiecte"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Obiecte e where e.tipObiecte not like 'Br%']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idTipContorsDs"
+                              class="com.company.gaz.entity.TipContor"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$TipContor e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idTipRegulatorsDs"
+                              class="com.company.gaz.entity.TipRegulator"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$TipRegulator e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idInstalatoriOSDsDs"
+                              class="com.company.gaz.entity.InstalatoriOSD"
+                              view="_minimal"/>
+        <collectionDatasource id="idConductaRedimensionareExistentasDs"
+                              class="com.company.gaz.entity.Conducta"
+                              view="_minimal"/>
+        <collectionDatasource id="idConductaExtindereExistentasDs"
+                              class="com.company.gaz.entity.Conducta"
+                              view="_minimal"/>
+        <collectionDatasource id="idMatConductaRacordPe2sDs"
+                              class="com.company.gaz.entity.MatConducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$MatConducta e where e.tipMatConducta='PE100']]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idDiamPeRacord2sDs"
+                              class="com.company.gaz.entity.DiamPe"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$DiamPe e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <tabSheet id="tabSheet"
+                      width="AUTO">
+                <tab id="tabDate"
+                     caption="msg://tabDate"
+                     margin="true,false,false,false"
+                     spacing="true">
+                    <grid id="gridTabDate"
+                          spacing="true">
+                        <columns count="2"/>
+                        <rows>
+                            <row>
+                                <dateField id="dateDatainreg"
+                                           caption="msg://datainreg"
+                                           datasource="acordTehnicRacordareDs"
+                                           property="datainreg"/>
+                                <lookupPickerField id="lookupIdAcordTehnicRacordareField"
+                                                   caption="msg://lookupIdAcordTehnicRacordareField"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idInstalatoriOSDsDs"
+                                                   property="idInstalatoriOSD"
+                                                   width="250px"/>
+                            </row>
+                            <row>
+                                <lookupPickerField id="lookupIdSiruta"
+                                                   caption="msg://idSiruta"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idSirutasDs"
+                                                   property="idSiruta"/>
+                                <lookupPickerField id="lookupIdCereriRacordare"
+                                                   caption="msg://idCereriRacordare"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idCereriRacordaresDs"
+                                                   property="idCereriRacordare"/>
+                            </row>
+                            <row>
+                                <groupBox id="groupBoxModSD"
+                                          caption="msg://groupBoxModSD"
+                                          colspan="2"
+                                          orientation="horizontal"
+                                          spacing="true">
+                                    <checkBox id="checkRacord"
+                                              caption="msg://checkRacord"
+                                              datasource="acordTehnicRacordareDs"
+                                              property="modSD"/>
+                                    <checkBox id="checkRedimensionareConducta"
+                                              caption="msg://checkRedimensionareConducta"
+                                              datasource="acordTehnicRacordareDs"
+                                              property="redimensionareConducta"/>
+                                    <checkBox id="checkExtindereConducta"
+                                              caption="msg://checkExtindereConducta"
+                                              datasource="acordTehnicRacordareDs"
+                                              property="extindereConducta"/>
+                                </groupBox>
+                            </row>
+                        </rows>
+                    </grid>
+                </tab>
+                <tab id="tabRacord"
+                     caption="msg://tabRacord"
+                     margin="true,false,false,false"
+                     spacing="true">
+                    <grid id="gridTabRacord"
+                          spacing="true"
+                          width="100%">
+                        <columns count="1"/>
+                        <rows>
+                            <row>
+                                <groupBox id="groupBransament"
+                                          caption="msg://groupBransament"
+                                          spacing="true">
+                                    <grid id="gridGroupBransament"
+                                          spacing="true"
+                                          width="100%">
+                                        <columns count="3"/>
+                                        <rows>
+                                            <row>
+                                                <lookupPickerField id="lookupIdObiecteBr"
+                                                                   caption="msg://lookupIdObiecteBr"
+                                                                   datasource="acordTehnicRacordareDs"
+                                                                   optionsDatasource="idObiecteBrsDs"
+                                                                   property="idObiecteBr"/>
+                                                <groupBox id="groupTipRacord"
+                                                          caption="msg://groupTipRacord"
+                                                          orientation="horizontal"
+                                                          spacing="true">
+                                                    <checkBox id="checkRacordNou"
+                                                              caption="msg://checkRacordNou"
+                                                              datasource="acordTehnicRacordareDs"
+                                                              property="racordNou"/>
+                                                    <checkBox id="checkRacordExistent"
+                                                              caption="msg://checkRacordExistent"
+                                                              datasource="acordTehnicRacordareDs"
+                                                              property="racordExistent"/>
+                                                </groupBox>
+                                                <groupBox id="groupTipTeren"
+                                                          caption="msg://groupTipTeren"
+                                                          orientation="horizontal"
+                                                          spacing="true">
+                                                    <checkBox id="checkTerenPublic"
+                                                              caption="msg://checkTerenPublic"
+                                                              datasource="acordTehnicRacordareDs"
+                                                              property="terenPublic"/>
+                                                    <checkBox id="checkTerenPrivat"
+                                                              caption="msg://checkTerenPrivat"
+                                                              datasource="acordTehnicRacordareDs"
+                                                              property="terenPrivat"/>
+                                                </groupBox>
+                                            </row>
+                                            <row>
+                                                <lookupPickerField id="lookupIdMatConductaRacordPe"
+                                                                   caption="msg://lookupIdMatConductaRacordPe"
+                                                                   datasource="acordTehnicRacordareDs"
+                                                                   optionsDatasource="idMatConductaRacordPesDs"
+                                                                   property="idMatConductaRacordPe"/>
+                                                <lookupPickerField id="lookupIdDiamPeRacord"
+                                                                   caption="msg://lookupIdDiamPeRacord"
+                                                                   datasource="acordTehnicRacordareDs"
+                                                                   optionsDatasource="idDiamPeRacordsDs"
+                                                                   property="idDiamPeRacord"/>
+                                                <textField id="textLungimePeRacord"
+                                                           caption="msg://textLungimePeRacord"
+                                                           datasource="acordTehnicRacordareDs"
+                                                           property="lungimePeRacord"/>
+                                            </row>
+                                            <row>
+                                                <lookupField id="lookupIdMatConductaRacordPe2"
+                                                             caption="msg://lookupIdMatConductaRacordPe2"
+                                                             datasource="acordTehnicRacordareDs"
+                                                             optionsDatasource="idMatConductaRacordPe2sDs"
+                                                             property="idMatConductaRacordPe2"
+                                                             width="250px"/>
+                                                <lookupField id="lookupIdDiamPeRacord2"
+                                                             caption="msg://lookupIdDiamPeRacord2"
+                                                             datasource="acordTehnicRacordareDs"
+                                                             optionsDatasource="idDiamPeRacord2sDs"
+                                                             property="idDiamPeRacord2"
+                                                             width="250px"/>
+                                                <textField id="textLungimePeRacord2"
+                                                           caption="msg://textLungimePeRacord2"
+                                                           datasource="acordTehnicRacordareDs"
+                                                           property="lungimePeRacord2"/>
+                                            </row>
+                                            <row>
+                                                <lookupPickerField id="lookupIdMatConductaRacordOl"
+                                                                   caption="msg://lookupIdMatConductaRacordOl"
+                                                                   datasource="acordTehnicRacordareDs"
+                                                                   optionsDatasource="idMatConductaRacordOlsDs"
+                                                                   property="idMatConductaRacordOl"/>
+                                                <lookupPickerField id="lookupIdDiamOlRacord"
+                                                                   caption="msg://lookupIdDiamOlRacord"
+                                                                   datasource="acordTehnicRacordareDs"
+                                                                   optionsDatasource="idDiamOlRacordsDs"
+                                                                   property="idDiamOlRacord"/>
+                                                <textField id="textLungimeOlRacord"
+                                                           caption="msg://textLungimeOlRacord"
+                                                           datasource="acordTehnicRacordareDs"
+                                                           property="lungimeOlRacord"/>
+                                            </row>
+                                            <row>
+                                                <textField id="textPresCalcul"
+                                                           caption="msg://textPresCalcul"
+                                                           datasource="acordTehnicRacordareDs"
+                                                           property="presCalcul"/>
+                                                <textField id="textLungimeAsfalt"
+                                                           caption="msg://textLungimeAsfalt"
+                                                           datasource="acordTehnicRacordareDs"
+                                                           property="lungimeAsfalt"/>
+                                                <textField id="textLungimeSpatiuVerde"
+                                                           caption="msg://textLungimeSpatiuVerde"
+                                                           datasource="acordTehnicRacordareDs"
+                                                           property="lungimeSpatiuVerde"/>
+                                            </row>
+                                            <row>
+                                                <lookupPickerField id="lookupIdConductaRacord"
+                                                                   caption="msg://lookupIdConductaRacord"
+                                                                   datasource="acordTehnicRacordareDs"
+                                                                   optionsDatasource="idConductaRacordsDs"
+                                                                   property="idConductaRacord"/>
+                                                <lookupPickerField id="lookupidTipArtera"
+                                                                   caption="msg://lookupidTipArtera"
+                                                                   datasource="acordTehnicRacordareDs"
+                                                                   optionsDatasource="idTipArterasDs"
+                                                                   property="idTipArtera"/>
+                                                <lookupPickerField id="lookupidNumeStrada"
+                                                                   caption="msg://lookupidNumeStrada"
+                                                                   datasource="acordTehnicRacordareDs"
+                                                                   optionsDatasource="idStrazisDs"
+                                                                   property="idStrazi"/>
+                                            </row>
+                                        </rows>
+                                    </grid>
+                                </groupBox>
+                            </row>
+                            <row>
+                                <groupBox id="groupPost"
+                                          caption="msg://groupPost"
+                                          spacing="true">
+                                    <grid id="gridGroupPost"
+                                          spacing="true"
+                                          width="100%">
+                                        <columns count="3"/>
+                                        <rows>
+                                            <row>
+                                                <lookupPickerField id="lookupIdObiectePost"
+                                                                   caption="msg://lookupIdObiecteP"
+                                                                   datasource="acordTehnicRacordareDs"
+                                                                   optionsDatasource="idObiectePostsDs"
+                                                                   property="idObiectePost"/>
+                                                <groupBox id="groupTipPost"
+                                                          caption="msg://groupTipPost"
+                                                          orientation="horizontal"
+                                                          spacing="true">
+                                                    <checkBox id="checkPostNou"
+                                                              caption="msg://checkPostNou"
+                                                              datasource="acordTehnicRacordareDs"
+                                                              property="postNou"/>
+                                                    <checkBox id="checkPostExistent"
+                                                              caption="msg://checkPostExistent"
+                                                              datasource="acordTehnicRacordareDs"
+                                                              property="postExistent"/>
+                                                </groupBox>
+                                            </row>
+                                            <row>
+                                                <lookupPickerField id="lookupIdRegulator"
+                                                                   caption="msg://lookupIdRegulator"
+                                                                   datasource="acordTehnicRacordareDs"
+                                                                   optionsDatasource="idTipRegulatorsDs"
+                                                                   property="idTipRegulator"/>
+                                                <lookupPickerField id="lookupIdTipContor"
+                                                                   caption="msg://lookupIdTipContor"
+                                                                   datasource="acordTehnicRacordareDs"
+                                                                   optionsDatasource="idTipContorsDs"
+                                                                   property="idTipContor"/>
+                                                <checkBox id="checkCorector"
+                                                          caption="msg://checkCorector"
+                                                          datasource="acordTehnicRacordareDs"
+                                                          property="corector"/>
+                                            </row>
+                                        </rows>
+                                    </grid>
+                                </groupBox>
+                            </row>
+                        </rows>
+                    </grid>
+                </tab>
+                <tab id="tabExtindere"
+                     caption="msg://tabExtindere"
+                     margin="true,false,false,false"
+                     spacing="true">
+                    <grid id="gridTabExtindere"
+                          spacing="true">
+                        <columns count="3"/>
+                        <rows>
+                            <row>
+                                <lookupPickerField id="lookupIdConductaExtindereExistenta"
+                                                   caption="msg://lookupIdConductaExtindereExistenta"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idConductaExtindereExistentasDs"
+                                                   property="idConductaExtindereExistenta"/>
+                                <lookupPickerField id="lookupIdConductaExtindere"
+                                                   caption="msg://lookupIdConductaExtindere"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idConductaExtinderesDs"
+                                                   property="idConductaExtindere"/>
+                            </row>
+                            <row>
+                                <lookupPickerField id="ookupIdMatConductaExtinderePe"
+                                                   caption="msg://lookupIdMatConductaExtinderePe"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idMatConductaExtinderePesDs"
+                                                   property="idMatConductaExtinderePe"/>
+                                <lookupPickerField id="lookupIdDiamPeExtindere"
+                                                   caption="msg://lookupIdDiamPeExtindere"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idDiamPeExtinderesDs"
+                                                   property="idDiamPeExtindere"/>
+                                <textField id="textLungimePeExtindere"
+                                           caption="msg://textLungimePeExtindere"
+                                           datasource="acordTehnicRacordareDs"
+                                           property="lungimePeExtindere"/>
+                            </row>
+                            <row>
+                                <lookupPickerField id="lookupIdMatConductaExtindereOl"
+                                                   caption="msg://lookupIdMatConductaExtindereOl"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idMatConductaExtindereOlsDs"
+                                                   property="idMatConductaExtindereOl"/>
+                                <lookupPickerField id="lookupIdDiamOlConductaExtindere"
+                                                   caption="msg://lookupIdDiamOlConductaExtindere"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idDiamOlExtinderesDs"
+                                                   property="idDiamOlExtindere"/>
+                                <textField id="textLungimeOlExtindere"
+                                           caption="msg://textLungimeOlExtindere"
+                                           datasource="acordTehnicRacordareDs"
+                                           property="lungimeOlExtindere"/>
+                            </row>
+                        </rows>
+                    </grid>
+                </tab>
+                <tab id="tabRedimensionare"
+                     caption="msg://tabRedimensionare"
+                     margin="true,false,false,false"
+                     spacing="true">
+                    <grid id="gridTabRedimensionare"
+                          spacing="true">
+                        <columns count="3"/>
+                        <rows>
+                            <row>
+                                <lookupPickerField id="lookupIdConductaRedimensionareExistenta"
+                                                   caption="msg://lookupIdConductaRedimensionareExistenta"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idConductaRedimensionareExistentasDs"
+                                                   property="idConductaRedimensionareExistenta"/>
+                                <lookupPickerField id="lookupIdConductaRedimensionare"
+                                                   caption="msg://lookupIdConductaRedimensionare"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idConductaRedimensionaresDs"
+                                                   property="idConductaRedimensionare"/>
+                            </row>
+                            <row>
+                                <lookupPickerField id="lookupIdMatConductaRedimensionarePe"
+                                                   caption="msg://lookupIdMatConductaRedimensionarePe"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idMatConductaRedimensionarePesDs"
+                                                   property="idMatConductaRedimensionarePe"/>
+                                <lookupPickerField id="lookupIdDiamPeRedimensionare"
+                                                   caption="msg://lookupIdDiamPeRedimensionare"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idDiamPeRedimensionaresDs"
+                                                   property="idDiamPeRedimensionare"/>
+                                <textField id="textLungimePeRedimensionare"
+                                           caption="msg://textLungimePeRedimensionare"
+                                           datasource="acordTehnicRacordareDs"
+                                           property="lungimePeRedimensionare"/>
+                            </row>
+                            <row>
+                                <lookupPickerField id="lookupIdMatConductaRedimensionareOl"
+                                                   caption="msg://lookupIdMatConductaRedimensionareOl"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idMatConductaRedimensionareOlsDs"
+                                                   property="idMatConductaRedimensionareOl"/>
+                                <lookupPickerField id="lookupIdDiamOlConductaRedimensionare"
+                                                   caption="msg://lookupIdDiamOlConductaRedimensionare"
+                                                   datasource="acordTehnicRacordareDs"
+                                                   optionsDatasource="idDiamOlRedimensionaresDs"
+                                                   property="idDiamOlRedimensionare"/>
+                                <textField id="textLungimeOlRedimensionare"
+                                           caption="msg://textLungimeOlRedimensionare"
+                                           datasource="acordTehnicRacordareDs"
+                                           property="lungimeOlRedimensionare"/>
+                            </row>
+                        </rows>
+                    </grid>
+                </tab>
+                <tab id="tabImagineSolutie"
+                     caption="msg://tabImagineSolutie"
+                     margin="true,false,false,false"
+                     spacing="true">
+                    <vbox spacing="true">
+                        <groupBox id="groupImagineSolutie"
+                                  caption="msg://groupImagineSolutie"
+                                  spacing="true">
+                            <image id="imaginesolutie"
+                                   height="500px"
+                                   scaleMode="CONTAIN"
+                                   width="700px"/>
+                            <hbox align="MIDDLE_CENTER"
+                                  spacing="true">
+                                <upload id="imaginesolutieUpload"
+                                        align="MIDDLE_CENTER"
+                                        uploadButtonCaption="msg://imaginesolutieUpload"/>
+                                <button id="downloadImageBtn"
+                                        align="MIDDLE_CENTER"
+                                        caption="msg://downloadImageBtn"
+                                        invoke="onDownloadImageBtnClick"/>
+                                <button id="clearImageBtn"
+                                        align="MIDDLE_CENTER"
+                                        caption="msg://clearImageBtn"
+                                        invoke="onClearImageBtnClick"/>
+                            </hbox>
+                        </groupBox>
+                    </vbox>
+                </tab>
+            </tabSheet>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

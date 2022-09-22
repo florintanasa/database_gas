@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.acordacces.AcordAccesEdit"
+        datasource="acordAccesDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.acordacces">
+    <dsContext>
+        <datasource id="acordAccesDs"
+                    class="com.company.gaz.entity.AcordAcces"
+                    view="acordAcces-view"/>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idPartenerisDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idLocatiisDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idConductasDs"
+                              class="com.company.gaz.entity.Conducta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Conducta e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="acordAccesDs">
+                <column width="250px">
+                    <field caption="msg://idSiruta"
+                           optionsDatasource="idSirutasDs"
+                           property="idSiruta"/>
+                    <field caption="msg://idParteneri"
+                           optionsDatasource="idPartenerisDs"
+                           property="idParteneri"/>
+                    <field caption="msg://idLocatii"
+                           optionsDatasource="idLocatiisDs"
+                           property="idLocatii"/>
+                    <field caption="msg://nrAcordAcces"
+                           property="nrAcordAcces"/>
+                    <field caption="msg://dataAcordAcces"
+                           property="dataAcordAcces"/>
+                    <field caption="msg://bucMg"
+                           property="bucMg"/>
+                    <field caption="msg://debitMg"
+                           property="debitMg"/>
+                    <field caption="msg://bucCt"
+                           property="bucCt"/>
+                    <field caption="msg://debitCt"
+                           property="debitCt"/>
+                    <field caption="msg://bucInst"
+                           property="bucInst"/>
+                    <field caption="msg://debitInst"
+                           property="debitInst"/>
+                    <field caption="msg://debitTotal"
+                           property="debitTotal"/>
+                    <field caption="msg://idConducta"
+                           optionsDatasource="idConductasDs"
+                           property="idConducta"/>
+                    <field caption="msg://activ"
+                           property="activ"/>
+                </column>
+            </fieldGroup>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

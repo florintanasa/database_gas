@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.tarifeexecutieposturi.TarifeExecutiePosturiBrowse"
+        focusComponent="tarifeExecutiePosturisTable"
+        lookupComponent="tarifeExecutiePosturisTable"
+        messagesPack="com.company.gaz.web.tarifeexecutieposturi">
+    <dsContext>
+        <groupDatasource id="tarifeExecutiePosturisDs"
+                         class="com.company.gaz.entity.TarifeExecutiePosturi"
+                         view="tarifeExecutiePosturi-view">
+            <query>
+                <![CDATA[select e from gaz$TarifeExecutiePosturi e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tarifeExecutiePosturisTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="tarifeExecutiePosturisTable"
+                datasource="tarifeExecutiePosturisDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="tarifeExecutiePosturisTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="tipTarif"
+                        caption="msg://tipTarif"/>
+                <column id="denTarif"
+                        caption="msg://denTarif"/>
+                <column id="debitMaxim"
+                        caption="msg://debitMaxim"/>
+                <column id="tarif"
+                        caption="msg://tarif"/>
+                <column id="dataStart"
+                        caption="msg://dataStart"/>
+                <column id="dataStop"
+                        caption="msg://dataStop"/>
+                <column id="activ"
+                        caption="msg://activ"/>
+                <column id="explicatii"
+                        caption="msg://explicatii"/>
+            </columns>
+            <rows datasource="tarifeExecutiePosturisDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="tarifeExecutiePosturisTable.create"/>
+                <button id="editBtn"
+                        action="tarifeExecutiePosturisTable.edit"/>
+                <button id="removeBtn"
+                        action="tarifeExecutiePosturisTable.remove"/>
+                <button id="refreshBtn"
+                        action="tarifeExecutiePosturisTable.refresh"/>
+                <button id="excelBtn"
+                        action="tarifeExecutiePosturisTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

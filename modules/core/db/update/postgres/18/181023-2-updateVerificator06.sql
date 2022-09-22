@@ -1,0 +1,1 @@
+alter table GAZ_VERIFICATOR add column ID_CONTURI_BANCARE_PARTENERI_ID uuid ;

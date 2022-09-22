@@ -1,0 +1,1 @@
+alter table gaz_cereri_racordare_doc_anexate_cerere_link rename to GAZ_CERERI_RACORDARE_DOC_ANEXATE_CERERE_LINK__U47027 ;

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.cereriracordare.CereriRacordareBrowse"
+        focusComponent="cereriRacordaresTable"
+        lookupComponent="cereriRacordaresTable"
+        messagesPack="com.company.gaz.web.cereriracordare">
+    <dsContext>
+        <groupDatasource id="cereriRacordaresDs"
+                         class="com.company.gaz.entity.CereriRacordare"
+                         view="cereriRacordare-view">
+            <query>
+                <![CDATA[select e from gaz$CereriRacordare e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="cereriRacordaresTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="cereriRacordaresTable"
+                datasource="cereriRacordaresDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="cereriRacordaresTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="nrinreg"
+                        caption="msg://nrinreg"/>
+                <column id="datainreg"
+                        caption="msg://datainreg"/>
+                <column id="idPartener"
+                        caption="msg://idPartener"/>
+                <column id="idCiCifSol"
+                        caption="msg://idCiCifSol"/>
+                <column id="idTelefoaneSol"
+                        caption="msg://idTelefoaneSol"/>
+                <column id="idFaxSol"
+                        caption="msg://idFaxSol"/>
+                <column id="idEmailSol"
+                        caption="msg://idEmailSol"/>
+                <column id="locatia_1"
+                        caption="msg://locatia_1"/>
+                <column id="idSiruta"
+                        caption="msg://idSiruta"/>
+                <column id="locatia_2"
+                        caption="msg://locatia_2"/>
+                <column id="locatia_3"
+                        caption="msg://locatia_3"/>
+                <column id="idMandatar"
+                        caption="msg://idMandatar"/>
+                <column id="idCiCifMan"
+                        caption="msg://idCiCifMan"/>
+                <column id="idTelefoaneMan"
+                        caption="msg://idTelefoaneMan"/>
+                <column id="idFaxMan"
+                        caption="msg://idFaxMan"/>
+                <column id="idEmailMan"
+                        caption="msg://idEmailMan"/>
+                <column id="locatia_4"
+                        caption="msg://locatia_4"/>
+                <column id="tipNou"
+                        caption="msg://tipNou"/>
+                <column id="tipExistent"
+                        caption="msg://tipExistent"/>
+                <column id="tipCasnic"
+                        caption="msg://tipCasnic"/>
+                <column id="tipNoncasnic"
+                        caption="msg://tipNoncasnic"/>
+                <column id="rOsdPostaDom"
+                        caption="msg://rOsdPostaDom"/>
+                <column id="rOsdPostaLocCons"
+                        caption="msg://rOsdPostaLocCons"/>
+                <column id="rOsdPostaMan"
+                        caption="msg://rOsdPostaMan"/>
+                <column id="rOsdSediu"
+                        caption="msg://rOsdSediu"/>
+                <column id="comEmail"
+                        caption="msg://comEmail"/>
+                <column id="comFax"
+                        caption="msg://comFax"/>
+                <column id="comSediu"
+                        caption="msg://comSediu"/>
+                <column id="comTelefon"
+                        caption="msg://comTelefon"/>
+                <column id="comAlte"
+                        caption="msg://comAlte"/>
+                <column id="daAfisareSite"
+                        caption="msg://daAfisareSite"/>
+                <column id="nuAfisareSite"
+                        caption="msg://nuAfisareSite"/>
+                <column id="totalDebit"
+                        caption="msg://totalDebit"/>
+                <column id="precAmplasare"
+                        caption="msg://precAmplasare"/>
+                <column id="alteCerinte"
+                        caption="msg://alteCerinte"/>
+                <column id="idStatusCerereATR"
+                        caption="msg://idStatusCerereATR"/>
+            </columns>
+            <rows datasource="cereriRacordaresDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="cereriRacordaresTable.create"/>
+                <button id="editBtn"
+                        action="cereriRacordaresTable.edit"/>
+                <button id="removeBtn"
+                        action="cereriRacordaresTable.remove"/>
+                <button id="refreshBtn"
+                        action="cereriRacordaresTable.refresh"/>
+                <button id="excelButton"
+                        action="cereriRacordaresTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

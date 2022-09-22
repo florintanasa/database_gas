@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.locatii.LocatiiBrowse"
+        focusComponent="locatiisTable"
+        lookupComponent="locatiisTable"
+        messagesPack="com.company.gaz.web.locatii">
+    <dsContext>
+        <groupDatasource id="locatiisDs"
+                         class="com.company.gaz.entity.Locatii"
+                         view="locatii-view">
+            <query>
+                <![CDATA[select e from gaz$Locatii e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="locatiisTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="locatiisTable"
+                datasource="locatiisDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="locatiisTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="idParteneri"
+                        caption="msg://idParteneri"/>
+                <column id="idTari"
+                        caption="msg://idTari"/>
+                <column id="idJudete"
+                        caption="msg://idJudete"/>
+                <column id="idLocalitati"
+                        caption="msg://idLocalitati"/>
+                <column id="idArtera"
+                        caption="msg://idArtera"/>
+                <column id="idStrazi"
+                        caption="msg://idStrazi"/>
+                <column id="numar"
+                        caption="msg://numar"/>
+                <column id="bloc"
+                        caption="msg://bloc"/>
+                <column id="scara"
+                        caption="msg://scara"/>
+                <column id="etaj"
+                        caption="msg://etaj"/>
+                <column id="apartament"
+                        caption="msg://apartament"/>
+                <column id="codpostal"
+                        caption="msg://codpostal"/>
+                <column id="corespondenta"
+                        caption="msg://corespondenta"/>
+                <column id="domiciliu"
+                        caption="msg://domiciliu"/>
+            </columns>
+            <rows datasource="locatiisDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="locatiisTable.create"/>
+                <button id="editBtn"
+                        action="locatiisTable.edit"/>
+                <button id="removeBtn"
+                        action="locatiisTable.remove"/>
+                <button id="refreshBtn"
+                        action="locatiisTable.refresh"/>
+                <button id="excelBtn"
+                        action="locatiisTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

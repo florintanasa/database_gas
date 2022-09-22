@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.srmprm.SrmprmEdit"
+        datasource="srmprmDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.srmprm">
+    <dsContext>
+        <datasource id="srmprmDs"
+                    class="com.company.gaz.entity.Srmprm"
+                    view="srmprm-view"/>
+        <collectionDatasource id="idSirutasDs"
+                              class="com.company.gaz.entity.Siruta"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idBransamentesDs"
+                              class="com.company.gaz.entity.Bransamente"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Bransamente e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idLocatiisDs"
+                              class="com.company.gaz.entity.Locatii"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Locatii e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idProiectesDs"
+                              class="com.company.gaz.entity.Proiecte"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Proiecte e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idExecutantsDs"
+                              class="com.company.gaz.entity.Executant"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Executant e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idRegimPresesDs"
+                              class="com.company.gaz.entity.RegimPres"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$RegimPres e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="scrollBox"
+            spacing="true">
+        <scrollBox id="scrollBox"
+                   spacing="true">
+            <fieldGroup id="fieldGroup"
+                        datasource="srmprmDs">
+                <column width="250px">
+                    <field optionsDatasource="idSirutasDs"
+                           property="idSiruta"/>
+                    <field optionsDatasource="idBransamentesDs"
+                           property="idBransamente"/>
+                    <field property="cuiSrmPrm"/>
+                    <field optionsDatasource="idLocatiisDs"
+                           property="idLocatii"/>
+                    <field optionsDatasource="idProiectesDs"
+                           property="idProiecte"/>
+                    <field optionsDatasource="idExecutantsDs"
+                           property="idExecutant"/>
+                    <field optionsDatasource="idRegimPresesDs"
+                           property="idRegimPres"/>
+                    <field property="presReglata"/>
+                    <field property="nrPvrt"/>
+                    <field property="dataPvrt"/>
+                    <field property="nrPvpif"/>
+                    <field property="dataPvpif"/>
+                    <field property="valContabila"/>
+                    <field property="nrInventar"/>
+                </column>
+            </fieldGroup>
+        </scrollBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.gaz.web.siruta.SirutaBrowse"
+        focusComponent="sirutasTable"
+        lookupComponent="sirutasTable"
+        messagesPack="com.company.gaz.web.siruta">
+    <dsContext>
+        <groupDatasource id="sirutasDs"
+                         class="com.company.gaz.entity.Siruta"
+                         view="_local">
+            <query>
+                <![CDATA[select e from gaz$Siruta e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="sirutasTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="sirutasTable"
+                datasource="sirutasDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="sirutasTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+                <action id="refresh"/>
+                <action id="excel"/>
+            </actions>
+            <columns>
+                <column id="codSiruta"
+                        caption="msg://codSiruta"/>
+                <column id="localitate"
+                        caption="msg://localitate"/>
+                <column id="judet"
+                        caption="msg://judet"/>
+            </columns>
+            <rows datasource="sirutasDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="sirutasTable.create"/>
+                <button id="editBtn"
+                        action="sirutasTable.edit"/>
+                <button id="removeBtn"
+                        action="sirutasTable.remove"/>
+                <button id="refreshBtn"
+                        action="sirutasTable.refresh"/>
+                <button id="excelBtn"
+                        action="sirutasTable.excel"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

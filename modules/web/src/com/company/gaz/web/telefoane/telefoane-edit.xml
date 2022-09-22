@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.gaz.web.telefoane.TelefoaneEdit"
+        datasource="telefoaneDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.gaz.web.telefoane">
+    <dsContext>
+        <datasource id="telefoaneDs"
+                    class="com.company.gaz.entity.Telefoane"
+                    view="telefoane-view"/>
+        <collectionDatasource id="idPartenerisDs"
+                              class="com.company.gaz.entity.Parteneri"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$Parteneri e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="idTipTelefonsDs"
+                              class="com.company.gaz.entity.TipTelefon"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from gaz$TipTelefon e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="telefoaneDs">
+            <column width="250px">
+                <field caption="msg://idParteneri"
+                       optionsDatasource="idPartenerisDs"
+                       property="idParteneri"/>
+                <field caption="msg://idTipTelefon"
+                       optionsDatasource="idTipTelefonsDs"
+                       property="idTipTelefon"/>
+                <field caption="msg://numarTelefon"
+                       property="numarTelefon"/>
+                <field caption="msg://principal"
+                       property="principal"/>
+                <field caption="msg://activ"
+                       property="activ"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
